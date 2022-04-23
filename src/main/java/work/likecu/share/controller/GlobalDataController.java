@@ -72,5 +72,11 @@ public class GlobalDataController {
         return ResponseData.success(articleOperationService.getAllLikeArticle(pageNumber));
     }
 
+    @GetMapping("/getThemeId/{themeName}")
+    @ApiOperation("通过主题获取文章")
+    public BaseResponse getNewArticleByThemeId(@PathVariable String themeName) {
+        return ResponseData.success();
+    }
+
 
 }

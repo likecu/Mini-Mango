@@ -24,14 +24,19 @@
 
 
     <select id="getAllTheme" resultMap="BaseResultMap">
-
+    <!--        查询公开主题结果-->
         select * from theme_message where public_or = 0
         <if test="use!=null">
             and
             theme_message.theme_use = #{use}
         </if>
     </select>
+
     <select id="getCounter" resultMap="BaseResultMap">
         select * from theme_message where theme_title = #{themeTitle}
     </select>
+    <select id="get" resultMap="BaseResultMap">
+        select * from theme_message where theme_title = #{themeTitle}
+    </select>
+
 </mapper>
