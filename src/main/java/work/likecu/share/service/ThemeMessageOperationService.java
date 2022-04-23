@@ -32,4 +32,5 @@ public class ThemeMessageOperationService extends SameService<ThemeMessage> {
     public Integer getOwner(String name){
         return themeMessageMapper.getCounter(name).get(0).getOwnerId();
     }
+
 }

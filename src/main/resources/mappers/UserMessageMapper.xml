@@ -7,7 +7,7 @@
         -->
         <id column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
-        <result column="user_gender" jdbcType="TINYINT" property="userGender"/>
+        <result column="user_gender" jdbcType="INTEGER" property="userGender"/>
         <result column="user_token" jdbcType="VARCHAR" property="userToken"/>
         <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
         <result column="user_other" jdbcType="VARCHAR" property="userOther"/>
