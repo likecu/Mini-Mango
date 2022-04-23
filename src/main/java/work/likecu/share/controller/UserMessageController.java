@@ -28,20 +28,15 @@ public class UserMessageController {
     @Resource
     private WXMessage wxMessage;
 
-    /**
-     * 获取用户资料
-     *
-     * @param id
-     * @return
-     */
+
     @GetMapping("/getUserMessage/{id}")
     @ApiOperation(value = "获取用户资料")
     public BaseResponse getUserMessage(@PathVariable Integer id, HttpServletRequest request) {
-        UserMessage userMessage = null;
+        UserMessage userMessage ;
 
         WXSessionModel wxSessionModel = (WXSessionModel) request.getSession().getAttribute("user");
 
-        if (id == -1 || wxSessionModel.getUserId() == id) {
+        if (id == -1 || wxSessionModel.getUserId().equals(id)) {
             //获取自己
             userMessage = userMessageOperationService.getById(wxSessionModel.getUserId());
         } else {
@@ -74,14 +69,13 @@ public class UserMessageController {
         if(userMessage.getUserNickname().isEmpty()){
             userMessage.setUserNickname(null);
         }
-        if(userMessage.getUserGender().toString().isEmpty()){
-            userMessage.setUserGender(null);
-        }
         if(userMessage.getUserMotto().isEmpty()){
             userMessage.setUserMotto(null);
         }
         // 此处有严重bug！！！！！！！！！！！！！ 考虑使用bean来遍历这个对象
+        // maybe 已修复
         //        有很多为空的情况，进行update之后就变为空了
+        // 如果update失败，则会引发空指针 返回500.
         userMessageOperationService.update(userMessage);
         return BaseResponse.out(CodeEnum.SUCCESS);
     }

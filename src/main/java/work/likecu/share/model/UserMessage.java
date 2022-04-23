@@ -16,7 +16,7 @@ public class UserMessage {
     private String userNickname;
 
     @Column(name = "`user_gender`")
-    private Byte userGender;
+    private Integer userGender;
 
     @Column(name = "`user_token`")
     private String userToken;
