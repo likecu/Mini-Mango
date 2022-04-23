@@ -26,6 +26,9 @@ public class ThemeMessageOperationService extends SameService<ThemeMessage> {
     public boolean hasTheme(String name){
         return themeMessageMapper.getCounter(name).size() >0;
     }
+    public Integer getThemeId(String name){
+        return themeMessageMapper.getCounter(name).get(0).getThemeId();
+    }
     public Integer getOwner(String name){
         return themeMessageMapper.getCounter(name).get(0).getOwnerId();
     }

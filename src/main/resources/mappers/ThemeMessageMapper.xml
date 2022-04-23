@@ -35,8 +35,9 @@
     <select id="getCounter" resultMap="BaseResultMap">
         select * from theme_message where theme_title = #{themeTitle}
     </select>
-    <select id="get" resultMap="BaseResultMap">
-        select * from theme_message where theme_title = #{themeTitle}
+
+    <select id="getThemeId" resultType="int">
+        select theme_id from theme_message where theme_title = #{themeTitle}
     </select>
 
 </mapper>

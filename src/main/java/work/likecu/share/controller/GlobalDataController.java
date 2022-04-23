@@ -73,10 +73,10 @@ public class GlobalDataController {
     }
 
     @GetMapping("/getThemeId/{themeName}")
-    @ApiOperation("通过主题获取文章")
+    @ApiOperation("通过主题获取主题id")
     public BaseResponse getNewArticleByThemeId(@PathVariable String themeName) {
-        return ResponseData.success();
+        System.out.println(themeMessageOperationService.getThemeId(themeName));
+        return ResponseData.success(themeMessageOperationService.getThemeId(themeName));
     }
-
 
 }
