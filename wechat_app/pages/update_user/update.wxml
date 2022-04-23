@@ -1,0 +1,57 @@
+<!--pages/update_user/update.wxml-->
+<view>
+  <navbar title="修改个人信息" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+</view>
+
+<form bindsubmit="submit">
+  <!-- <view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        国家：{{objectArray[index].name}}
+      </view>
+    </picker>
+  </view> -->
+  <!-- <view>
+    <input name="title" class="title" placeholder="请输入文章标题"></input>
+  </view> -->
+  <view class="container">
+    <!-- <template is="head" data="{{title: 'editor'}}"/> -->
+    <view class="page-body">
+      <view class='wrapper'>
+
+        <view class='toolbar' bindtap="format">
+          用户昵称:
+        </view>
+        <scroll-view scroll-y="{{true}}" style="height: 200rpx;width:100%">
+          <input id="editor" name="userNickname" class="ql-container" placeholder="{{aboutme}} 不填则不修改">
+          </input>
+        </scroll-view>
+
+
+        <view class="page-section page-section-gap">
+        <view class="page-section-title">性别</view>
+        <radio-group name="userGender">
+          <label><radio value="0"/>保密</label>
+          <label><radio value="1"/>女</label>
+          <label><radio value="2"/>男</label>
+          <label><radio value="3"/>其他</label>
+        </radio-group>
+      </view>
+      <view class="submit">
+          <button class="button" type="primary" bindtap="insertImage">上传头像</button>
+        </view>
+
+      <view class='toolbar' bindtap="format">
+          个人简介  
+        </view>
+        <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">
+          <input id="editor" name="userMotto" class="ql-container" placeholder="{{aboutme}} 不填则不修改" ></input>
+        </scroll-view>
+        <view class="submit">
+          <button class="button" type="primary" form-type="submit">保存</button>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</form>

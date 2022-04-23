@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/add/add",
+    "pages/add_detail/add_detail",
+    "pages/add_detail/index/index",
+    "pages/theme/theme",
+    "pages/message_detail/message_detail",
+    "pages/commitpage/testcomm",
+    "otherpage/dashboard/index",
+    "otherpage/components/demo-home-nav/index",
+    "otherpage/components/demo-home/index",
+    "pages/showgroup/show",
+    "pages/update_user/update"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

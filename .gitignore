@@ -1,3 +1,5 @@
 # 项目排除路径
 /target/
 /src/main/resources/application.yml
+/wechat_app/app.js
+/wechat_app/project.config.json

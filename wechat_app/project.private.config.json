@@ -1,0 +1,95 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/comment/comment",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "pages/me/me",
+          "pathName": "pages/me/me",
+          "query": "id=7",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/add/add",
+          "pathName": "pages/add/add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "pages/add_detail/add_detail",
+          "pathName": "pages/add_detail/add_detail",
+          "query": "article_id=9",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "userId=7",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/th",
+          "pathName": "pages/theme/theme",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "pages/message_detail/message_detail",
+          "pathName": "pages/message_detail/message_detail",
+          "query": "article_id=71",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "pages/add_detail/index/index",
+          "pathName": "pages/add_detail/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "otherpage/dashboard/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/commitpage/testcomm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/update_user/update",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
+        }
+      ]
+    }
+  }
+}

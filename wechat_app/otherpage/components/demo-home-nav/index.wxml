@@ -1,0 +1,30 @@
+<view class="demo-home-nav">
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='我的小组'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='我的小组'}}" >
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1"
+      bind:tap="onClick">
+      {{ item.themeId }}
+      <view class="call" hidden="{{item.userType!=1}}" bind:tap="exit">  （普通成员）  </view>
+      <view class="call" hidden="{{item.userType!=2}}" bind:tap="exit">  （管理员）  </view>
+      <view class="call" hidden="{{item.userType!=3}}" bind:tap="exit">  （创建者）  </view>
+      <view class="call" hidden="{{item.userType!=4}}" bind:tap="exit">  （其他成员）  </view>
+    </view>
+  </view>
+
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组功能'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组功能'}}">
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url="{{ item.path }}"
+      bind:tap="onClick1">
+      {{ item.themeId }}{{ item.title }}
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,4 @@
+<!--pages/showgroup/show.wxml-->
+<view>
+    <navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+</view>
