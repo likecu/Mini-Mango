@@ -4,8 +4,8 @@ server:
 
 wx:
   #微信id和密钥,修改这里
-  wxId: wx47b374eaad2bb32f
-  wxSecret: 4ce8ae7a892bb506bc3ad4e4125b753e
+  wxId: 
+  wxSecret: 
 
 oss:
   #oss配置 修改这里
