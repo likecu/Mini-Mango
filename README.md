@@ -1,5 +1,6 @@
 # groops
-后端
+一个小程序的后端  
+目前仍在开发中。。。。
 
 使用教程：  
 1、修改 src/main/rescources/application.ymnl  
