@@ -22,6 +22,8 @@ public class MiniProgramRunApp extends SpringBootServletInitializer {
 //     * @param application
 //     * @return
 //     */
+
+
 //    @Override
 //    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 //        return application.sources(MiniProgramRunApp.class);
