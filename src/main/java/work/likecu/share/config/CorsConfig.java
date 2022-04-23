@@ -37,6 +37,7 @@ public class CorsConfig extends WebSecurityConfigurerAdapter {
         final FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(0);
         return bean;
+
     }
 
 
