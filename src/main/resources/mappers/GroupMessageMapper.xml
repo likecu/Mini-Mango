@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.likecu.share.mapper.GroupMessageMapper">
+    <resultMap id="BaseResultMap" type="work.likecu.share.model.GroupMessage">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="theme_id" jdbcType="VARCHAR" property="themeId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="user_type" jdbcType="INTEGER" property="userType"/>
+
+    </resultMap>
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        theme_id,user_id,create_time,user_type
+    </sql>
+
+    <select id="getGroupMembers" resultMap="BaseResultMap">
+        select * from group_member where theme_id = #{themeId}
+    </select>
+
+    <update id="updateUserType" parameterType="work.likecu.share.model.GroupMessage" >
+        update group_member
+        set user_type = #{userType}
+        where theme_id = #{themeId} and user_id = #{userId}
+    </update>
+
+    <select id="getUserGroups" resultMap="BaseResultMap">
+        select * from group_member where user_id = #{userId}
+    </select>
+
+
+</mapper>
