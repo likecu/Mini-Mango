@@ -95,7 +95,6 @@ public class LoginController {
 
             wxSessionModel.setUserId(userMessageOperationService.findList(tem).get(0).getUserId());
 
-
             return ResponseData.success(JWTUtil.createJWT(audience, wxSessionModel));
         }
 
@@ -104,9 +103,9 @@ public class LoginController {
 
         wxSessionModel.setUserId(userMessageOperationService.findList(tem).get(0).getUserId());
 
-        userMessage.setUserId(list.get(0).getUserId());
-
-        userMessageOperationService.update(userMessage);
+//        userMessage.setUserId(list.get(0).getUserId());
+//
+//        userMessageOperationService.update(userMessage);
 
         return ResponseData.success(JWTUtil.createJWT(audience, wxSessionModel));
     }

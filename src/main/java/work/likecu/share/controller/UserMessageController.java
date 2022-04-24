@@ -63,15 +63,25 @@ public class UserMessageController {
         WXSessionModel wxSessionModel = (WXSessionModel) request.getSession().getAttribute("user");
         Integer id=wxSessionModel.getUserId();
         userMessage.setUserId(id);
-        if(userMessage.getUserAvatar().isEmpty()){
-            userMessage.setUserAvatar(null);
+        try {
+            if(userMessage.getUserAvatar().isEmpty()){
+                userMessage.setUserAvatar(null);
+            }
         }
-        if(userMessage.getUserNickname().isEmpty()){
-            userMessage.setUserNickname(null);
+        catch (Exception ignored){
         }
-        if(userMessage.getUserMotto().isEmpty()){
-            userMessage.setUserMotto(null);
+        try {
+            if(userMessage.getUserNickname().isEmpty()){
+                userMessage.setUserNickname(null);
+            }
         }
+        catch (Exception ignored){};
+        try {
+            if(userMessage.getUserMotto().isEmpty()){
+                userMessage.setUserMotto(null);
+            }
+        }
+        catch (Exception ignored){};
         // 此处有严重bug！！！！！！！！！！！！！ 考虑使用bean来遍历这个对象
         // maybe 已修复
         //        有很多为空的情况，进行update之后就变为空了
