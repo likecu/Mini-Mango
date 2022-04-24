@@ -77,9 +77,10 @@ public class LoginController {
         param.put("js_code", code);
         param.put("grant_type", "authorization_code");
         String wxResult = HttpClientUtil.doGet(url, param);
+        // System.out.println(wxResult);
         wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
-        String openid = wxSessionModel.getSession_key();
-
+        String openid = wxSessionModel.getOpenid();
+        String sec = wxSessionModel.getSession_key();
         UserMessage tem = new UserMessage();
 
         tem.setUserToken(openid);

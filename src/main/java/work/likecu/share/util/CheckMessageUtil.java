@@ -53,6 +53,7 @@ public class CheckMessageUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(result);
 
         CheckMessage checkMessage = JsonUtils.jsonToPojo(result, CheckMessage.class);
         if (checkMessage.getErrcode().equals(87014)) {
