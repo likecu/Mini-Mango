@@ -35,7 +35,7 @@ public class GroupController {
 
     @PostMapping("/addGroup")
     @Transactional
-    @ApiOperation(value = "创建主题")
+    @ApiOperation(value = "创建小组")
     public BaseResponse addGroup(@RequestBody ThemeMessage themeMessage, HttpServletRequest request) {
 
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
@@ -49,9 +49,8 @@ public class GroupController {
         themeMessageOperationService.add(themeMessage);
 
         GroupMessage groupMessage1=new GroupMessage();
-        groupMessage1.setUserType(1);
+        groupMessage1.setUserType(3);
         groupMessage1.setuserId(userId);
-
         groupMessage1.setThemeId(themeMessage.getThemeTitle());
         groupOperationService.add(groupMessage1);
         return ResponseData.success();
