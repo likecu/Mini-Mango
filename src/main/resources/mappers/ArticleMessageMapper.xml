@@ -10,6 +10,9 @@
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="theme_id" jdbcType="INTEGER" property="themeId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="is_public" jdbcType="INTEGER" property="isPublic"/>
+        <result column="like_counter" jdbcType="INTEGER" property="likeCounter"/>
+        <result column="comment_counter" jdbcType="INTEGER" property="commentCounter"/>
 
         <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
             <id column="user_id" jdbcType="INTEGER" property="userId"/>
@@ -42,7 +45,7 @@
         <!--
           WARNING - @mbg.generated
         -->
-        article_id, article_content, user_id, theme_id, create_time
+        article_id, article_content, user_id, theme_id, create_time ,is_public ,like_counter,comment_counter
     </sql>
     <select id="getNewArticle" resultMap="BaseResultMap">
         select article_message.article_id,
@@ -99,7 +102,6 @@
     </select>
     <select id="getAllLikeArticle" resultMap="BaseResultMap">
 
-
         SELECT user_message.user_nickname,
         user_message.user_avatar,
         user_message.user_motto,
@@ -120,11 +122,46 @@
         and article.user_id = user_message.user_id
         group by article.article_id, article.create_time, article.article_id
         order by count(like_id) desc
-
-
     </select>
 
+    <select id="getNewArticle_isPublic" resultMap="BaseResultMap">
+        select article_message.article_id,
+        article_message.user_id,
+        article_message.theme_id,
+        article_message.create_time,
+        theme_message.theme_title,
+        theme_message.theme_use,
+        user_message.user_nickname,
+        user_message.user_avatar,
+        user_message.user_motto,
+        user_message.user_gender,
+        article_content
+        from user_message,
+        article_message
+        left join theme_message on
+        theme_message.theme_id = article_message.theme_id
+        where user_message.user_id = article_message.user_id
+        <if test="articleId!=null">
+            and
+            article_message.article_id = #{articleId}
+        </if>
+        <if test="userId!=null">
+            and
+            article_message.user_id = #{userId}
+        </if>
+        <if test="themeId!=null">
+            and
+            article_message.theme_id = #{themeId}
+        </if>
+        <if test="isPublic!=null">
+            and
+            article_message.is_public = #{isPublic}
+        </if>
 
+        order by article_message.create_time
+        desc
+
+    </select>
 
 
 </mapper>

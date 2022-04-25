@@ -24,6 +24,14 @@ public class ArticleOperationService extends SameService<ArticleMessage> {
 
     }
 
+    public PageInfo getNewArticle_isPublic(Integer pageNumber, Integer articleId, Integer themeId, Integer userId,Integer isPublc) {
+
+        PageHelper.startPage(pageNumber, 8);
+
+        return new PageInfo(articleMessageMapper.getNewArticle_isPublic(articleId, themeId, userId,isPublc));
+
+    }
+
     /**
      * 通过id获取文章
      *

@@ -35,6 +35,12 @@ public class GlobalDataController {
         return ResponseData.success(articleOperationService.getNewArticle(pageNumber, null, null, null));
     }
 
+    @GetMapping("/getNewArticleIsPublic/{pageNumber}")
+    @ApiOperation("获取最新公开文章")
+    public BaseResponse getNewArticleIsPublic(@PathVariable Integer pageNumber) {
+        return ResponseData.success(articleOperationService.getNewArticle_isPublic(pageNumber, null, null, null,1));
+    }
+
     @GetMapping("/getNewArticleById/{articleId}")
     @ApiOperation("通过id获取文章")
     public BaseResponse getNewArticleById(@PathVariable Integer articleId) {
@@ -78,5 +84,6 @@ public class GlobalDataController {
         System.out.println(themeMessageOperationService.getThemeId(themeName));
         return ResponseData.success(themeMessageOperationService.getThemeId(themeName));
     }
+
 
 }

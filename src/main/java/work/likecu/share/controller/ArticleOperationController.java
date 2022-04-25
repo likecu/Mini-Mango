@@ -49,6 +49,11 @@ public class ArticleOperationController {
             return ResponseData.error(403, "检测到内容违规,请重新输入");
         }
         articleMessage.setUserId(userId);
+
+        if(articleMessage.getThemeId()<4){
+            articleMessage.setIsPublic(1);
+        }
+
         articleOperationService.add(articleMessage);
 
         return ResponseData.success();

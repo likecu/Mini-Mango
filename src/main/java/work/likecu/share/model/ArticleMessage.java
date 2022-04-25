@@ -27,6 +27,15 @@ public class ArticleMessage {
     @Column(name = "`create_time`")
     private Date createTime;
 
+    @Column(name = "`is_public`")
+    private Integer isPublic;
+
+    @Column(name = "`like_counter`")
+    private Integer likeCounter;
+
+    @Column(name = "`comment_counter`")
+    private Integer commentCounter;
+
     private UserMessage userMessage;
 
     private ThemeMessage themeMessage;

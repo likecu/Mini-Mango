@@ -15,6 +15,10 @@ public interface ArticleMessageMapper extends Mapper<ArticleMessage> {
      */
     List<ArticleMessage> getNewArticle(@Param("articleId") Integer articleId, @Param("themeId") Integer themeId, @Param("userId") Integer userId);
 
+    List<ArticleMessage> getNewArticle_isPublic(@Param("articleId") Integer articleId,
+                                                @Param("themeId") Integer themeId,
+                                                @Param("userId") Integer userId,
+                                                @Param("isPublic")Integer isPublic);
     /**
      * 通过id获取文章
      */
