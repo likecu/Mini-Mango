@@ -57,7 +57,6 @@ public class CommentOperationController {
 
         CommentMessage commentMessage1 = commentService.findList(commentMessage).get(0);
 
-
         ArticleMessage newArticle = articleOperationService.getNewArticleById(commentMessage.getArticleId());
 
         if (!newArticle.getUserId().equals(userId)) {
@@ -70,6 +69,9 @@ public class CommentOperationController {
             noticeOperationService.add(noticeMessage);
         }
 
+        newArticle.setCommentCounter(newArticle.getCommentCounter()+1);
+        articleOperationService.update(newArticle);
+
 
         return ResponseData.success();
     }
@@ -78,6 +80,7 @@ public class CommentOperationController {
     @Transactional
     @ApiOperation(value = "回复评论")
     @RequestMapping("/saveReplay")
+    //  已经增加评论数量功能
     public BaseResponse saveReplay(@RequestBody ReplayMessage replayMessage, HttpServletRequest request) {
 
         Integer userId = replayMessage.getUserId();
@@ -101,7 +104,6 @@ public class CommentOperationController {
         WXSessionModel user = (WXSessionModel) request.getSession().getAttribute("user");
 
         replayMessage.setUserId(user.getUserId());
-
         replayMessageOperationService.add(replayMessage);
 
 
@@ -118,8 +120,13 @@ public class CommentOperationController {
 
         CommentMessage commentMessage1 = commentService.findList(commentMessage).get(0);
 
-
         noticeMessage.setArticleId(commentMessage1.getArticleId());
+
+
+        ArticleMessage newArticle = articleOperationService.getNewArticleById(commentMessage1.getArticleId());
+        newArticle.setCommentCounter(newArticle.getCommentCounter()+1);
+        articleOperationService.update(newArticle);
+
         if (replayMessage1.getReplayUserId() == null && commentMessage1.getUserId() != personId) {
             noticeMessage.setUserId(commentMessage1.getUserId());
             noticeOperationService.add(noticeMessage);

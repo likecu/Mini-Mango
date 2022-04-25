@@ -12,4 +12,5 @@ public interface CommentMessageMapper extends Mapper<CommentMessage> {
     List<CommentMessage> getCommentById(@Param("articleId") Integer articleId);
 
     CommentMessage getCommentMessage(@Param("commentId")Integer commentId);
+
 }

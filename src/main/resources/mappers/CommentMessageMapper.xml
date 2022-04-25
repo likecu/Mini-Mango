@@ -44,7 +44,6 @@
         user_message
         where comment_message.user_id = user_message.user_id and comment_message.comment_id =#{commentId} limit 1
 
-
     </select>
 
 

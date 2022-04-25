@@ -50,7 +50,7 @@ public class ArticleOperationController {
         }
         articleMessage.setUserId(userId);
 
-        if(articleMessage.getThemeId()<4){
+        if (articleMessage.getThemeId() < 4) {
             articleMessage.setIsPublic(1);
         }
 
@@ -97,24 +97,36 @@ public class ArticleOperationController {
     @Transactional
     @ApiOperation(value = "删除评论")
     public BaseResponse deleteComment(@PathVariable Integer commentId, HttpServletRequest request) {
+
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+
+        // 数据库
+        // 先删除评论
         CommentMessage commentMessage = new CommentMessage();
         commentMessage.setCommentId(commentId);
         commentMessage.setUserId(userId);
-
+        Integer article_id = commentService.findList(commentMessage).get(0).getArticleId();
         commentService.delete(commentMessage);
 
+        // 数据库
+        // 删除通知
         NoticeMessage noticeMessage = new NoticeMessage();
         noticeMessage.setCommentId(commentId);
 
+
         noticeOperationService.delete(noticeMessage);
 
+        // 下的所有评论都要删除
         ReplayMessage replayMessage = new ReplayMessage();
         replayMessage.setCommentId(commentId);
-
         List<ReplayMessage> list = replayMessageOperationService.findList(replayMessage);
 
+        // 在文章的评论下减少相对应数量的评论
         replayMessageOperationService.delete(replayMessage);
+        Integer counter = list.size() + 1;
+        ArticleMessage articleMessage=articleOperationService.getNewArticleById(article_id);
+        articleMessage.setCommentCounter(articleMessage.getCommentCounter()-counter);
+        articleOperationService.update(articleMessage);
 
         for (int i = 0; i < list.size(); i++) {
             NoticeMessage noticeMessage1 = new NoticeMessage();
@@ -130,16 +142,33 @@ public class ArticleOperationController {
     @Transactional
     @ApiOperation(value = "删除回复")
     public BaseResponse deleteReplay(@PathVariable Integer replayId, HttpServletRequest request) {
+        //得到用户名
         WXSessionModel user = (WXSessionModel) request.getSession().getAttribute("user");
 
+        //先找出回复的 id
         ReplayMessage replayMessage = new ReplayMessage();
         replayMessage.setReplayId(replayId);
         replayMessage.setUserId(user.getUserId());
+
+        //根据回复的id找出评论的id
+        Integer id = replayMessageOperationService.findList(replayMessage).get(0).getCommentId();
+        CommentMessage commentMessage = new CommentMessage();
+        commentMessage.setUserId(id);
+        CommentMessage commentMessage1 = commentService.findList(commentMessage).get(0);
+
+        //根据评论id找出文章的id，减少文章评论数
+        ArticleMessage newArticle = articleOperationService.getNewArticleById(commentMessage1.getArticleId());
+        newArticle.setCommentCounter(newArticle.getCommentCounter() - 1);
+        articleOperationService.update(newArticle);
+
+        //删除这个回复
         replayMessageOperationService.deleteById(replayMessage);
 
+        //删除这条回复的通知
         NoticeMessage noticeMessage = new NoticeMessage();
         noticeMessage.setReplayId(replayId);
         noticeOperationService.delete(noticeMessage);
+
 
         return ResponseData.success();
     }
@@ -171,14 +200,18 @@ public class ArticleOperationController {
         }
 
         LikeMessage likeMessage = new LikeMessage();
-
         likeMessage.setArticleId(articleId);
         likeMessage.setUserId(userId);
 
 
-
         List<LikeMessage> list = likeArticleService.findList(likeMessage);
+
         if (list.size() == 0) {
+
+            ArticleMessage articleMessage = articleOperationService.getById(articleId);
+            articleMessage.setLikeCounter(articleMessage.getLikeCounter() + 1);
+            articleOperationService.update(articleMessage);
+
             likeArticleService.add(likeMessage);
 
             LikeMessage likeMessage1 = likeArticleService.findList(likeMessage).get(0);
@@ -195,12 +228,18 @@ public class ArticleOperationController {
 
             List<NoticeMessage> noticeMessages = noticeOperationService.findList(noticeMessage);
 
+            //判断是不是自己
+
+            //如果不是自己
             if (noticeMessages.size() == 0 && !newArticleById.getUserId().equals(userId)) {
 
                 noticeMessage.setLikeId(likeMessage1.getLikeId());
                 noticeOperationService.add(noticeMessage);
             }
-        } else {
+
+        }
+        // 如果like队列不为空
+        else {
             ArticleMessage newArticleById = articleOperationService.getNewArticleById(articleId);
 
             NoticeMessage noticeMessage = new NoticeMessage();
@@ -211,6 +250,10 @@ public class ArticleOperationController {
             noticeMessage.setUserId(newArticleById.getUserId());
             noticeMessage.setLikeId(list.get(0).getLikeId());
 
+            ArticleMessage articleMessage = articleOperationService.getById(articleId);
+            articleMessage.setLikeCounter(articleMessage.getLikeCounter() - 1);
+
+            articleOperationService.update(articleMessage);
             likeArticleService.delete(likeMessage);
             noticeOperationService.delete(noticeMessage);
         }
