@@ -13,6 +13,7 @@ import work.likecu.share.util.status.ResponseData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -35,6 +36,8 @@ public class ArticleOperationController {
     private WXMessage wxMessage;
     @Resource
     private ThemeMessageOperationService themeMessageOperationService;
+    @Resource
+    private PictureUploadService pictureUploadService;
 
     @PostMapping("/saveArticle")
     @Transactional
@@ -55,6 +58,23 @@ public class ArticleOperationController {
         }
 
         articleOperationService.add(articleMessage);
+
+        return ResponseData.success();
+    }
+
+    @PostMapping("/uploadImg")
+    @Transactional
+    @ApiOperation("上传图片到服务器")
+    public  BaseResponse speechRecognition(@RequestBody Picture picture, HttpServletRequest request){
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+
+        picture.setUploadTime(new Date());
+
+        pictureUploadService.add(picture);
 
         return ResponseData.success();
     }

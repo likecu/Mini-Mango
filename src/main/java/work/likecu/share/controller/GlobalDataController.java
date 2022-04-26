@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import work.likecu.share.model.CommentMessage;
+import work.likecu.share.model.Picture;
 import work.likecu.share.service.ArticleOperationService;
 import work.likecu.share.service.CommentService;
 import work.likecu.share.service.ReplayMessageOperationService;
@@ -12,6 +13,8 @@ import work.likecu.share.util.status.BaseResponse;
 import work.likecu.share.util.status.ResponseData;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -84,6 +87,7 @@ public class GlobalDataController {
         System.out.println(themeMessageOperationService.getThemeId(themeName));
         return ResponseData.success(themeMessageOperationService.getThemeId(themeName));
     }
+
 
 
 }
