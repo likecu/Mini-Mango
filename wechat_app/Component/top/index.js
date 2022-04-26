@@ -23,12 +23,20 @@ Component({
 
   methods: {
     backHome: function () {
-      wx.redirectTo({
-        url: '/pages/index/index',
-      })
-
+      let pages = getCurrentPages().length;
+      if (pages >= 10) {
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
+      } else {
+        wx.redirectTo({
+          url: '/pages/index/index',
+        })
+      }
     },
     back: function () {
+
+
       wx.navigateBack({
         delta: 1
       })

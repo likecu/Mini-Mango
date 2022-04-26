@@ -60,4 +60,10 @@
 				<text >到底了</text>
 				</view>
 		</view>
+
 </scroll-view>
+<view wx:if="{{is_group==1}}">
+	<view class="bottom1">
+				<image src="/image/add.png" bindtap="adds" />
+		</view>
+</view>

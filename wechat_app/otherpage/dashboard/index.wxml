@@ -1,4 +1,4 @@
 <view>
 		<navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
-		<demo-home joinGroups="{{ joinGroups }}" groupFun="{{ groupFun }}"  />
+		<demo-home joinGroups="{{ joinGroups }}" groupFun="{{ groupFun }}" not_ready="{{ not_ready }}" />
 </view>

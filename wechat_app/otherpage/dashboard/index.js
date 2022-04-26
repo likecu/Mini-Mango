@@ -12,15 +12,26 @@ Page({
       groupName: '小组功能',
       list: [
         {
-          path: '/pages/index/index',
-          title: '邀请',
-        },
-        {
-          path: '/pages/index/index',
-          title: '修改小组属性',
+          path: '/pages/group_fun/create_group/create_group',
+          title: '创建小组',
         },
       ],
     },
+
+      not_ready:{
+        groupName: '正在开发中的功能',
+        list: [
+          {
+            path: '/pages/index/index',
+            title: '通过用户名邀请小组成员',
+          },
+          {
+            path: '/pages/index/index',
+            title: '修改小组属性',
+          },
+        ],
+    },
+  
   theme_title:"helo1201300",
   theme_intro:"123122313",
   theme_image:"https://s1.ax1x.com/2020/06/14/tzrtL6.png",
@@ -31,6 +42,10 @@ Page({
   },
 
   onLoad: function (options) {
+    this.init();
+  },
+  
+  init(){
     let that = this;
     this.setData({
       navTop: getApp().globalData.navTop,
@@ -51,8 +66,7 @@ Page({
       method: 'POST',
       success: (result) => {
         if (result.data.code == 200) {
-          console.log("小组列表request返回值");
-          console.log(result.data.data);
+          console.log("小组列表request返回值",result.data.data);
           that.setData({
             'joinGroups.list':result.data.data,
             'userInfo.userMotto': that.data.motto
@@ -68,5 +82,4 @@ Page({
       }
     });
   }
-
 });

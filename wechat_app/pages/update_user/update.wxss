@@ -1,10 +1,12 @@
 /* pages/update_user/update.wxss */
-@import "/pages/add_detail/index/assets/iconfont.wxss"
-
+@import "/pages/add_detail/index/assets/iconfont.wxss";
+@import "/dist/common/index";
 .container {
   position: fixed;
   width: 100%;
 }
+
+
 
 .tip {
   font-size: 30rpx;
@@ -29,7 +31,9 @@
 }
 
 .toolbar {
+  padding: 10px;
   display: flex;
+  margin-left: 2%;
   flex-direction: column;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
@@ -59,8 +63,22 @@
 .ql-container {
   width: 95%;
   margin: 0 auto;
+  padding: 1em;
+  height: 60rpx;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  border: 1rpx solid #f2f2f2;
+  border-radius: 15rpx;
+}
+
+.ql-container1 {
+  width: 95%;
+  margin: 0 auto;
   padding: 10rpx;
-  height: 600rpx;
+  height: 60rpx;
   /* border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc; */
   background: #fff;
@@ -69,7 +87,6 @@
   border: 1rpx solid #f2f2f2;
   border-radius: 15rpx;
 }
-
 .ql-active {
   color: #06c;
 }

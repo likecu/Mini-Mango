@@ -8,5 +8,6 @@ Component({
   properties: {
     joinGroups: Object,
     groupFun: Object,
+    not_ready: Object,
   },
 });

@@ -51,41 +51,7 @@ Page({
       themeMessage: wx.getStorageSync("themeMessage"),
       'notice.userId': options.id
     })
-    // wx.request({
-    //   url: getApp().globalData.url + '/addGroup',
-    //   data: {
-    //     themeTitle: that.data.theme_title,
-    //     themeIntro: that.data.theme_intro,
-    //     themeUse: 0,
-    //     themeImage: that.data.theme_image,
-    //   },
-    //   header: {
-    //     "authorization": wx.getStorageSync("token")
-    //   },
-    //   method: 'POST',
-    //   success: (result) => {
-    //     if (result.data.code == 200) {
-    //       that.setData({
-    //         isShow: false,
-    //         result_data:result.data.data,
-    //       })
-    //       console.log(that.data.result_data);
-    //       wx.showToast({
-    //         title: '保存成功',
-    //       })
-    //       that.setData({
-    //         'userInfo.userMotto': that.data.motto
-    //       })
-    //     } else {
-    //         wx.showModal({
-    //           title: '提示',
-    //           content: result.data.msg + '，错误码：' + result.data.code,
-    //           confirmText: '确定',
-    //           showCancel: false,
-    //         })
-    //     }
-    //   }
-    // });
+   
     
     wx.request({
       url: getApp().globalData.url + '/getUserGroups',
@@ -172,7 +138,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

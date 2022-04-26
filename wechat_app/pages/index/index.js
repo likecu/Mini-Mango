@@ -13,6 +13,7 @@ Page({
     heightConfig: 0,
     widthConfig: 0,
     userInfo: null, //用户信息
+    userPic:'',
     userId: "", //用户id
     new_article: [], //最新的几篇文章
     new_end: false, //是否加载完成
@@ -23,6 +24,8 @@ Page({
     new_likeArticle: [], //最新的几篇文章
     new_likeArticle_end: false, //是否加载完成
     new_likeArticle_page: 1, //当前page页数
+
+
     //刷新栏目
     hideHeader: true,
     refreshTime: '', // 刷新的时间 
@@ -146,12 +149,10 @@ Page({
     var listMessage = {
       userNickname: e.detail.userInfo.nickName,
       userGender: e.detail.userInfo.gender,
-      userAvatar: e.detail.userInfo.avatarUrl,
       userCity: e.detail.userInfo.city,
       userProvince: e.detail.userInfo.province,
       userCountry: e.detail.userInfo.country,
     }
-    console.log("list",listMessage);
 
     wx.login({
       success: function (res) {
@@ -161,11 +162,13 @@ Page({
         // 获取登录的临时凭证
         var code = res.code;
         // 调用后端，获取微信的session_key, secret
+        console.log("登录code",res.code);
         wx.request({
           url: getApp().globalData.url + "/Login?code=" + code,
           method: "POST",
           data: listMessage,
           success: function (result) {
+            console.log(result);
             if (result.data.code == 200) {
               wx.showToast({
                 title: '登陆成功',
@@ -239,7 +242,7 @@ Page({
   },
   //查看用户信息
   check_user_message(e) {
-    console.log(e)
+    console.log("查看用户信息",e)
     var result = this.checkLogin();
     if (result) {
       wx.navigateTo({
@@ -268,12 +271,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+       /**
+     * 获取个人头像
+     */
+    wx.request({
+      url: getApp().globalData.url + '/getUserMessage/-1' ,
+      header: {
+        "authorization": wx.getStorageSync("token")
+      },
+      method: 'GET',
+      responseType: 'text',
+      success: (result) => {
+        console.log(result);
+        if (result.data.code == 200) {
+          wx.setStorageSync('userPic', result.data.data.userAvatar);
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '获取头像失败~',
+            showCancel: false,
+            confirmText: '确定',
+          });
+        }
+      }
+    });
     this.checkLogin();
     this.setData({
       navTop: getApp().globalData.navTop,
       heightConfig: getApp().globalData.windowHeight,
       widthConfig: getApp().globalData.windowWidth,
+      userPic:wx.getStorageSync('userPic'),
     })
     let that = this;
     this.createSelectorQuery().select('#scroll-wrap').boundingClientRect(res => {
@@ -317,6 +344,8 @@ Page({
       new_notice_end: false, //是否加载完成
       new_notice_page: 1, //当前page页数
     })
+ 
+
 
     this.getNewArticle(1) //获取最新的文章
     this.loadNotice(1) //获取最新的消息
@@ -476,12 +505,13 @@ Page({
     /**
      * 获取最新的几篇文章
      */
+    console.log("当前获取文章index",index);
     if (this.data.new_end) {
       return;
     }
 
     wx.request({
-      url: getApp().globalData.url + '/api/getNewArticle/' + index,
+      url: getApp().globalData.url + '/api/getNewArticleIsPublic/' + index,
       method: 'GET',
       success: (result) => {
 

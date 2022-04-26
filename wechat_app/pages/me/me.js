@@ -20,6 +20,7 @@ Page({
       userId: "",
       content: ""
     },
+    userPic:'',
     userInfo: {
       "userId": 1,
       "userNickname": "",
@@ -375,14 +376,10 @@ Page({
   saveUserMessage() {
     let that = this;
     var list = {
-      "userId": this.data.userInfo.userId,
-      "userOther": this.data.userInfo.userOther,
-      "userAge": this.data.userInfo.userAge,
-      "userMotto": that.data.motto
-    }
-
-
-
+      userMotto: that.data.motto,
+      userNickname:""
+    };
+    console.log("提交签名",list);
 
     wx.request({
       url: getApp().globalData.url + '/changeUserMessage',
@@ -403,16 +400,11 @@ Page({
             'userInfo.userMotto': that.data.motto
           })
         } else {
-
-
-         
             wx.showModal({
               title: '提示',
               content: result.data.msg + '，错误码：' + result.data.code,
               confirmText: '确定',
               showCancel: false,
-          
-
             })
 
         }

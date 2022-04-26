@@ -1,3 +1,4 @@
+
 <view class="demo-home-nav">
   <view class="demo-home-nav__title" hidden="{{group.groupName!='我的小组'}}">{{ group.groupName }}</view>
   <view class="demo-home-nav__group" hidden="{{group.groupName!='我的小组'}}" >
@@ -17,6 +18,18 @@
 
   <view class="demo-home-nav__title" hidden="{{group.groupName!='小组功能'}}">{{ group.groupName }}</view>
   <view class="demo-home-nav__group" hidden="{{group.groupName!='小组功能'}}">
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url="{{ item.path }}"
+      bind:tap="onClick">
+      {{ item.themeId }}{{ item.title }}
+    </view>
+  </view>
+
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='正在开发中的功能'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='正在开发中的功能'}}">
     <view 
       wx:for="{{ group.list }}"
       wx:key="id"

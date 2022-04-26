@@ -31,9 +31,13 @@ Page({
       is_group:options.is_group,
       themeMessage: wx.getStorageSync("themeMessage")
     })
-    if(this.data.theme_name!=''){
+    if(this.data.theme_name!='' && this.data.theme_id==''){
       this.getThemeId(this.data.theme_name)
-      console.log(this.data.theme_id)
+      console.log("加载小组:",this.data.theme_id)
+    }
+    else if(this.data.theme_name!=''){
+      this.getThemeId(this.data.theme_name)
+      console.log("加载小组:",this.data.theme_id)
     }
     else{
       this.loadMessage(this.data.theme_id, this.data.new_page)
@@ -118,4 +122,9 @@ wx.showLoading({
     });
   },
 
+  adds() {
+    wx.navigateTo({
+      url: '/pages/add_detail/index/index?theme_id=' + this.data.theme_id,
+    });
+  },
 })

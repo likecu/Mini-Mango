@@ -13,7 +13,8 @@
     "otherpage/components/demo-home-nav/index",
     "otherpage/components/demo-home/index",
     "pages/showgroup/show",
-    "pages/update_user/update"
+    "pages/update_user/update",
+    "pages/group_fun/create_group/create_group"
   ],
   "window": {
     "navigationStyle": "custom"

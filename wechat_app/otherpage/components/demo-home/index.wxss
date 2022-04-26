@@ -3,7 +3,9 @@
   width: 100%;
   min-height: 100vh;
   padding: 46px 20px 20px;
-  background: #fff;
+  background-color: #ededed;
+  background-image: linear-gradient(180deg, #a5caf1 0%,  #ffedf5 100%);
+
 }
 
 .demo-home__title,

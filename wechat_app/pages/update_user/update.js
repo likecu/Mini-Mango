@@ -1,20 +1,25 @@
 // pages/update_user/update.js
+
 Page({
   data: {
     a1:{
       userAvatar:''
-  }
+  },
+    userPic:'',
   },
   onShow(){
+
   },
   submit: function (e) {
-    console.log("表单携带的数据：",e.detail.value);
+    //console.log("表单携带的数据：",e.detail.value);
     let a3=e.detail.value;
     let a1=this.data.a1;
-    console.log("表单携带的数据：",a1);
+    //console.log("表单携带的数据：",a1);
     let arr3=Object.assign(a3,a1);
-    console.log(arr3);
-
+    console.log("修改个人信息",arr3);
+    if(a3.userAvatar!=""){
+      wx.setStorageSync("userPic", a3.userAvatar);
+    }
     wx.request({
       url: getApp().globalData.url + '/changeUserMessage',
       data: arr3,
@@ -26,6 +31,9 @@ Page({
         if (result.data.code == 200) {
           wx.showToast({
             title: '保存成功',
+          })
+          wx.reLaunch({
+            url: '/pages/index/index',
           })
         } else {
             wx.showModal({
@@ -72,8 +80,7 @@ Page({
         }).then(res1 => {
           that.setData({
             'a1.userAvatar':res1.fileID,
-          })
-          console.log(res1.fileID);
+          });
           wx.hideLoading();
         }).catch((e) => {
           console.log("======上传失败======", result);

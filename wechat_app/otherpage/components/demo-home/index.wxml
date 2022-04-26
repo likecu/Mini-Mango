@@ -14,4 +14,7 @@
   <view>
     <demo-home-nav group="{{ groupFun }}" />
   </view>
+  <view>
+    <demo-home-nav group="{{ not_ready }}" />
+  </view>
 </view>
