@@ -56,7 +56,7 @@ Page({
         wx.showLoading({
           title: '正在上传图片',
         })
-
+      
         var date = new Date();
         var seperator1 = "-";
         var year = date.getFullYear();

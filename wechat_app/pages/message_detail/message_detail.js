@@ -47,6 +47,7 @@ Page({
       url: getApp().globalData.url + '/api/getCommentById/' + article + '/' + index,
       method: 'GET',
       success: (result) => {
+        
         wx.hideLoading({})
         if (that.data.new_comment_page > result.data.data.pages) {
           that.setData({
@@ -397,6 +398,7 @@ Page({
       url: getApp().globalData.url + '/api/getNewArticleById/' + options.article_id,
       method: 'GET',
       success: (result) => {
+        console.log("文章内容",result.data.data);
         that.setData({
           article: result.data.data,
           'commentMessage.articleId': options.article_id,
