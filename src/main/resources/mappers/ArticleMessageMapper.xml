@@ -16,6 +16,7 @@
 
         <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
             <id column="user_id" jdbcType="INTEGER" property="userId"/>
+            <result column="user_city" jdbcType="VARCHAR" property="userCity"/>
             <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
             <result column="user_gender" jdbcType="TINYINT" property="userGender"/>
             <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
@@ -98,7 +99,8 @@
         u.user_nickname,
         u.user_avatar,
         u.user_motto,
-        u.user_gender
+        u.user_gender,
+        u.user_city
         from user_message as u,
         article_message
         left join theme_message on
@@ -134,7 +136,7 @@
     </select>
 
     <select id="getNewArticle_isPublic" resultMap="BaseResultMap">
-        select article_message.article_id,
+        SELECT article_message.article_id,
         article_message.user_id,
         article_message.theme_id,
         article_message.create_time,

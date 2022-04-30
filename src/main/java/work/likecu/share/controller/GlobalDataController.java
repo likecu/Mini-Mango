@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import work.likecu.share.model.CommentMessage;
-import work.likecu.share.model.Picture;
+//import work.likecu.share.model.Picture;
 import work.likecu.share.service.ArticleOperationService;
 import work.likecu.share.service.CommentService;
 import work.likecu.share.service.ReplayMessageOperationService;

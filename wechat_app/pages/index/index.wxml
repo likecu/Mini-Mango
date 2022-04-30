@@ -42,7 +42,13 @@
 								<!-- <wxparser rich-text="{{item.articleContent}}" image-lazy-load="{{true}}" style="pointer-events: none"   /> -->
 							</view>
 							<!-- <view class="loadMore">查看更多</view> -->
-							<view class="time" bind:tap="message_detail" id="{{item.articleId}}">{{item.createTime}}</view>
+              <view class="time1" bind:tap="message_detail" id="{{item.articleId}}">
+              <image style="text-align:left;"src="/image/sigood.png" style="width: 20px;height: 20px;"></image>{{item.likeCounter}}    
+              <image style="text-align:left;"src="/image/icommment.png" style="width: 20px;height: 20px;"></image>{{item.commentCounter}}    
+            </view>
+							<view class="time" bind:tap="message_detail" id="{{item.articleId}}">
+
+              {{item.createTime}}</view>
 							<view class="flag">
 								<view class="flag_item" bind:tap="theme" id="{{item.themeId}}">
 									{{item.themeId==-1?"#生活":"#"+item.themeMessage.themeTitle}}
@@ -107,6 +113,8 @@
 									<!-- <wxparser rich-text="{{item.articleContent}}"  style="pointer-events: none"/> -->
 								</view>
 								<!-- <view class="loadMore">查看更多</view> -->
+                <image src="/image/sigood.png" style="width: 20px;height: 20px;"></image>{{item.likeCounter}}
+                <image src="/image/icommment.png" style="width: 20px;height: 20px;"></image>{{item.commentCounter}}
 								<view class="time">{{item.createTime}}</view>
 								<view class="flag">
 									<view class="flag_item" bind:tap="theme" id="{{item.themeId}}">

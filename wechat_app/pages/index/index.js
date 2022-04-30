@@ -467,7 +467,7 @@ Page({
   getAllLikeArticle(index) {
     let that = this;
     /**
-     * 获取最新的几篇文章
+     * 获取喜欢的文章
      */
     if (this.data.new_likeArticle_end) {
       return;
@@ -514,8 +514,7 @@ Page({
       url: getApp().globalData.url + '/api/getNewArticleIsPublic/' + index,
       method: 'GET',
       success: (result) => {
-
-
+        console.log("文章列表",result.data.data.list)
         if (that.data.new_page > result.data.data.pages) {
           that.setData({
             new_end: true

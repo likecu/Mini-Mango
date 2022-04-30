@@ -12,7 +12,7 @@
         <text class="{{userInfo.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text>
       </view>
       <view class="user_address">
-        {{userInfo.userCountry==''?'未知':userInfo.userCountry+' '+userInfo.userProvince+' '+userInfo.userCity}}
+        <div class="h-vipType" wx:if="{{userInfo.userCity!=null}}">{{userInfo.userCity}}</div>
       </view>
       <view class="user_address">{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
     </view>

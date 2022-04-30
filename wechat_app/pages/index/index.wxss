@@ -97,10 +97,20 @@ background-image: linear-gradient(324deg, #FF3CAC 0%, #784BA0 47%, #2B86C5 100%)
 }
 
 .body .time {
+
   text-align: right;
   font-weight: 200;
   font-size: 25rpx;
-  margin-top: 80rpx;
+  margin-top: 0rpx;
+  color: #999;
+}
+
+.body .time1 {
+  
+  text-align: left;
+  font-weight: 200;
+  font-size: 25rpx;
+  margin-top: 40rpx;
   color: #999;
 }
 

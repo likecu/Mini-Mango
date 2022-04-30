@@ -33,11 +33,11 @@ Page({
     })
     if(this.data.theme_name!='' && this.data.theme_id==''){
       this.getThemeId(this.data.theme_name)
-      console.log("加载小组:",this.data.theme_id)
+      console.log("加载小组全都为空:",this.data.theme_id)
     }
     else if(this.data.theme_name!=''){
       this.getThemeId(this.data.theme_name)
-      console.log("加载小组:",this.data.theme_id)
+      console.log("加载小组只有名字为空:id为",this.data.theme_id)
     }
     else{
       this.loadMessage(this.data.theme_id, this.data.new_page)
@@ -53,9 +53,11 @@ Page({
       method: 'GET',
       success: (result) => {
         console.log("当前点击小组的id：  ",result.data.data)
-        that.setData({
-          theme_id:result.data.data,
-        })
+        if(result.data.data!=null){
+          that.setData({
+            theme_id:result.data.data,
+          })
+        }
         that.loadMessage(that.data.theme_id, that.data.new_page)
       },
 

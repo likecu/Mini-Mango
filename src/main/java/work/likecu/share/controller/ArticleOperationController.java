@@ -36,8 +36,8 @@ public class ArticleOperationController {
     private WXMessage wxMessage;
     @Resource
     private ThemeMessageOperationService themeMessageOperationService;
-    @Resource
-    private PictureUploadService pictureUploadService;
+//    @Resource
+//    private PictureUploadService pictureUploadService;
 
     @PostMapping("/saveArticle")
     @Transactional
@@ -62,22 +62,22 @@ public class ArticleOperationController {
         return ResponseData.success();
     }
 
-    @PostMapping("/uploadImg")
-    @Transactional
-    @ApiOperation("上传图片到服务器")
-    public  BaseResponse speechRecognition(@RequestBody Picture picture, HttpServletRequest request){
-        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
-
-        if (userId < 0) {
-            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
-        }
-
-        picture.setUploadTime(new Date());
-
-        pictureUploadService.add(picture);
-
-        return ResponseData.success();
-    }
+//    @PostMapping("/uploadImg")
+//    @Transactional
+//    @ApiOperation("上传图片到服务器")
+//    public  BaseResponse speechRecognition(@RequestBody Picture picture, HttpServletRequest request){
+//        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+//
+//        if (userId < 0) {
+//            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+//        }
+//
+//        picture.setUploadTime(new Date());
+//
+//        pictureUploadService.add(picture);
+//
+//        return ResponseData.success();
+//    }
 
 
     @PostMapping("/deleteArticle/{articleId}")
