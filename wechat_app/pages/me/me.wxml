@@ -3,18 +3,18 @@
 </view>
 <scroll-view scroll-y="{{true}}" style="height:calc(100vh - {{navTop+'px'}} - 34px);" bindscrolltolower="newArticelLoadMessage">
   <view class="user_message_detail main">
-    <view class="user_image">
+    <view class="user_image" bind:tap="changeMessage">
       <image src="{{userInfo.userAvatar}}" />
     </view>
-    <view class="user_detail">
-      <view class="user_name">
+    <view class="user_detail" bind:tap="changeMessage">
+      <view class="user_name" >
         {{userInfo.userNickname}}
-        <text class="{{userInfo.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text>
+        <text class="{{userInfo.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}" ></text>
       </view>
-      <view class="user_address">
-        <div class="h-vipType" wx:if="{{userInfo.userCity!=null}}">{{userInfo.userCity}}</div>
+      <view class="user_address" >
+        <div class="h-vipType" wx:if="{{userInfo.userCity!=null}}" >{{userInfo.userCity}}</div>
       </view>
-      <view class="user_address">{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
+      <view class="user_address" >{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
     </view>
     <view class="call" hidden="{{userInfo.userToken!=null}}" bind:tap="replayPop">私信</view>
     <view class="call" hidden="{{userInfo.userToken==null}}" bind:tap="exit">退出登录</view>

@@ -9,10 +9,13 @@
       data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1"
       bind:tap="onClick">
       {{ item.themeId }}
-      <view class="call" hidden="{{item.userType!=1}}" bind:tap="exit">  （普通成员）  </view>
-      <view class="call" hidden="{{item.userType!=2}}" bind:tap="exit">  （管理员）  </view>
-      <view class="call" hidden="{{item.userType!=3}}" bind:tap="exit">  （创建者）  </view>
-      <view class="call" hidden="{{item.userType!=4}}" bind:tap="exit">  （其他成员）  </view>
+      <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">  （</view>
+      <view class="call" hidden="{{item.userType!=1}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
+      <view class="call" hidden="{{item.userType!=2}}" style="text-decoration:underline;" >成员管理</view>
+      <view class="call" hidden="{{item.userType!=3}}" style="text-decoration:underline;">成员管理</view>
+      <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">）  </view>
+      <view class="call" hidden="{{item.userType!=4}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
+
     </view>
   </view>
 

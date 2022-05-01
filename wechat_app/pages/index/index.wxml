@@ -2,9 +2,9 @@
 	<image hidden="{{userInfo!=null}}" src="/image/user.png" />
 	<image hidden="{{userInfo==null}}" src="{{userPic}}" />
 </view>
-<view class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:100rpx;" bindtap="to_group">
+<!-- <view class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:100rpx;" bindtap="to_group">
 	<image src="/image/group_icon.png" />
-</view>
+</view> -->
 <view style="padding-top:{{navTop}}px;" class="top">
 	<block wx:for="{{topCa}}" wx:key="hx">
 		<view class="{{index==currentIndex?'lineBottom':''}}" id="{{index}}" bind:tap="tapChange" style="font-weight: 600;">
@@ -78,14 +78,14 @@
 					</block>
 				</swiper>
 				<view class="topic_content" style="margin-top:20rpx">
-					<text class="topic_title">热门主题</text>
+					<text class="topic_title">热门功能</text>
 					<view style="margin-top:20rpx;">
 						<scroll-view style="width:100%;" scroll-x="{{true}}">
 							<view class="topic_cover">
 								<block wx:for="{{themeMessage}}" wx:key="huangxin">
 									<view class="topic_main" bind:tap="theme" id="{{item.themeId}}">
 										<image src="{{item.themeImage}}" mode="aspectFill" />
-										<!-- <view class="topic_main_title">#{{item.themeTitle}}#</view> -->
+										<view class="topic_main_title" style="color:#1296db">{{item.themeTitle}}</view>
 									</view>
 								</block>
 							</view>

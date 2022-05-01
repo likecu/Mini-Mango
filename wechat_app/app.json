@@ -14,7 +14,8 @@
     "otherpage/components/demo-home/index",
     "pages/showgroup/show",
     "pages/update_user/update",
-    "pages/group_fun/create_group/create_group"
+    "pages/group_fun/create_group/create_group",
+    "otherpage/group_member_list/group_member_list"
   ],
   "window": {
     "navigationStyle": "custom"

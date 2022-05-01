@@ -1,11 +1,11 @@
 <view wx:if="{{is_group==1}}">
-		<navbar title="小组" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+		<navbar title="小组动态" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
 </view>
 <view wx:if="{{is_group==''}}">
-		<navbar title="话题" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+		<navbar title="{{themeMessage[theme_id-1].themeTitle}}" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
 </view>
 <scroll-view scroll-y="{{true}}" style="height:calc(100vh - {{navTop+'px'}} - 34px);" bindscrolltolower="newArticleLoadMessage"   >
-		<view class="top">
+		<!-- <view class="top">
 						<view class="image">
 								<image src="{{themeMessage[theme_id-1].themeImage}}" mode="widthFix" />
 						</view>
@@ -13,7 +13,7 @@
 								<view class="intro_title">#{{themeMessage[theme_id-1].themeTitle}}#</view>
 								<view class="intro_detail">{{themeMessage[theme_id-1].themeIntro}}</view>
 						</view> -->
-				</view>
+				<!-- </view> -->
 		<view class="main">
 			
 				<!-- <view class="category">
@@ -67,8 +67,6 @@
 		</view>
 
 </scroll-view>
-<view wx:if="{{is_group==1}}">
 	<view class="bottom1">
 				<image src="/image/add.png" bindtap="adds" />
 		</view>
-</view>

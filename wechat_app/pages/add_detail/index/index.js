@@ -95,6 +95,8 @@ Page({
                 data: {
                   themeId: that.data.theme_id,
                   articleContent: res.html,
+                  likeCounter:0,
+                  commentCounter:0
                 },
                 header: {
                   "authorization": wx.getStorageSync("token")

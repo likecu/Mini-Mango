@@ -31,6 +31,7 @@ Page({
       is_group:options.is_group,
       themeMessage: wx.getStorageSync("themeMessage")
     })
+    console.log("thememessage",this.data.themeMessage);
     if(this.data.theme_name!='' && this.data.theme_id==''){
       this.getThemeId(this.data.theme_name)
       console.log("加载小组全都为空:",this.data.theme_id)

@@ -9,7 +9,12 @@
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="user_type" jdbcType="INTEGER" property="userType"/>
-
+        <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
+            <id column="user_id" jdbcType="INTEGER" property="userId"/>
+            <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
+            <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
+            <result column="user_gender" jdbcType="VARCHAR" property="userGender"/>
+        </association>
     </resultMap>
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
@@ -20,7 +25,7 @@
     </sql>
 
     <select id="getGroupMembers" resultMap="BaseResultMap">
-        select * from group_member where theme_id = #{themeId}
+        select * from group_member,user_message where theme_id = #{themeId} and group_member.user_id = user_message.user_id
     </select>
 
     <update id="updateUserType" parameterType="work.likecu.share.model.GroupMessage" >

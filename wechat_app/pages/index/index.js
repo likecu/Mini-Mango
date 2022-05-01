@@ -262,6 +262,12 @@ Page({
     if (e.currentTarget.id == "-1") {
       return
     }
+    if (e.currentTarget.id == "4") {
+      wx.navigateTo({
+        url: '/otherpage/dashboard/index'
+      });
+    }
+    console.log("当前点击主题内容",e.currentTarget);
     wx.navigateTo({
       url: '/pages/theme/theme?theme_id=' + e.currentTarget.id,
     });
@@ -282,16 +288,18 @@ Page({
       method: 'GET',
       responseType: 'text',
       success: (result) => {
-        console.log(result);
+        console.log("登录结果：",result);
+        
         if (result.data.code == 200) {
           wx.setStorageSync('userPic', result.data.data.userAvatar);
         } else {
-          wx.showModal({
-            title: '提示',
-            content: '获取头像失败~',
-            showCancel: false,
-            confirmText: '确定',
-          });
+          wx.setStorageSync('userPic', "/image/user.png");
+          // wx.showModal({
+          //   title: '提示',
+          //   content: '获取头像失败~',
+          //   showCancel: false,
+          //   confirmText: '确定',
+          // });
         }
       }
     });
@@ -308,6 +316,29 @@ Page({
         height: res.height
       })
     }).exec()
+    wx.request({
+      url: getApp().globalData.url + '/getUserMessage/-1' ,
+      header: {
+        "authorization": wx.getStorageSync("token")
+      },
+      method: 'GET',
+      responseType: 'text',
+      success: (result) => {
+        console.log("登录结果：",result);
+        
+        if (result.data.code == 200) {
+          wx.setStorageSync('userPic', result.data.data.userAvatar);
+        } else {
+          wx.setStorageSync('userPic', "/image/user.png");
+          // wx.showModal({
+          //   title: '提示',
+          //   content: '获取头像失败~',
+          //   showCancel: false,
+          //   confirmText: '确定',
+          // });
+        }
+      }
+    });
     /**
      * 获取主题
      */
