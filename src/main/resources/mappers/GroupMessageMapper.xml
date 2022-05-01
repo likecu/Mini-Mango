@@ -16,7 +16,6 @@
             <result column="user_gender" jdbcType="VARCHAR" property="userGender"/>
         </association>
 
-
     </resultMap>
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
