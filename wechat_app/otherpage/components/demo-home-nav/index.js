@@ -21,5 +21,13 @@ Component({
         showCancel: false,
       })
     },
+    onClick2() {
+      wx.showModal({
+        title: '提示',
+        content: "该功能正在努力开发中",
+        confirmText: '确定',
+        showCancel: false,
+      })
+    },
   },
 });

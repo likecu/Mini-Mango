@@ -6,6 +6,7 @@ import work.likecu.share.mapper.UserMessageMapper;
 import work.likecu.share.model.UserMessage;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserMessageOperationService extends SameService<UserMessage> {
@@ -19,6 +20,8 @@ public class UserMessageOperationService extends SameService<UserMessage> {
         return userMessageMapper.getUserMessage(userId);
     }
 
-
+    public List<UserMessage> userMessageByName(String name){
+        return (List<UserMessage>) userMessageMapper.getUserMessageByName(name);
+    }
 
 }

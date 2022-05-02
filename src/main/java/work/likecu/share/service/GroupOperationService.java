@@ -14,14 +14,18 @@ public class GroupOperationService  extends SameService<GroupMessage> {
     @Resource
     private GroupMessageMapper groupMessageMapper;
 
-    public List<GroupMessage> getGroupMembers(String id){
-        return groupMessageMapper.getGroupMembers(id);
+    public List<GroupMessage> getGroupMembers(String themeId){
+        return groupMessageMapper.getGroupMembers(themeId);
     }
     public List<GroupMessage> getUserGroups(Integer id){
         return groupMessageMapper.getUserGroups(id);
     }
     public void updateUserType(String string,Integer user,Integer type){
         groupMessageMapper.updateUserType(string,user,type);
+    }
+
+    public void inviteGroupMembers(String themeId,Integer userId){
+        groupMessageMapper.inviteGroupMembers(themeId,userId,1);
     }
 
 }

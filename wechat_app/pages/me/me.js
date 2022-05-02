@@ -353,9 +353,11 @@ Page({
  
   },
   changeMessage() {
+    if(this.data.userInfo.userToken!=null){
     this.setData({
       isShow: !this.data.isShow
     })
+  }
   },
 
   inputAge(e) {

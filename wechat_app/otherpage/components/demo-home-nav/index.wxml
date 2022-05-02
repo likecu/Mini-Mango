@@ -11,8 +11,8 @@
       {{ item.themeId }}
       <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">  （</view>
       <view class="call" hidden="{{item.userType!=1}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
-      <view class="call" hidden="{{item.userType!=2}}" style="text-decoration:underline;" >成员管理</view>
-      <view class="call" hidden="{{item.userType!=3}}" style="text-decoration:underline;">成员管理</view>
+      <view class="call" hidden="{{item.userType!=2}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
+      <view class="call" hidden="{{item.userType!=3}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
       <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">）  </view>
       <view class="call" hidden="{{item.userType!=4}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
 
@@ -40,6 +40,46 @@
       data-url="{{ item.path }}"
       bind:tap="onClick1">
       {{ item.themeId }}{{ item.title }}
+    </view>
+  </view>
+
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
+    <view 
+      wx:for="{{ group.list }}"
+      class="demo-home-nav__block"
+      data-url="/pages/me/me?id={{item.userMessage.userId}}"
+      bind:tap="onClick">
+      {{ item.userMessage.userNickname}}  
+      <view class="call" hidden="{{item.userType!=2}}" >  (管理员)  </view>
+      <view class="call" hidden="{{item.userType!=3}}" >  (管理员)  </view>
+    </view>
+  </view>
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">管理成员</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      通过用户名添加成员
+    </view>
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      通过用户名删除成员
+    </view>
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      通过用户名添加管理员
+    </view>
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      通过用户名删除管理员
     </view>
   </view>
 

@@ -1,2 +1,4 @@
-<!--otherpage/group_member_list/group_member_list.wxml-->
-<text>otherpage/group_member_list/group_member_list.wxml</text>
+<view>
+		<navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+		<demo-home joinGroups="{{ joinGroups }}" groupFun="{{ groupFun }}" not_ready="{{ not_ready }}" />
+</view>

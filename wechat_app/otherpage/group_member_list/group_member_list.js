@@ -1,66 +1,54 @@
-// otherpage/group_member_list/group_member_list.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    joinGroups:{
+      groupName: '小组成员列表',
+      list: [
+        {
+          path: '/pages/group_fun/create_group/create_group',
+          title: '创建小组',
+        },
+      ],
+    },
 
+  isShow: false,
+  heightConfig: 0,
+  navTop: 0,
+  themeMessage:"",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad: function (options) {
+    this.init(options);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  
+  init(options){
+    let that = this;
+    this.setData({
+      navTop: getApp().globalData.navTop,
+      heightConfig: getApp().globalData.windowHeight,
+      group_id:options.id
+    })
+    console.log("小组成员页面加载");
+    wx.request({
+      url: getApp().globalData.url + '/getGroupMembers/'+this.data.group_id,
+      header: {
+        "authorization": wx.getStorageSync("token")
+      },
+      method: 'POST',
+      success: (result) => {
+        if (result.data.code == 200) {
+          console.log("小组列表request返回值",result.data.data);
+          that.setData({
+            'joinGroups.list':result.data.data,
+          })
+        } else {
+            wx.showModal({
+              title: '提示',
+              content: result.data.msg + '，错误码：' + result.data.code,
+              confirmText: '确定',
+              showCancel: false,
+            })
+        }
+      }
+    });
   }
-})
+});

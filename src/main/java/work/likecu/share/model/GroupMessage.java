@@ -47,4 +47,6 @@ public class GroupMessage {
     public void setUserType(Integer userType) {
         this.userType = userType;
     }
+
+    private UserMessage userMessage;
 }

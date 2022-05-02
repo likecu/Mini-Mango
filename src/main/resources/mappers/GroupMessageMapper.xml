@@ -9,6 +9,7 @@
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="user_type" jdbcType="INTEGER" property="userType"/>
+
         <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
             <id column="user_id" jdbcType="INTEGER" property="userId"/>
             <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
@@ -26,7 +27,10 @@
     </sql>
 
     <select id="getGroupMembers" resultMap="BaseResultMap">
-        select * from group_member,user_message where theme_id = #{themeId} and group_member.user_id = user_message.user_id
+        select *
+        from group_member,user_message
+        where theme_id = #{themeId} and
+        group_member.user_id = user_message.user_id
     </select>
 
     <update id="updateUserType" parameterType="work.likecu.share.model.GroupMessage" >
@@ -36,8 +40,9 @@
     </update>
 
     <select id="getUserGroups" resultMap="BaseResultMap">
-        select * from group_member where user_id = #{userId}
+        select *
+        from group_member
+        where user_id = #{userId}
     </select>
-
 
 </mapper>

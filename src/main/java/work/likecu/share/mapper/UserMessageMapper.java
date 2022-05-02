@@ -6,6 +6,6 @@ import work.likecu.share.model.UserMessage;
 
 public interface UserMessageMapper extends Mapper<UserMessage> {
 
-
     UserMessage getUserMessage(@Param("userId") Integer userId);
+    UserMessage getUserMessageByName(@Param("userNickName") String userNickName);
 }

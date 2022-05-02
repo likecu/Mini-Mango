@@ -2,12 +2,10 @@ package work.likecu.share.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import work.likecu.share.model.GroupMessage;
 import work.likecu.share.model.ThemeMessage;
+import work.likecu.share.model.UserMessage;
 import work.likecu.share.service.GroupOperationService;
 import work.likecu.share.service.ThemeMessageOperationService;
 import work.likecu.share.service.UserMessageOperationService;
@@ -18,6 +16,7 @@ import work.likecu.share.util.status.ResponseData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/wx")
@@ -104,6 +103,65 @@ public class GroupController {
         System.out.println(groupMessage.getcreateTime());
         System.out.println(groupMessage.getuserType());
         groupOperationService.updateUserType(groupMessage.getThemeId(),userId,groupMessage.getuserType());
+        return ResponseData.out(CodeEnum.SUCCESS);
+    }
+
+    @PostMapping("/getGroupMembers/{themeId}")
+    @Transactional
+    @ApiOperation(value = "获取小组的成员")
+    public BaseResponse getGroupMembers(@PathVariable String themeId, HttpServletRequest request) {
+        System.out.println(themeId);
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+        return ResponseData.out(CodeEnum.SUCCESS,groupOperationService.getGroupMembers(themeId));
+    }
+
+    @PostMapping("/inviteGroupMembers/{userName}/{themeName}")
+    @Transactional
+    @ApiOperation(value = "获取小组的成员")
+    public BaseResponse inviteGroupMembers(@PathVariable Integer userName,@PathVariable String themeName,HttpServletRequest request) {
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+
+        //新建将小组成员赋值 ，通过id
+        GroupMessage groupMessage1=new GroupMessage();
+        groupMessage1.setuserId(userName);
+        groupMessage1.setThemeId(themeName);
+        groupMessage1.setUserType(1);
+        groupOperationService.add(groupMessage1);
+
+        return ResponseData.out(CodeEnum.SUCCESS);
+    }
+
+
+    @PostMapping("/inviteGroupMembersByName/{userName}/{themeName}")
+    @Transactional
+    @ApiOperation(value = "邀请小组的成员")
+    public BaseResponse inviteGroupMembersByName(@PathVariable String userName,@PathVariable String themeName,HttpServletRequest request) {
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+        List<UserMessage> userMessages=userMessageOperationService.userMessageByName(userName);
+        if(userMessages.size()>=2){
+            return ResponseData.out(CodeEnum.User_Name_Repeated);
+        }
+        if(userMessages.size()==0){
+            return ResponseData.out(CodeEnum.User_Name_Not_Found);
+        }
+
+
+        //新建将小组成员赋值 ，通过id
+        GroupMessage groupMessage1=new GroupMessage();
+        groupMessage1.setuserId(userMessages.get(0).getUserId());
+        groupMessage1.setThemeId(themeName);
+        groupMessage1.setUserType(1);
+        groupOperationService.add(groupMessage1);
+
         return ResponseData.out(CodeEnum.SUCCESS);
     }
 

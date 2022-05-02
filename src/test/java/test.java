@@ -18,7 +18,6 @@ import javax.annotation.Resource;
 import java.util.LinkedList;
 import java.util.List;
 
-
 @SpringBootTest(classes = MiniProgramRunApp.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

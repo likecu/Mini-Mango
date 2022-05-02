@@ -9,6 +9,8 @@ public enum CodeEnum {
     SUCCESS_BUT_MORE(200, "已经登陆多台设备,可能存在被盗风险,请及时修改密码"),
     SUCCESS(200, "成功"),
     BODY_NOT_MATCH(400, "请求的数据格式不正确"),
+    User_Name_Repeated(403,"该用户名称过多，请使用id进行查询"),
+    User_Name_Not_Found(403,"找不到该用户名，请注意大小写或标点符号"),
     SIGNATURE_NOT_MATCH(401, "请求的数字签名不匹配"),
     SIGNATURE_NOT_ALLOW(403, "没有权限"),
     Theme_Del_NOT_ALLOW(403,"小组不存在"),

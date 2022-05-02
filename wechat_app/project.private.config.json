@@ -80,6 +80,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "otherpage/group_member_list/group_member_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "otherpage/group_member_list/group_member_list",
+          "query": "id=123",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
