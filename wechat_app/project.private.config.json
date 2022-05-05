@@ -94,6 +94,13 @@
           "query": "id=123",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/commitpage/testcomm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

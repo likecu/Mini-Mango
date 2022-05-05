@@ -146,7 +146,15 @@ public class GroupController {
         if (userId < 0) {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
+        //先判断string内有没有“” 或者 ‘’
+        userName=userName.replaceAll("\"","");
+        userName=userName.replaceAll("\'","");
+
+        themeName=themeName.replaceAll("\"","");
+        themeName=themeName.replaceAll("\'","");
+        //根据名字找到有用户id，若存在多个用户，则返回出错
         List<UserMessage> userMessages=userMessageOperationService.userMessageByName(userName);
+
         if(userMessages.size()>=2){
             return ResponseData.out(CodeEnum.User_Name_Repeated);
         }
@@ -154,12 +162,18 @@ public class GroupController {
             return ResponseData.out(CodeEnum.User_Name_Not_Found);
         }
 
-
         //新建将小组成员赋值 ，通过id
         GroupMessage groupMessage1=new GroupMessage();
         groupMessage1.setuserId(userMessages.get(0).getUserId());
         groupMessage1.setThemeId(themeName);
         groupMessage1.setUserType(1);
+
+        //判断用户是否存在组内
+        if(groupOperationService.findList(groupMessage1).size()>0){
+            return ResponseData.out(CodeEnum.User_Already_Join);
+        };
+
+
         groupOperationService.add(groupMessage1);
 
         return ResponseData.out(CodeEnum.SUCCESS);

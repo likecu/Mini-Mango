@@ -32,7 +32,7 @@
     </select>
 
     <select id="getUserMessageByName" resultMap="BaseResultMap">
-        select  user_id,user_nickname,user_gender,user_avatar  from user_message where user_id = #{userNickName}
+        select  user_id,user_nickname,user_gender,user_avatar  from user_message where user_nickname = #{userNickName}
     </select>
 
 

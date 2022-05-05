@@ -55,7 +55,7 @@
       <view class="call" hidden="{{item.userType!=3}}" >  (管理员)  </view>
     </view>
   </view>
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">管理成员</view>
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">小组操作</view>
   <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
     <view 
       class="demo-home-nav__block"
@@ -74,6 +74,12 @@
       data-url="/pages"
       bind:tap="onClick1">
       通过用户名添加管理员
+    </view>
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      通过用户名删除管理员
     </view>
     <view 
       class="demo-home-nav__block"

@@ -3,3 +3,4 @@
 		<navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
 </view>
 
+

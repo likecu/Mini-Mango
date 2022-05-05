@@ -21,7 +21,7 @@ public class UserMessageOperationService extends SameService<UserMessage> {
     }
 
     public List<UserMessage> userMessageByName(String name){
-        return (List<UserMessage>) userMessageMapper.getUserMessageByName(name);
+        return userMessageMapper.getUserMessageByName(name);
     }
 
 }

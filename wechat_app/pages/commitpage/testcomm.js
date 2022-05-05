@@ -51,33 +51,20 @@ Page({
       themeMessage: wx.getStorageSync("themeMessage"),
       'notice.userId': options.id
     })
-   
-    
+
     wx.request({
-      url: getApp().globalData.url + '/getUserGroups',
-      data: {
-        themeTitle: that.data.theme_title,
-        themeIntro: that.data.theme_intro,
-        themeUse: 0,
-        themeImage: that.data.theme_image,
-      },
+      url: getApp().globalData.url + '/inviteGroupMembersByName/"管理员"/拜拜吧',
       header: {
         "authorization": wx.getStorageSync("token")
       },
-      
       method: 'POST',
       success: (result) => {
         if (result.data.code == 200) {
           that.setData({
-            isShow: false,
-            result_data:result.data.data,
           })
-          console.log(that.data.result_data);
+          console.log(that.data);
           wx.showToast({
             title: '保存成功',
-          })
-          that.setData({
-            'userInfo.userMotto': that.data.motto
           })
         } else {
             wx.showModal({
@@ -89,6 +76,8 @@ Page({
         }
       }
     });
+   
+    
 
     // wx.request({
     //   url: getApp().globalData.url + '/updateUserType',
