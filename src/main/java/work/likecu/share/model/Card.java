@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Data
 @Table (name = "`card_message`")
 public class Card {
-    @Id
     @Column(name = "`card_id`")
     private Integer cardId;
 

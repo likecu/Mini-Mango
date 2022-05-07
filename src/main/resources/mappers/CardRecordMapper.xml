@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="work.likecu.share.mapper.CardMapper">
+<mapper namespace="work.likecu.share.mapper.CardRecordMapper">
     <resultMap id="BaseResultMap" type="work.likecu.share.model.CardRecord">
         <!--
           WARNING - @mbg.generated
         -->
         <result column="card_id" jdbcType="INTEGER" property="cardId"/>
-        <result column="given_number" jdbcType="INTEGER" property="givenNumber"/>
-        <result column="card_name" jdbcType="VARCHAR" property="cardName"/>
-        <result column="card_info" jdbcType="VARCHAR" property="cardInfo"/>
-        <result column="setting_time" jdbcType="TIMESTAMP" property="settingTime"/>
-        <result column="max_number" jdbcType="INTEGER" property="maxNumber"/>
+        <result column="card_is_useful" jdbcType="INTEGER" property="cardIsUseful"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userID"/>
+        <result column="card_time" jdbcType="TIMESTAMP" property="cardTime"/>
 
     </resultMap>
     <!-- 通用查询结果列-->
@@ -18,9 +16,8 @@
         <!--
           WARNING - @mbg.generated
         -->
-        card_id,given_number,card_name,card_info,setting_time,max_number
+        card_id,card_is_useful,user_id,card_time
     </sql>
-
 
 
 </mapper>
