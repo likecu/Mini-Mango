@@ -11,6 +11,5 @@ import javax.annotation.Resource;
 public class CardVotingService extends SameService<CardVoting> {
     @Resource
     private CardMapper cardMapper;
-    @Resource
-    private CardVoting cardVoting;
+
 }

@@ -15,6 +15,16 @@
             <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
             <result column="agree_number" jdbcType="INTEGER" property="agreeNumber"/>
         </association>
+        <association property="card" javaType="work.likecu.share.model.Card">
+            <result column="card_id" jdbcType="INTEGER" property="cardId"/>
+            <result column="given_number" jdbcType="INTEGER" property="givenNumber"/>
+            <result column="card_name" jdbcType="VARCHAR" property="cardName"/>
+            <result column="card_info" jdbcType="VARCHAR" property="cardInfo"/>
+            <result column="setting_time" jdbcType="TIMESTAMP" property="settingTime"/>
+            <result column="max_number" jdbcType="INTEGER" property="maxNumber"/>
+            <result column="is_group" jdbcType="INTEGER" property="isGroup"/>
+            <result column="group_id" jdbcType="INTEGER" property="groupId"/>
+        </association>
     </resultMap>
 
     <!-- 通用查询结果列-->
@@ -24,6 +34,11 @@
         -->
         vote_id,user_id
     </sql>
+
+    <select id="getPublicVote" resultMap="BaseResultMap" >
+        SELECT DISTINCT card_message.card_name,card_message.card_id FROM card_message,card_voting_message
+        WHERE card_message.is_group is NULL AND card_voting_message.is_finished!=1 AND card_voting_message.card_id =card_message.card_id
+    </select>
 
 
 

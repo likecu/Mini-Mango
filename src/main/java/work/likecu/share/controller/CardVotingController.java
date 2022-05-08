@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/wx")
-public class CardVotingConroller {
+public class CardVotingController {
     @Resource
     private CardVotingService cardVotingService;
     @Resource
@@ -26,16 +26,14 @@ public class CardVotingConroller {
     private CardVoteRecordService cardVoteRecordService;
 
     @ApiOperation(value = "得到用户身份卡投票列表")
-    @RequestMapping("/getVotingList")
+    @RequestMapping("/getPublicVote")
     public BaseResponse createCard(HttpServletRequest request) {
 
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
         if (userId < 0) {
             return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
-        CardVoting cardVoting = new CardVoting();
-        cardVoting.setIsFinished(0);
-        return ResponseData.success(cardVotingService.findList(cardVoting));
+        return ResponseData.success(cardVoteRecordService.getPublicVote());
     }
 
 }

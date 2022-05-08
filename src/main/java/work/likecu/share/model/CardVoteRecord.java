@@ -18,4 +18,7 @@ public class CardVoteRecord {
 
     private CardVoting cardVoting;
 
+    private Card card;
+
+    private CardRecord cardRecord;
 }

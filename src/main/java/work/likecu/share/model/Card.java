@@ -1,6 +1,4 @@
 package work.likecu.share.model;
-
-
 import lombok.Data;
 
 import java.util.Date;

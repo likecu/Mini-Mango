@@ -26,12 +26,11 @@ Page({
     this.setData({
       navTop: getApp().globalData.navTop,
       heightConfig: getApp().globalData.windowHeight,
-      group_id:options.id,
-      "joinGroups.group_id":options.id
+      card_id:options.id,
     })
     console.log("小组成员页面加载");
     wx.request({
-      url: getApp().globalData.url + '/getGroupMembers/'+this.data.group_id,
+      url: getApp().globalData.url + '/getPublicVote',
       header: {
         "authorization": wx.getStorageSync("token")
       },
@@ -40,7 +39,7 @@ Page({
         if (result.data.code == 200) {
           console.log("小组列表request返回值",result.data.data);
           that.setData({
-            'joinGroups.list':result.data.data,
+            members:result.data.data,
           })
         } else {
             wx.showModal({

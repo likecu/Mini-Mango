@@ -14,4 +14,11 @@
   
  遇到问题  
  1、A component required a bean of type 'work.likecu.share.model.CardVoting' that could not be found.  
-   没扫描到这个文件  
+   原因：在CardVotingService 中有  
+   private CardVoting cardVoting;  
+   直接将这一行注释掉即可。  
+ 2、自定义sql语句书写：  
+  先修改两个Mapper，再在service中增加，最后再controller中加入。  
+ 3、新增加sql表：  
+ 先新建表，在model中增加类、在两个mapper中增加记录、service中加入、Controller中加入  
+   
