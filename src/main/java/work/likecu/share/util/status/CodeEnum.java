@@ -14,6 +14,7 @@ public enum CodeEnum {
     User_Name_Not_Found(403,"找不到该用户名，请注意大小写或标点符号"),
     SIGNATURE_NOT_MATCH(401, "请求的数字签名不匹配"),
     SIGNATURE_NOT_ALLOW(403, "没有权限"),
+    CARD_REPEATED(403,"已存在该卡"),
     NO_PICTURE(403,"请加入图片！"),
     Theme_Del_NOT_ALLOW(403,"小组不存在"),
     Theme_Author_NOT_ALLOW(403,"权限不足，无法删除小组"),

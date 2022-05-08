@@ -67,16 +67,9 @@ Page({
       method: 'POST',
       success: (result) => {
         if (result.data.code == 200) {
-          that.setData({
-            isShow: false,
-            result_data:result.data.data,
-          })
           console.log(that.data.result_data);
           wx.showToast({
-            title: '保存成功',
-          })
-          that.setData({
-            'userInfo.userMotto': that.data.motto
+            title: '投票成功',
           })
           wx.redirectTo({
             url:"/otherpage/dashboard/index"})

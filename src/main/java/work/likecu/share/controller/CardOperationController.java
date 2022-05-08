@@ -50,7 +50,7 @@ public class CardOperationController {
             return ResponseData.success();
         }
         else {
-            return ResponseData.error(403,"已存在该卡");
+            return ResponseData.error(CodeEnum.CARD_REPEATED);
         }
     }
 

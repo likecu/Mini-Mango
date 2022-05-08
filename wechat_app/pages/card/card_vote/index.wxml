@@ -27,7 +27,7 @@
           </radio-group>
           <view style="height: 20px;"></view>
           <view class="submit">
-            <button class="button" type="primary" >加入投票</button>
+            <button class="button" type="primary" form-type="join">加入投票</button>
             <button class="button" type="primary" form-type="submit">投票</button>
           </view>
           <!-- <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">

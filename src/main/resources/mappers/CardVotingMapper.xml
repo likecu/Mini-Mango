@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.likecu.share.mapper.CardVotingMapper">
+    <resultMap id="BaseResultMap" type="work.likecu.share.model.CardVoting">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="voting_id" jdbcType="INTEGER" property="votingId"/>
+        <result column="card_id" jdbcType="INTEGER" property="cardId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="is_finished" jdbcType="INTEGER" property="isFinished"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="agree_number" jdbcType="INTEGER" property="agreeNumber"/>
+
+    </resultMap>
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        voting_id,card_id,user_id,is_finished,create_time,agree_number
+    </sql>
+
+
+
+</mapper>
