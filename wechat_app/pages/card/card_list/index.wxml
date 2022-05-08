@@ -1,2 +1,4 @@
-<!--pages/card/card_list/index.wxml-->
-<text>pages/card/card_list/index.wxml</text>
+<view>
+		<navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
+		<demo-home joinGroups="{{ joinGroups }}" groupFun="{{ groupFun }}" not_ready="{{ not_ready }}" />
+</view>

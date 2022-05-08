@@ -13,7 +13,7 @@
             {{article.userMessage.userNickname}}
             <text class="{{article.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text>
           </view>
-          <div class="h-vipType" wx:if="{{article.userMessage.userCity!=null}}">{{article.userMessage.userCity}}</div>
+          <div class="h-vipType" wx:if="{{article.userMessage.userCity!=null}}" >{{article.userMessage.userCity}}</div>
           <view class="intro">{{article.userMessage.userMotto}}</view>
         </view>
         <view style="color:red;font-size:25rpx" hidden="{{article.userMessage.userId!=userId}}" bindtap="deleteArticle">

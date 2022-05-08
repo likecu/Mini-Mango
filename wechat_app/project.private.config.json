@@ -112,6 +112,20 @@
             "enabled": true,
             "pages": []
           }
+        },
+        {
+          "name": "",
+          "pathName": "pages/card/card_list/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/card/card_vote/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

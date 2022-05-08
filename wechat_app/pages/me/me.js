@@ -301,7 +301,14 @@ Page({
 
 
   },
+  cardmanage(){
+    if(this.data.userInfo.userToken!=null){
+      wx.redirectTo({
+        url: '/pages/card/card_list/index',
+      })
+    }
 
+  },
   newArticelLoadMessage() {
     this.loadMessage(this.data.userInfo.userId,++this.data.new_page)
   },

@@ -5,8 +5,6 @@ Page({
       group_id:null,
       list: [
         {
-          path: '/pages/group_fun/create_group/create_group',
-          title: '创建小组',
         },
       ],
     },

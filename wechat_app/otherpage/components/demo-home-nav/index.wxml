@@ -19,6 +19,31 @@
     </view>
   </view>
 
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='我的身份卡'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='我的身份卡'}}" >
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url=""
+      bind:tap="onClick2">
+      {{ item.card.cardName }}
+    </view>
+  </view>
+
+  
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='身份卡获取'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='身份卡获取'}}" >
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url=""
+      bind:tap="onClick1">
+      请联系管理员申请
+    </view>
+  </view>
+
   <view class="demo-home-nav__title" hidden="{{group.groupName!='小组功能'}}">{{ group.groupName }}</view>
   <view class="demo-home-nav__group" hidden="{{group.groupName!='小组功能'}}">
     <view 
@@ -86,6 +111,12 @@
       data-url="/pages"
       bind:tap="onClick1">
       通过用户名删除管理员
+    </view>
+    <view 
+      class="demo-home-nav__block"
+      data-url="/pages"
+      bind:tap="onClick1">
+      获取卡片
     </view>
   </view>
 

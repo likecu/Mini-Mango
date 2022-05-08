@@ -24,7 +24,7 @@ Component({
     onClick2() {
       wx.showModal({
         title: '提示',
-        content: "该功能正在努力开发中",
+        content: "以后将会在这里显示关于身份卡的更多信息",
         confirmText: '确定',
         showCancel: false,
       })

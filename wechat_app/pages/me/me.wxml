@@ -7,14 +7,15 @@
       <image src="{{userInfo.userAvatar}}" />
     </view>
     <view class="user_detail" bind:tap="changeMessage">
-      <view class="user_name" >
+      <view class="user_name">
         {{userInfo.userNickname}}
-        <text class="{{userInfo.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}" ></text>
+        <text class="{{userInfo.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text>
       </view>
-      <view class="user_address" >
-        <div class="h-vipType" wx:if="{{userInfo.userCity!=null}}" >{{userInfo.userCity}}</div>
+      <view class="user_address">
+        <div class="h-vipType" wx:if="{{userInfo.userCity!='普通用户' && userInfo.userCity!=null}}"  bind:tap="cardmanage">{{userInfo.userCity}}</div>
+        <image wx:if="{{userInfo.userCity=='普通用户'}}" bind:tap="cardmanage" src="/image/super_card.jpg" style="height: 25px;width: 55px;"></image>
       </view>
-      <view class="user_address" >{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
+      <view class="user_address">{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
     </view>
     <view class="call" hidden="{{userInfo.userToken!=null}}" bind:tap="replayPop">私信</view>
     <view class="call" hidden="{{userInfo.userToken==null}}" bind:tap="exit">退出登录</view>

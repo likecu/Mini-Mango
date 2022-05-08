@@ -24,14 +24,14 @@
           </view>
           <view style="height: 10px;"></view>
           <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
-            <input name="userNickname" placeholder="小组昵称必须唯一" autosize="{{ true }}" style="margin-left: 5% ;" />
+            <input name="themeTitle" placeholder="小组昵称必须唯一" autosize="{{ true }}" style="margin-left: 5% ;" />
           </view>
           <view style="height: 40px;"></view>
           <view style="height: 20px;"></view>
           <view style="  margin-left:6%;float:left;width: 25%;font-weight: 600;">
             加入设置
           </view>
-          <radio-group name="themeUse " style="float: right;width:60%;margin-right: 3%;">
+          <radio-group name="themeUse" style="float: right;width:60%;margin-right: 3%;">
           <label ><radio value="0"/>所有人都能加入</label>
           <view style="height: 10px;"></view>
           <label><radio value="2"/>需要管理员邀请</label>
@@ -48,7 +48,7 @@
               小组简介
             </view>
             <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;height: 200px;">
-              <input name="userMotto" placeholder="请输入小组简介" autosize="{{ true }}" style="margin-left: 5% ;" />
+              <input name="themeIntro" placeholder="请输入小组简介" autosize="{{ true }}" style="margin-left: 5% ;" />
             </view>
           </view>
           <view style="height: 300px;"></view>

@@ -15,6 +15,10 @@ Page({
           path: '/pages/group_fun/create_group/create_group',
           title: '创建小组',
         },
+        {
+          path: '/pages/card/card_list/index',
+          title: '查看个人所有身份卡',
+        },
       ],
     },
 

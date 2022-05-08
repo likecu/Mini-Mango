@@ -44,6 +44,9 @@ public class GroupController {
         if (userId < 0) {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
+        if(themeMessage.getThemeImage()==null){
+            return ResponseData.out(CodeEnum.NO_PICTURE);
+        }
         themeMessage.setOwnerId(userId);
         themeMessageOperationService.add(themeMessage);
 

@@ -19,7 +19,8 @@
     "pages/group_fun/invite_by_name/index",
     "pages/card/create_card/index",
     "pages/group_fun/delete_by_name/index",
-    "pages/card/card_list/index"
+    "pages/card/card_list/index",
+    "pages/card/card_vote/index"
   ],
   "window": {
     "navigationStyle": "custom"
