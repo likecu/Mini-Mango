@@ -27,4 +27,11 @@ public class Card {
 
     @Column(name = "`card_name`")
     private String cardName;
+
+
+    @Column(name = "`is_group`")
+    private Integer isGroup;
+
+    @Column(name = "`group_id`")
+    private Integer groupId;
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.likecu.share.mapper.CardVoteRecordMapper">
+    <resultMap id="BaseResultMap" type="work.likecu.share.model.CardVoteRecord">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="vote_id" jdbcType="INTEGER" property="voteId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userID"/>
+        <association property="cardVoting" javaType="work.likecu.share.model.CardVoting">
+            <result column="voting_id" jdbcType="INTEGER" property="votingId"/>
+            <result column="card_id" jdbcType="INTEGER" property="cardId"/>
+            <result column="user_id" jdbcType="INTEGER" property="userId"/>
+            <result column="is_finished" jdbcType="INTEGER" property="isFinished"/>
+            <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+            <result column="agree_number" jdbcType="INTEGER" property="agreeNumber"/>
+        </association>
+    </resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        vote_id,user_id
+    </sql>
+
+
+
+</mapper>

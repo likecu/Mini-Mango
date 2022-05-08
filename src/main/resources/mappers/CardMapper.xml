@@ -11,6 +11,8 @@
         <result column="card_info" jdbcType="VARCHAR" property="cardInfo"/>
         <result column="setting_time" jdbcType="TIMESTAMP" property="settingTime"/>
         <result column="max_number" jdbcType="INTEGER" property="maxNumber"/>
+        <result column="is_group" jdbcType="INTEGER" property="isGroup"/>
+        <result column="group_id" jdbcType="INTEGER" property="groupId"/>
 
     </resultMap>
     <!-- 通用查询结果列-->

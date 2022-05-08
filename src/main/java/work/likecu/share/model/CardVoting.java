@@ -1,12 +1,12 @@
 package work.likecu.share.model;
+
 import lombok.Data;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Data
-@Table (name = "`card_voting_message`")
+@Table(name = "`card_voting_message`")
 public class CardVoting {
     @Column(name = "`voting_id`")
     private Integer votingId;
