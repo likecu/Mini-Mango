@@ -1,0 +1,41 @@
+<!--pages/update_user/update.wxml-->
+<view>
+  <navbar title="卡片投票" loading="{{true}}" home="{{true}}" back="{{true}}">
+  </navbar>
+  <form bindsubmit="submit">
+    <!-- <view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        国家：{{objectArray[index].name}}
+      </view>
+    </picker>
+  </view> -->
+    <!-- <view>
+    <input name="title" class="title" placeholder="请输入文章标题"></input>
+  </view> -->
+    <view class="container">
+      <!-- <template is="head" data="{{title: 'editor'}}"/> -->
+      <view class="page-body">
+        <view class='wrapper'>
+          <view style="  margin-left:6%;width: 25%;font-weight: 600;">
+            投票
+          </view>
+
+          <radio-group name="vote" style="width:60%;margin-right: 3%;" wx:for="{{members}}" wx:key="member">
+          <label><radio value="{{item.userId}}"/>{{item.userName}}</label>
+          <view style="height: 10px;"></view>
+          </radio-group>
+          <view style="height: 20px;"></view>
+          <view class="submit">
+            <button class="button" type="primary" >加入投票</button>
+            <button class="button" type="primary" form-type="submit">投票</button>
+          </view>
+          <!-- <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">
+            <input id="editor" name="userMotto" class="toolbar" placeholder="{{aboutme}} 不填则不修改"></input>
+          </scroll-view> -->
+         
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
