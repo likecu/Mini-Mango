@@ -15,7 +15,11 @@
     "pages/showgroup/show",
     "pages/update_user/update",
     "pages/group_fun/create_group/create_group",
-    "otherpage/group_member_list/group_member_list"
+    "otherpage/group_member_list/group_member_list",
+    "pages/group_fun/invite_by_name/index",
+    "pages/card/create_card/index",
+    "pages/group_fun/delete_by_name/index",
+    "pages/card/card_list/index"
   ],
   "window": {
     "navigationStyle": "custom"

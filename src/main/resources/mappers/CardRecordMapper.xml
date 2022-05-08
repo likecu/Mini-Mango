@@ -9,7 +9,14 @@
         <result column="card_is_useful" jdbcType="INTEGER" property="cardIsUseful"/>
         <result column="user_id" jdbcType="VARCHAR" property="userID"/>
         <result column="card_time" jdbcType="TIMESTAMP" property="cardTime"/>
-
+        <association property="cardMapper" javaType="work.likecu.share.model.Card">
+            <result column="card_id" jdbcType="INTEGER" property="cardId"/>
+            <result column="given_number" jdbcType="INTEGER" property="givenNumber"/>
+            <result column="card_name" jdbcType="VARCHAR" property="cardName"/>
+            <result column="card_info" jdbcType="VARCHAR" property="cardInfo"/>
+            <result column="setting_time" jdbcType="TIMESTAMP" property="settingTime"/>
+            <result column="max_number" jdbcType="INTEGER" property="maxNumber"/>
+        </association>
     </resultMap>
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
@@ -18,6 +25,12 @@
         -->
         card_id,card_is_useful,user_id,card_time
     </sql>
-
+    <select id="getByUserId" resultMap="BaseResultMap">
+        select card_record.card_id,card.card_name
+        from card_message as card,
+        left join card_record on
+        card.card_id = card_record.card_id
+        where card_record.user_id = #{userId}
+    </select>
 
 </mapper>

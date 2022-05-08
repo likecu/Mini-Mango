@@ -1,0 +1,23 @@
+<!--pages/update_user/update.wxml-->
+<view>
+  <navbar title="创建卡片" loading="{{true}}" home="{{true}}" back="{{true}}">
+  </navbar>
+  <form bindsubmit="submit">
+        <view class='wrapper'>
+
+          <view style="height: 30px;"></view>
+          <view style="  margin-left: 6%;float:inline-start;width: 20%;font-weight: 600;">用户名
+            <view style="height: 20px;"></view>
+          </view>
+          <view style="height: 10px;"></view>
+          <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
+            <input name="userName" placeholder="小组昵称必须唯一" autosize="{{ true }}" style="margin-left: 5% ;" />
+          </view>
+          <view class="submit">
+            <button class="button" type="primary" form-type="submit">保存</button>
+          </view>
+
+        </view>
+
+  </form>
+</view>

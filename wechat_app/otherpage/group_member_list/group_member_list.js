@@ -2,6 +2,7 @@ Page({
   data: {
     joinGroups:{
       groupName: '小组成员列表',
+      group_id:null,
       list: [
         {
           path: '/pages/group_fun/create_group/create_group',
@@ -25,7 +26,8 @@ Page({
     this.setData({
       navTop: getApp().globalData.navTop,
       heightConfig: getApp().globalData.windowHeight,
-      group_id:options.id
+      group_id:options.id,
+      "joinGroups.group_id":options.id
     })
     console.log("小组成员页面加载");
     wx.request({

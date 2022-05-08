@@ -59,14 +59,14 @@
   <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
     <view 
       class="demo-home-nav__block"
-      data-url="/pages"
-      bind:tap="onClick1">
+      data-url="/pages/group_fun/invite_by_name/index?id={{group.group_id}}"
+      bind:tap="onClick">
       通过用户名添加成员
     </view>
     <view 
       class="demo-home-nav__block"
-      data-url="/pages"
-      bind:tap="onClick1">
+      data-url="/pages/group_fun/delete_by_name/index?id={{group.group_id}}"
+      bind:tap="onClick">
       通过用户名删除成员
     </view>
     <view 

@@ -21,4 +21,6 @@ public class CardRecord {
 
     @Column(name = "`user_id`")
     private Integer userID;
+
+    private Card card;
 }

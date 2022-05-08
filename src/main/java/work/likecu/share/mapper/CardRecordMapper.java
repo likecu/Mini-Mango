@@ -7,5 +7,6 @@ import work.likecu.share.model.CardRecord;
 import java.util.List;
 
 public interface CardRecordMapper extends Mapper<CardRecord> {
+    List<CardRecord> getByUserId(@Param("userId") Integer userId);
 }
 

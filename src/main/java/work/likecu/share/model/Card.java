@@ -4,7 +4,8 @@ package work.likecu.share.model;
 import lombok.Data;
 
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Data
 @Table (name = "`card_message`")

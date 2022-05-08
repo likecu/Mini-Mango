@@ -39,10 +39,14 @@ public class CardOperationController {
         if(userId<0){
             return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
+
         Card card1=new Card();
         card1.setCardName(card.getCardName());
-        if(cardControlService.findList(card1).size()==0){
+        System.out.println(card1.getCardName());
+        if(cardControlService.findCount(card1)==0){
+
             cardControlService.add(card);
+
             return ResponseData.success();
         }
         else {
@@ -63,6 +67,16 @@ public class CardOperationController {
         cardRecord.setUserID(user_id);
         cardRecordOperationService.add(cardRecord);
         return ResponseData.success();
+    }
+
+    @ApiOperation(value = "得到用户所有卡片")
+    @RequestMapping("/getCards")
+    public BaseResponse getCards(HttpServletRequest request){
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+        if(userId<0){
+            return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+        return ResponseData.success(cardRecordOperationService.getByUserId(userId));
     }
 
 }
