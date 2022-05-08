@@ -1,7 +1,5 @@
 package work.likecu.share.model;
-
 import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 

@@ -10,7 +10,5 @@ public interface ReplayMessageMapper extends Mapper<ReplayMessage> {
 
 
     List<ReplayMessage> getReplayContent(@Param("commentId") Integer commentId);
-
-
     ReplayMessage getReplayMessage(@Param("replayId") Integer replayId);
 }
