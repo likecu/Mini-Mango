@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "demo-home": "/otherpage/components/demo-home/index",
+    "navbar": "/Component/top/index"
+  }
+}
