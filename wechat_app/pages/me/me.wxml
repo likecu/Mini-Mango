@@ -13,7 +13,7 @@
       </view>
       <view class="user_address">
         <div class="h-vipType" wx:if="{{userInfo.userCity!='普通用户' && userInfo.userCity!=null}}"  bind:tap="cardmanage">{{userInfo.userCity}}</div>
-        <image wx:if="{{userInfo.userCity=='普通用户'}}" bind:tap="cardmanage" src="/image/super_card.jpg" style="height: 25px;width: 55px;"></image>
+        <image wx:if="{{userInfo.userCity=='普通用户'}}" bind:tap="cardmanage" src="https://s1.ax1x.com/2022/05/09/OGYSgS.jpg" style="height: 25px;width: 55px;"></image>
       </view>
       <view class="user_address">{{userInfo.userToken==''?'':userInfo.createTime+'入驻'}}</view>
     </view>

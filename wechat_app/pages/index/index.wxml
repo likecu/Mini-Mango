@@ -14,7 +14,7 @@
 </view>
 <view class="header" hidden="{{hideHeader}}" style="text-align:center">
 	<view>
-		<image src="/image/load.gif" style="width:80rpx;height:80rpx;border-radius:50%"></image>
+		<image src="https://s1.ax1x.com/2022/05/09/OGY7GV.gif" style="width:80rpx;height:80rpx;border-radius:50%"></image>
 	</view>
 	<view style="font-size:20rpx;padding:10rpx">{{refreshTime}}</view>
 </view>
@@ -113,8 +113,10 @@
 									<!-- <wxparser rich-text="{{item.articleContent}}"  style="pointer-events: none"/> -->
 								</view>
 								<!-- <view class="loadMore">查看更多</view> -->
+                <view class="time1">
                 <image src="/image/sigood.png" style="width: 20px;height: 20px;"></image>{{item.likeCounter}}
                 <image src="/image/icommment.png" style="width: 20px;height: 20px;"></image>{{item.commentCounter}}
+              </view>
 								<view class="time">{{item.createTime}}</view>
 								<view class="flag">
 									<view class="flag_item" bind:tap="theme" id="{{item.themeId}}">
