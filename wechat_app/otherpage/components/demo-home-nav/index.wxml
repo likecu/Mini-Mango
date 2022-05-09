@@ -31,6 +31,18 @@
     </view>
   </view>
 
+  <view class="demo-home-nav__title" hidden="{{group.groupName!='投票列表'}}">{{ group.groupName }}</view>
+  <view class="demo-home-nav__group" hidden="{{group.groupName!='投票列表'}}" >
+    <view 
+      wx:for="{{ group.list }}"
+      wx:key="id"
+      class="demo-home-nav__block"
+      data-url="/pages/card/card_vote/index?id={{item.card.cardId}}"
+      bind:tap="onClick">
+      {{ item.card.cardName }}
+    </view>
+  </view>
+
   
   <view class="demo-home-nav__title" hidden="{{group.groupName!='身份卡获取'}}">{{ group.groupName }}</view>
   <view class="demo-home-nav__group" hidden="{{group.groupName!='身份卡获取'}}" >
@@ -38,9 +50,9 @@
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
-      data-url=""
-      bind:tap="onClick1">
-      请联系管理员申请
+      data-url="/pages/card/card_vote_list/index"
+      bind:tap="onClick">
+      身份卡公开投票
     </view>
   </view>
 

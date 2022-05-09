@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CardVoteRecordMapper extends Mapper<CardVoteRecord> {
     List<CardVoteRecord> getPublicVote();
+    List<CardVoteRecord> getVoteListById(@Param("cardId") Integer cardId);
 }

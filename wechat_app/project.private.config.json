@@ -122,7 +122,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/card/card_vote/index",
+          "pathName": "pages/card/card_vote_list/index",
           "query": "",
           "launchMode": "default",
           "scene": null

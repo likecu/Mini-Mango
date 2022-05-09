@@ -29,10 +29,6 @@ Page({
             path: '/pages/index/index',
             title: '通过用户名邀请小组成员',
           },
-          {
-            path: '/pages/index/index',
-            title: '修改小组属性',
-          },
         ],
     },
   

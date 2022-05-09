@@ -21,4 +21,6 @@ public class CardVoteRecord {
     private Card card;
 
     private CardRecord cardRecord;
+
+    private UserMessage userMessage;
 }

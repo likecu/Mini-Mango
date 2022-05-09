@@ -7,6 +7,7 @@ package work.likecu.share.util.status;
 
 public enum CodeEnum {
     SUCCESS_BUT_MORE(200, "已经登陆多台设备,可能存在被盗风险,请及时修改密码"),
+    ALREADY_VOTED(403,"已经投票"),
     SUCCESS(200, "成功"),
     BODY_NOT_MATCH(400, "请求的数据格式不正确"),
     User_Already_Join(403,"用户已经在小组内"),
@@ -15,6 +16,7 @@ public enum CodeEnum {
     SIGNATURE_NOT_MATCH(401, "请求的数字签名不匹配"),
     SIGNATURE_NOT_ALLOW(403, "没有权限"),
     CARD_REPEATED(403,"已存在该卡"),
+    CARD_REPEATED1(403,"已存在于投票中"),
     NO_PICTURE(403,"请加入图片！"),
     Theme_Del_NOT_ALLOW(403,"小组不存在"),
     Theme_Author_NOT_ALLOW(403,"权限不足，无法删除小组"),

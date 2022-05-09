@@ -20,7 +20,8 @@
     "pages/card/create_card/index",
     "pages/group_fun/delete_by_name/index",
     "pages/card/card_list/index",
-    "pages/card/card_vote/index"
+    "pages/card/card_vote/index",
+    "pages/card/card_vote_list/index"
   ],
   "window": {
     "navigationStyle": "custom"

@@ -14,6 +14,9 @@ public class CardVoteRecordService extends SameService<CardVoteRecord>{
     public List<CardVoteRecord> getPublicVote(){
         return cardVoteRecordMapper.getPublicVote();
     }
+    public List<CardVoteRecord> getVoteListById(Integer id){
+        return cardVoteRecordMapper.getVoteListById(id);
+    }
 }
 
 

@@ -25,6 +25,14 @@
             <result column="is_group" jdbcType="INTEGER" property="isGroup"/>
             <result column="group_id" jdbcType="INTEGER" property="groupId"/>
         </association>
+        <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
+            <id column="user_id" jdbcType="INTEGER" property="userId"/>
+            <result column="user_city" jdbcType="VARCHAR" property="userCity"/>
+            <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
+            <result column="user_gender" jdbcType="TINYINT" property="userGender"/>
+            <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
+            <result column="user_motto" jdbcType="VARCHAR" property="userMotto"/>
+        </association>
     </resultMap>
 
     <!-- 通用查询结果列-->
@@ -39,6 +47,12 @@
         SELECT DISTINCT card_message.card_name,card_message.card_id FROM card_message,card_voting_message
         WHERE card_message.is_group is NULL AND card_voting_message.is_finished!=1 AND card_voting_message.card_id =card_message.card_id
     </select>
+
+    <select id="getVoteListById" resultMap="BaseResultMap">
+        SELECT DISTINCT a.card_id,b.* FROM card_voting_message as a,user_message as b WHERE a.user_id=b.user_id and a.card_id= #{cardId}
+    </select>
+
+
 
 
 
