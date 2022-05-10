@@ -101,6 +101,7 @@ public class UserMessageController {
         }
     }
 
+
     @GetMapping("/getUserId")
     @ApiOperation("获取用户ID")
     public static BaseResponse getUserId(HttpServletRequest request) {
