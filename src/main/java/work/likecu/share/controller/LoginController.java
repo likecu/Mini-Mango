@@ -80,6 +80,9 @@ public class LoginController {
         // System.out.println(wxResult);
         wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
         String openid = wxSessionModel.getOpenid();
+        if(openid==null){
+            System.out.println("get open_id fail");
+        }
         String sec = wxSessionModel.getSession_key();
         UserMessage tem = new UserMessage();
 
