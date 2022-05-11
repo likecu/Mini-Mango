@@ -1,7 +1,10 @@
 package work.likecu.share.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Table(name = "`swiper_message`")
 public class SwiperMessage {
     @Id
@@ -34,7 +37,6 @@ public class SwiperMessage {
     }
 
     /**
-     * @param swiperId
      */
     public void setSwiperId(Integer swiperId) {
         this.swiperId = swiperId;
