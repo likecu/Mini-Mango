@@ -54,9 +54,8 @@ public class GlobalDataController {
     @ApiOperation("获取评论以及回复")
     public BaseResponse getCommentById(@PathVariable Integer articleId, @PathVariable Integer pageNumber) {
         List<CommentMessage> list = commentService.getCommentById(pageNumber, articleId).getList();
-        int number = list.size();
-        for (int i = 0; i < number; i++) {
-            list.get(i).setReplayMessageList(replayMessageOperationService.getReplayContent(list.get(i).getCommentId()));
+        for (CommentMessage commentMessage : list) {
+            commentMessage.setReplayMessageList(replayMessageOperationService.getReplayContent(commentMessage.getCommentId()));
         }
 
         PageInfo<CommentMessage> of = PageInfo.of(list);

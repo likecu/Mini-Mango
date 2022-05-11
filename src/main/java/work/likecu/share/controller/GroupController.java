@@ -21,6 +21,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/wx")
 public class GroupController {
+    /*
+    * 主要对小组来进行控制
+    *
+    * */
 
     @Resource
     UserMessageOperationService userMessageOperationService;
@@ -31,7 +35,10 @@ public class GroupController {
     @Resource
     ThemeMessageOperationService themeMessageOperationService;
 
-
+    /*
+    *
+    *
+    * */
     @PostMapping("/addGroup")
     @Transactional
     @ApiOperation(value = "创建小组")
