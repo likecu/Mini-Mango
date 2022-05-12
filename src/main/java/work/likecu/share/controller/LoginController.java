@@ -105,6 +105,7 @@ public class LoginController {
         tem = new UserMessage();
         tem.setUserToken(openid);
 
+
         wxSessionModel.setUserId(userMessageOperationService.findList(tem).get(0).getUserId());
 
 //        userMessage.setUserId(list.get(0).getUserId());
