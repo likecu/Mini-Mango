@@ -15,6 +15,7 @@
             <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
             <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
             <result column="user_gender" jdbcType="VARCHAR" property="userGender"/>
+            <result column="user_city" jdbcType="VARCHAR" property="userCity"/>
         </association>
     </resultMap>
 
@@ -28,7 +29,7 @@
 
 
         select comment_id, comment_content, article_id, comment_message.user_id, comment_message.create_time,
-        user_nickname,user_gender, user_avatar
+        user_nickname,user_gender, user_avatar ,user_city
         from
         comment_message,user_message
         where

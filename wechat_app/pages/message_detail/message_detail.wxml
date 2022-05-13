@@ -2,7 +2,7 @@
   <view>
     <navbar title="" loading="{{true}}" home="{{true}}" back="{{true}}"></navbar>
   </view>
-  <scroll-view scroll-y="{{true}}" style="height:calc(100vh - {{navTop+'px'}} - 34px);" bindscrolltolower="newCommentLoadMessage" >
+  <scroll-view scroll-y="{{true}}" style="height:calc(100vh - {{navTop+'px'}} - 34px);" bindscrolltolower="newCommentLoadMessage">
     <view class="body">
       <view class="user_message">
         <view class="user_image">
@@ -13,7 +13,7 @@
             {{article.userMessage.userNickname}}
             <text class="{{article.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text>
           </view>
-          <div class="h-vipType" wx:if="{{article.userMessage.userCity!=null}}" >{{article.userMessage.userCity}}</div>
+          <div class="h-vipType" wx:if="{{article.userMessage.userCity!=null}}">{{article.userMessage.userCity}}</div>
           <view class="intro">{{article.userMessage.userMotto}}</view>
         </view>
         <view style="color:red;font-size:25rpx" hidden="{{article.userMessage.userId!=userId}}" bindtap="deleteArticle">
@@ -25,7 +25,7 @@
       </view>
       <!-- <view class="line"></view> -->
       <view class="content">
-       		<rich-text nodes="{{article.articleContent}}" bindtap="previewImage"></rich-text>
+        <rich-text nodes="{{article.articleContent}}" bindtap="previewImage"></rich-text>
         <!-- <wxparser rich-text="{{article.articleContent}}" /> -->
       </view>
       <view class="time">{{article.createTime}}</view>
@@ -40,12 +40,15 @@
     <view class="comment">
       <block wx:for="{{comment}}" wx:key="huangxin">
         <view class="content">
-          <view class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message"><image src="{{item.userMessage.userAvatar}}" /></view>
+          <view class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
+            <image src="{{item.userMessage.userAvatar}}" />
+          </view>
           <view class="user_detail">
             <view class="user_name">
               {{item.userMessage.userNickname}}
               <text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}" style="font-size:25rpx"></text>
             </view>
+
             <view class="user_comment" bind:tap="replayPop" bind:longtap="deleteComment" data-userid="{{item.userMessage.userId}}" data-nickname="{{item.userMessage.userNickname}}" data-commentid="{{item.commentId}}">
               {{item.commentContent}}
               <view class="time">{{item.createTime}}</view>
@@ -59,6 +62,7 @@
                   <view class="user_name">
                     {{replay.commentUserMessage.userNickname}}
                     <text class="{{replay.commentUserMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}" style="font-size:25rpx"></text>
+                    <image wx:if="{{replay.commentUserMessage.userCity=='普通用户'}}" bind:tap="cardmanage" src="https://s1.ax1x.com/2022/05/09/OGYSgS.jpg" style="height: 25px;width: 55px;"></image>
                   </view>
                   <view class="user_comment" bind:tap="replayPop" bind:longtap="deleteComment" data-userid="{{replay.commentUserMessage.userId}}" data-nickname="{{replay.commentUserMessage.userNickname}}" data-commentid="{{replay.commentId}}" data-replayid="{{replay.commentUserMessage.userId}}">
                     <text style="color:#999;font-size:25rpx" id="{{replay.replayUserMessage.userId}}" bind:tap="check_user_message">{{replay.replayUserMessage.userNickname==null?'':replay.commentUserMessage.userId==replay.replayUserMessage.userId?'':'@'+replay.replayUserMessage.userNickname+' '}}</text>
@@ -94,12 +98,12 @@
 </view>
 <view class="sendComment">
   <view class="like">
-  <image src="/image/like.png" bind:tap="likeArticle" hidden="{{isLike}}"></image>
-     <image src="/image/like_active.png" bind:tap="likeArticle" hidden="{{!isLike}}"></image>
+    <image src="/image/like.png" bind:tap="likeArticle" hidden="{{isLike}}"></image>
+    <image src="/image/like_active.png" bind:tap="likeArticle" hidden="{{!isLike}}"></image>
   </view>
   <view>
     <button open-type="share">
-       <text class="iconfont icon-fenxiang" style="color: rgb(138, 44, 226);font-size:80rpx;"></text>
+      <text class="iconfont icon-fenxiang" style="color: rgb(138, 44, 226);font-size:80rpx;"></text>
     </button>
   </view>
   <view class="comment">
