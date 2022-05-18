@@ -64,6 +64,7 @@
                     <text class="{{replay.commentUserMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}" style="font-size:25rpx"></text>
                     <image wx:if="{{replay.commentUserMessage.userCity=='普通用户'}}" bind:tap="cardmanage" src="https://s1.ax1x.com/2022/05/09/OGYSgS.jpg" style="height: 25px;width: 55px;"></image>
                   </view>
+                  
                   <view class="user_comment" bind:tap="replayPop" bind:longtap="deleteComment" data-userid="{{replay.commentUserMessage.userId}}" data-nickname="{{replay.commentUserMessage.userNickname}}" data-commentid="{{replay.commentId}}" data-replayid="{{replay.commentUserMessage.userId}}">
                     <text style="color:#999;font-size:25rpx" id="{{replay.replayUserMessage.userId}}" bind:tap="check_user_message">{{replay.replayUserMessage.userNickname==null?'':replay.commentUserMessage.userId==replay.replayUserMessage.userId?'':'@'+replay.replayUserMessage.userNickname+' '}}</text>
                     <text>{{replay.replayContent}}</text>
