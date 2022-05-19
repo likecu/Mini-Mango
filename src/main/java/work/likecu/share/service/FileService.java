@@ -33,14 +33,18 @@ public class FileService {
     private String picDir;
 
 
-    public String saveFile(MultipartFile multipartFile) {
+    public String saveFile(MultipartFile multipartFile,String filename ) {
 
-        String filename = multipartFile.getOriginalFilename();
 
-        File file = new File(picDir + filename);
+        String[] strings=filename.split("/");
+        String path=picDir +strings[0]+"/"+strings[1];
+        File file = new File(path);
+        System.out.println(path);
+        System.out.println(file.mkdirs());
 
+        File file1 = new File(picDir + filename);
         try {
-            multipartFile.transferTo(file);
+            multipartFile.transferTo(file1);
         } catch (IOException e) {
             log.error("save file error,{}", e.getMessage());
             return "";

@@ -1,4 +1,5 @@
 // pages/group_fun/create_group/create_group.js
+var uploadImage = require('../../../utils/uploadFile');
 Page({
 
   /**
@@ -81,23 +82,37 @@ Page({
         var path ='images/' + currentdate + '/' + new Date().getTime() + Math.floor(Math.random() * 150) + '.png';
 
         console.log("path",path,"file_path",res.tempFilePaths[0]);
-        wx.cloud.uploadFile({
-          // 指定上传到的云路径
-          cloudPath: path,
-          // 指定要上传的文件的小程序临时文件路径
-          filePath: res.tempFilePaths[0],
-          config: {
-            env: 'test1-0gv461zze3a93633'
-          }
-        }).then(res1 => {
+
+        uploadImage(res.tempFilePaths[0], path,
+        function (result) {
+          console.log("======上传成功图片地址为：", getApp().globalData.photoUrl+ '/file/'+path);
           that.setData({
-            'a1.themeImage':res1.fileID,
-          });
+                'a1.themeImage':getApp().globalData.photoUrl+ '/file/'+path,
+              });
           wx.hideLoading();
-        }).catch((e) => {
+        },
+        function (result) {
           console.log("======上传失败======", result);
-          wx.hideLoading();
-        });
+          wx.hideLoading()
+        }
+      )
+        // wx.cloud.uploadFile({
+        //   // 指定上传到的云路径
+        //   cloudPath: path,
+        //   // 指定要上传的文件的小程序临时文件路径
+        //   filePath: res.tempFilePaths[0],
+        //   config: {
+        //     env: 'test1-0gv461zze3a93633'
+        //   }
+        // }).then(res1 => {
+        //   that.setData({
+        //     'a1.themeImage':res1.fileID,
+        //   });
+        //   wx.hideLoading();
+        // }).catch((e) => {
+        //   console.log("======上传失败======", result);
+        //   wx.hideLoading();
+        // });
         //插入编辑器结束
         //云文件上传结束
       }
