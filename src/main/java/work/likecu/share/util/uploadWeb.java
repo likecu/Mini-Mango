@@ -24,12 +24,12 @@ import java.util.regex.Pattern;
 /**
  * @author NXY666
  */
-public class testProgram {
+public class uploadWeb {
     static final String IMGTU_USER_NAME = "******";
 
     static final String IMGTU_PASSWORD = "*****";
 
-    static final Logger log = LogManager.getLogger(testProgram.class);
+    static final Logger log = LogManager.getLogger(uploadWeb.class);
 
     static final private String IMGTU_INIT_URL = "https://imgtu.com/init";
 
@@ -71,7 +71,7 @@ public class testProgram {
             log.info("【初始化】成功：会话有效期内，无需重新初始化。");
             return null;
         }
-        synchronized (testProgram.class) {
+        synchronized (uploadWeb.class) {
             // 初始化
             sessionId = null;
             authToken = null;
@@ -132,7 +132,7 @@ public class testProgram {
             log.info("【登录】成功：登录状态有效期内，无需重新登录。");
             return null;
         }
-        synchronized (testProgram.class) {
+        synchronized (uploadWeb.class) {
             // 初始化会话
             if (isSessionIdExpired()) {
                 Boolean b = initSession();

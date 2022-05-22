@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 import work.likecu.share.util.FileUpload;
-import work.likecu.share.util.testProgram;
+import work.likecu.share.util.uploadWeb;
 
 import java.io.IOException;
 
@@ -20,9 +20,9 @@ public class MiniProgramRunApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws IOException {
 //        SpringApplication.run(MiniProgramRunApp.class, args);
-        testProgram.initSession();
+        uploadWeb.initSession();
         byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
-        System.out.println(testProgram.upload(a,"psc3.jpg", ContentType.IMAGE_JPEG).getAsJsonObject("image").get("url"));
+        System.out.println(uploadWeb.upload(a,"psc3.jpg", ContentType.IMAGE_JPEG).getAsJsonObject("image").get("url"));
     }
 //    /**
 //     * 以下为Tomcat启动

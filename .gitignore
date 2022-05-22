@@ -3,3 +3,4 @@
 /src/main/resources/application.yml
 /wechat_app/app.js
 /wechat_app/project.config.json
+/src/main/java/work/likecu/share/util/FileUpload.java
