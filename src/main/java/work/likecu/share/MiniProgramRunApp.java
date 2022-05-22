@@ -1,6 +1,7 @@
 package work.likecu.share;
 
 import org.apache.http.entity.ContentType;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -19,10 +20,8 @@ public class MiniProgramRunApp extends SpringBootServletInitializer {
 
 
     public static void main(String[] args) throws IOException {
-//        SpringApplication.run(MiniProgramRunApp.class, args);
-        uploadWeb.initSession();
-        byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
-        System.out.println(uploadWeb.upload(a,"psc3.jpg", ContentType.IMAGE_JPEG).getAsJsonObject("image").get("url"));
+        SpringApplication.run(MiniProgramRunApp.class, args);
+
     }
 //    /**
 //     * 以下为Tomcat启动
