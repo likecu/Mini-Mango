@@ -319,7 +319,7 @@ Page({
           // 指定要上传的文件的小程序临时文件路径
           filePath: res.tempFilePaths[0],
           config: {
-            env: 'test1-0gv461zze3a93633'
+            env: 'cloud-0ggabd9q9ceb4c32'
           }
         }).then(res1 => {
           console.log('上传成功', res1);

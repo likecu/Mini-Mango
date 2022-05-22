@@ -1,11 +1,15 @@
 package work.likecu.share;
 
-import org.springframework.boot.SpringApplication;
+import org.apache.http.entity.ContentType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
+import work.likecu.share.util.FileUpload;
+import work.likecu.share.util.testProgram;
+
+import java.io.IOException;
 
 @SpringBootApplication
 @ServletComponentScan(basePackages = "work.likecu.share.*")
@@ -13,8 +17,12 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableTransactionManagement
 public class MiniProgramRunApp extends SpringBootServletInitializer {
 
-    public static void main(String args[]) {
-        SpringApplication.run(MiniProgramRunApp.class, args);
+
+    public static void main(String[] args) throws IOException {
+//        SpringApplication.run(MiniProgramRunApp.class, args);
+        testProgram.initSession();
+        byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
+        System.out.println(testProgram.upload(a,"psc3.jpg", ContentType.IMAGE_JPEG).getAsJsonObject("image").get("url"));
     }
 //    /**
 //     * 以下为Tomcat启动

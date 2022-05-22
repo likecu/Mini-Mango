@@ -127,6 +127,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index_gps/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
