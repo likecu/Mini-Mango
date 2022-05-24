@@ -1,8 +1,8 @@
-<view class="wux-class {{ classes.wrap }}">
-    <view class="{{ classes.outer }}">
-    	<view class="{{ classes.inner }}" style="background-color: {{ backgroundColor }}">
-    		<view class="{{ classes.bar }}" style="{{ style }} {{ extStyle }}"></view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+    <view style="box-sizing:null;" class="{{ classes.outer }}">
+    	<view style="box-sizing:null;" class="{{ classes.inner }}" style="background-color: {{ backgroundColor }}">
+    		<view style="box-sizing:null;" class="{{ classes.bar }}" style="{{ style }} {{ extStyle }}"></view>
     	</view>
     </view>
-    <view class="{{ classes.text }}" wx:if="{{ showInfo }}">{{ width + '%' }}</view>
+    <view style="box-sizing:null;" class="{{ classes.text }}" wx:if="{{ showInfo }}">{{ width + '%' }}</view>
 </view>

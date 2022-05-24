@@ -1,0 +1,37 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">详情</view>
+</cu-custom>
+<van-search showAction bindtap="onFocus" placeholder="请输入搜索关键词" value="{{value}}"></van-search>
+<view>
+    <swiper autoplay="{{autoplay}}" class="picture" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+        <swiper-item wx:for="{{data.img}}" wx:key="*this">
+            <image bindtap="previewImage" class="slide-image" data-index="{{index}}" mode="scaleToFill" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="first clear">
+    <view class="price">￥{{data.price}}元</view>
+    <text style="color:#CCCCCC;text-decoration:line-through;font-size:12px;line-height:40px"> 原价：{{data.oldprice}}元 </text>
+</view>
+<view class="second">
+    <view class="name">{{data.name}}</view>
+</view>
+<view class="pj_box">
+    <view class="detail_card detail_border ">
+        <view class="detail_title">发布日期</view>
+        <view class="detail_content">{{data.addtime}}</view>
+    </view>
+    <view class="detail_card detail_border ">
+        <view class="detail_title">新旧程度</view>
+        <view class="detail_content">{{data.degree}}</view>
+    </view>
+    <view class="detail_card detail_border ">
+        <view class="detail_title">详细描述</view>
+        <view class="detail_content_d">{{data.content}}</view>
+    </view>
+</view>
+<van-goods-action class="bottom">
+    <view class="add-cart sub f16">
+        <button bindtap="makecall" class="add-cart-btn" data-phone="{{data.phone}}" disabled="{{selfflag}}">联系卖家</button>
+    </view>
+</van-goods-action>

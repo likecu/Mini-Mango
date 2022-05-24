@@ -7,4 +7,4 @@
   <slot />
 </view>
 
-<view wx:if="{{ fixed && placeholder }}" style="height: {{ height }}px;"></view>
+<view style="box-sizing:null;" wx:if="{{ fixed && placeholder }}" style="height: {{ height }}px;"></view>

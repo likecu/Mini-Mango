@@ -1,0 +1,67 @@
+page {
+    background: #f9f9f9;
+}
+
+.box {
+    background: #fff;
+    margin: 30rpx;
+    padding: 30rpx;
+}
+
+.box,.textarea {
+    border-radius: 10rpx;
+}
+
+.textarea {
+    background: #f9f9f9;
+    width: 100%;
+    height: 150rpx;
+    margin-top: 20rpx;
+    padding: 20rpx;
+}
+
+.left_num {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+    color: #d1d1d1;
+}
+
+.size30 {
+    font-size: 30rpx;
+}
+
+.name_input {
+    width: 50%;
+}
+
+.btn_row {
+    margin: 70rpx 50rpx 30rpx;
+}
+
+.btn_:first-child {
+    background: #00bb69!important;
+}
+
+.btn_ {
+    width: 90%;
+    margin-left: 5%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #ff6344;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+}
+
+input {
+    text-align: right;
+    font-size: 28rpx;
+}
+
+.img {
+    margin-top: 30rpx;
+    width: 200rpx;
+    height: 200rpx;
+}

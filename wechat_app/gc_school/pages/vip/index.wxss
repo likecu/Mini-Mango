@@ -1,0 +1,70 @@
+page {
+    background-color: #fff;
+}
+
+.bgmains {
+    background-color: #ff6444;
+}
+
+.bgmains,.cuIcon-back {
+    color: #fff;
+}
+
+.box {
+    display: flex;
+    margin-top: 120rpx;
+    padding: 0 10%;
+}
+
+.item {
+    flex: 1;
+    height: 220rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #dfaa4c;
+    border-radius: 10rpx;
+    border: 4rpx solid grey;
+}
+
+.active {
+    border: 4rpx solid #d2af56;
+    background-color: #fdf1db;
+}
+
+.item .name {
+    margin: 40rpx 0 20rpx;
+    color: #000;
+}
+
+.item text {
+    font-size: 46rpx;
+}
+
+.btns {
+    margin: 150rpx 10% 60rpx;
+    width: 80%;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #f5cf69;
+    border-radius: 60rpx;
+    font-weight: 700;
+}
+
+.btns,.time {
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.time {
+    margin-top: 100rpx;
+}
+
+.rule_line {
+    display: flex;
+    font-size: 30rpx;
+    justify-content: center;
+}
+
+.rule {
+    font-weight: 700;
+}

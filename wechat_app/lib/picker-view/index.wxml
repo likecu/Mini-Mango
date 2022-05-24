@@ -8,9 +8,9 @@
         bind:touchend="onTouchEnd"
         bind:touchcancel="onTouchEnd"
     >
-        <view class="wux-mask-class {{ maskClass }} {{ classes.mask }}" style="{{ styles.mask }} {{ extMaskStyle }}"></view>
-        <view class="wux-indicator-class {{ indicatorClass }} {{ classes.indicator }}" style="{{ styles.indicator }} {{ extIndicatorStyle }}"></view>
-        <view class="wux-content-class {{ classes.content }}" style="{{ styles.content }} {{ contentStyle }}">
+        <view style="box-sizing:null;" class="wux-mask-class {{ maskClass }} {{ classes.mask }}" style="{{ styles.mask }} {{ extMaskStyle }}"></view>
+        <view style="box-sizing:null;" class="wux-indicator-class {{ indicatorClass }} {{ classes.indicator }}" style="{{ styles.indicator }} {{ extIndicatorStyle }}"></view>
+        <view style="box-sizing:null;" class="wux-content-class {{ classes.content }}" style="{{ styles.content }} {{ contentStyle }}">
             <block wx:for="{{ cols }}" wx:for-item="col" wx:key="{{ col[fieldNames.value] }}">
                 <view
                     style="{{ styles.item }} {{ extItemStyle }}"

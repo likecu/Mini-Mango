@@ -1,0 +1,73 @@
+<cu-custom bgColor="bgmains" isBack="{{true}}">
+    <view slot="content">我的抢单</view>
+</cu-custom>
+<view class="container">
+    <view class="modal" wx:if="{{getUseInfo}}">
+        <view class="m_box tc">
+            <view class="title">提示</view>
+            <view class="fs30 p20">请先开启用户授权</view>
+            <view class="border_top_2">
+                <button bindgetuserinfo="getUsetInfo" class="m_btn" openType="getUserInfo">确定</button>
+            </view>
+        </view>
+    </view>
+    <view class="page">
+        <scroll-view scrollWithAnimation scrollX class="nav text-center" scrollLeft="{{scrollLeft}}">
+            <view class="flex text-center" style="flex:1">
+                <view bindtap="tabSelect" class="cu-item  flex-sub {{0==TabCur?'text-white cur':''}}" data-id="0" data-index="3">
+                    待取货
+                </view>
+                <view bindtap="tabSelect" class="cu-item flex-sub {{1==TabCur?'text-white cur':''}}" data-id="1" data-index="7">
+                    待送达
+                </view>
+                <view bindtap="tabSelect" class="cu-item flex-sub {{2==TabCur?'text-white cur':''}}" data-id="2" data-index="4">
+                    已完成
+                </view>
+                <view bindtap="tabSelect" class="cu-item flex-sub {{9==TabCur?'text-white cur':''}}" data-id="9" data-index="9">
+                    取消中
+                </view>
+            </view>
+        </scroll-view>
+        <view class="page-container ">
+            <view class="block" style="width:100%" wx:if="{{list.length==0}}">
+                <view class=" col-1 nodata" style="margin:100rpx auto; text-align:center; width:100%" wx:if="{{list.length==0}}">
+                    <view class="padding-sm" style="flex:1">
+                        <view class=" padding radius text-center light ">
+                            <text class="cuIcon-infofill lg text-lg" style="font-size:50rpx"></text>
+                            <view class="text-lg padding-tb-sm'">暂无数据</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="block" style="width:100%" wx:if="{{list.length>0}}">
+                <view class="box" wx:for="{{list}}" wx:key="{{index}}">
+                    <view bindtap="detail" class="flex bg-white padding-left align-center padding-right padding-bottom justify-between" data-index="{{index}}">
+                        <view style="width:50%">
+                            <view class="padding-tb-sm">
+                                <view class="text-df text-cut">{{item.desc}}</view>
+                            </view>
+                            <view class="ft">
+                                <view class="cu-tag sm radius">
+                                    {{item.type}}
+                                </view>
+                                <view class="cu-tag sm radius">
+                                    送达时间：{{item.start_time}}
+                                </view>
+                            </view>
+                        </view>
+                        <view>
+                            <text class="text-yellow text-xl margin-right-sm">¥{{item.total}}</text>
+                            <text class="text-yellow text-sm margin-right">{{item.status}}</text>
+                            <text class="cuIcon-right"></text>
+                        </view>
+                    </view>
+                    <view class="address padding-left" wx:if="{{item.type=='超市食堂'}}"> 商品信息：{{item.good_details}}</view>
+                    <view class="address padding-left" wx:if="{{item.qu_addres}}"> 取货地址：{{item.qu_addres}}</view>
+                    <view class="address padding-left"> 收货地址：{{item.sh_addres}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</view>
+<view class="cu-tabbar-height"></view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "我的小店",
+    "navigationBarBackgroundColor": "#FFBA20",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

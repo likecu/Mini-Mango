@@ -1,7 +1,7 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <wxs src="./index.wxs" module="computed" />
 
-<view class="{{ utils.bem('stepper', [theme]) }} custom-class">
+<view style="box-sizing:null;" class="{{ utils.bem('stepper', [theme]) }} custom-class">
   <view
     wx:if="{{ showMinus }}"
     data-type="minus"

@@ -1,0 +1,35 @@
+page {
+    background: #fff;
+}
+
+.bgmains {
+    background-color: #ff6444;
+}
+
+.bgmains,.cuIcon-back {
+    color: #fff;
+}
+
+.image {
+    width: 30%;
+    height: 200rpx;
+    margin-right: 20rpx;
+    font-size: 80rpx;
+    color: #ff6344;
+    background: #f2f2f2;
+    line-height: 200rpx;
+}
+
+.image,.submit {
+    text-align: center;
+}
+
+.submit {
+    width: 84%;
+    background: #ff6344;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    margin: 80rpx auto;
+    color: #fff;
+}

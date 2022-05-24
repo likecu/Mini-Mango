@@ -2,5 +2,5 @@
   "component": true,
   "usingComponents": {
     "van-info": "../info/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

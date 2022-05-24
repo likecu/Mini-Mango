@@ -2,5 +2,5 @@
   "component": true,
   "usingComponents": {
     "van-tag": "../tag/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

@@ -1,0 +1,41 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">店铺信息</view>
+</cu-custom>
+<view class="box">
+    <view class="flex align-center text-bold">
+        <view class="text-red text-xxl">*</view>
+        <view class="text-lg">店铺信息</view>
+    </view>
+    <view class="name text-lg margin-top">商家名称</view>
+    <view style=" position: relative;">
+        <textarea bindinput="textarea" class="textarea" maxlength="{{maxTextLen}}" placeholder="请输入名称" placeholderStyle="color:#D1D1D1;" value="{{name}}"></textarea>
+        <view class="left_num">{{word_num}}/{{maxTextLen}}</view>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>商家地址</view>
+        <input bindinput="address" placeholder="请输入商家地址" placeholderStyle="color:lightgray" value="{{address}}"></input>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>商家电话</view>
+        <input bindinput="phone" placeholder="请输入商家电话" placeholderStyle="color:lightgray" type="numebr" value="{{phone}}"></input>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>营业时间</view>
+        <picker bindchange="bindTimeChange" end="23:59" mode="time" start="00:00" value="{{time}}">
+      {{time}}
+      <text class="cuIcon-right"></text>
+        </picker>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>打烊时间</view>
+        <picker bindchange="bindTimeChange1" end="23:59" mode="time" start="00:00" value="{{time_end}}">
+      {{time_end}}
+      <text class="cuIcon-right"></text>
+        </picker>
+    </view>
+    <view class="size30 margin-top">商品图片</view>
+    <image bindtap="choose" class="img" src="{{img?img:'../../../images/article/add.png'}}"></image>
+</view>
+<view class="flex btn_row justify-between">
+    <view bindtap="submit" class="btn_">提交</view>
+</view>

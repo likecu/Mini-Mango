@@ -1,0 +1,26 @@
+<cu-custom bgColor="bgmains" isBack="{{true}}">
+    <view slot="content">VIP会员</view>
+</cu-custom>
+<view class="box">
+    <view bindtap="current" class="item {{type==1?'active':''}}" data-money="{{data.month_fee}}" data-type="1">
+        <view class="name">包月费用</view>
+        <view>￥<text>{{data.month_fee}}</text>
+        </view>
+    </view>
+    <view style="width:16%;"></view>
+    <view bindtap="current" class="item {{type==2?'active':''}}" data-money="{{data.year_fee}}" data-type="2">
+        <view class="name">包年费用</view>
+        <view>￥<text>{{data.year_fee}}</text>
+        </view>
+    </view>
+</view>
+<view class="time" wx:if="{{userInfo.is_vip==1}}">
+  会员有效期至：{{userInfo.dead_time}}
+</view>
+<view bindtap="submit" class="btns">确认支付{{money}}元</view>
+<view class="rule_line">
+  开通前阅读
+  <navigator class="rule" hoverClass="none" url="/gc_school/pages/rule/index">
+    《会员服务协议》
+  </navigator>
+</view>

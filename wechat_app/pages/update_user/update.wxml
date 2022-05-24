@@ -4,7 +4,7 @@
   <form bindsubmit="submit">
     <!-- <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
+      <view style="box-sizing:null;" class="picker">
         国家：{{objectArray[index].name}}
       </view>
     </picker>
@@ -12,26 +12,26 @@
     <!-- <view>
     <input name="title" class="title" placeholder="请输入文章标题"></input>
   </view> -->
-    <view class="container">
+    <view style="box-sizing:null;" class="container">
       <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-      <view class="page-body">
-        <view class='wrapper'>
+      <view style="box-sizing:null;" class="page-body">
+        <view style="box-sizing:null;" class='wrapper'>
 
-          <view style="height: 20px;"></view>
-          <view style="  margin-left: 6%;float:inline-start;width: 15%;font-weight: 600;">用户名
+          <view style="box-sizing:null;" style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="  margin-left: 6%;float:inline-start;width: 15%;font-weight: 600;">用户名
           </view>
-          <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
+          <view style="box-sizing:null;" style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
             <input name="userNickname" placeholder="当前用户名" autosize="{{ true }}" style="margin-left: 5% ;" />
           </view>
           <!-- <vans name="userNickname"  type="textarea" placeholder="请输入用户名" clearable="{{true}}" autosize="{{ true }}" style="  margin-left: 2%;"radio-group= 
           /> -->
 
 
-          <view style="height: 30px;"></view>
-          <view class='toolbar' style="  margin-left: 2%;" style="padding: 1em;float:inline-start;width: 20%;font-weight: 600;">
+          <view style="box-sizing:null;" style="height: 30px;"></view>
+          <view style="box-sizing:null;" class='toolbar' style="  margin-left: 2%;" style="padding: 1em;float:inline-start;width: 20%;font-weight: 600;">
             性别
           </view>
-          <view style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="height: 20px;"></view>
           <radio-group name="userGender " style="float: inline-end;width:65%;margin-right: 3%;">
             <label>
               <radio value="0" />保密
@@ -46,22 +46,22 @@
               <radio value="3" />其他
             </label>
           </radio-group>
-          <view style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="height: 20px;"></view>
           
-          <view class="submit">
+          <view style="box-sizing:null;" class="submit">
             <button class="button" type="primary" bindtap="insertImage">上传头像</button>
           </view>
-          <view class="container">
-          <view style="height: 20px;"></view>
-          <view class='toolbar' bindtap="format" style="float:inline-start;width:18%;font-weight: 600;">
+          <view style="box-sizing:null;" class="container">
+          <view style="box-sizing:null;" style="height: 20px;"></view>
+          <view style="box-sizing:null;" class='toolbar' bindtap="format" style="float:inline-start;width:18%;font-weight: 600;">
             个人简介
           </view>
-          <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;height: 200px;">
+          <view style="box-sizing:null;" style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;height: 200px;">
             <input name="userMotto" placeholder="请输入" autosize="{{ true }}" style="margin-left: 5% ;" />
           </view>
         </view>
-        <view style="height: 300px;"></view>
-        <view class="submit" >
+        <view style="box-sizing:null;" style="height: 300px;"></view>
+        <view style="box-sizing:null;" class="submit" >
             <button class="button" type="primary" form-type="submit" >保存</button>
           </view>
           <!-- <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">

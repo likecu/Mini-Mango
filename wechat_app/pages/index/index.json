@@ -1,4 +1,5 @@
 {
   "enablePullDownRefresh": false,
-  "backgroundColor": "#ffdee9"
+  "backgroundColor": "#ffdee9",
+   "styleIsolation": "page-apply-shared"
 }

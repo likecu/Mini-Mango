@@ -1,14 +1,14 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <wxs src="./index.wxs" module="computed" />
 
-<view wx:if="{{ fixed && placeholder }}" style="height: {{ height }}px;" />
+<view style="box-sizing:null;" wx:if="{{ fixed && placeholder }}" style="height: {{ height }}px;" />
 
 <view
   class="{{ utils.bem('nav-bar', { fixed }) }} custom-class {{ border ? 'van-hairline--bottom' : '' }}"
   style="{{ computed.barStyle({ zIndex, statusBarHeight, safeAreaInsetTop }) }}; {{ customStyle }}"
 >
-  <view class="van-nav-bar__content">
-    <view class="van-nav-bar__left" bind:tap="onClickLeft">
+  <view style="box-sizing:null;" class="van-nav-bar__content">
+    <view style="box-sizing:null;" class="van-nav-bar__left" bind:tap="onClickLeft">
       <block wx:if="{{ leftArrow || leftText }}">
         <van-icon
           wx:if="{{ leftArrow }}"
@@ -25,11 +25,11 @@
       </block>
       <slot wx:else name="left" />
     </view>
-    <view class="van-nav-bar__title title-class van-ellipsis">
+    <view style="box-sizing:null;" class="van-nav-bar__title title-class van-ellipsis">
       <block wx:if="{{ title }}">{{ title }}</block>
       <slot wx:else name="title" />
     </view>
-    <view class="van-nav-bar__right" bind:tap="onClickRight">
+    <view style="box-sizing:null;" class="van-nav-bar__right" bind:tap="onClickRight">
       <view
         wx:if="{{ rightText }}"
         class="van-nav-bar__text"

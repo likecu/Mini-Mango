@@ -9,11 +9,11 @@
     maskClosable="{{ maskClosable }}"
     bind:close="onClose"
 >
-	<view class="wux-class {{ classes.wrap }}">
-	    <view class="{{ classes.inner }}">
+	<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+	    <view style="box-sizing:null;" class="{{ classes.inner }}">
 	    	<slot></slot>
 	    </view>
-        <view class="{{ classes.close }}" wx:if="{{ closable }}" bindtap="onClose">
+        <view style="box-sizing:null;" class="{{ classes.close }}" wx:if="{{ closable }}" bindtap="onClose">
             <text class="{{ classes.x }}"></text>
         </view>
 	</view>

@@ -1,38 +1,38 @@
 <wux-popup position="bottom" visible="{{ in }}" zIndex="1010" safeArea="bottom" bind:close="close">
-    <view class="wux-class {{ classes.wrap }}">
-        <view class="{{ classes.content }}">
-            <view class="{{ classes.hd }}" wx:if="{{ toolbar }}">
-                <view class="{{ classes.toolbar }}">
-                    <view class="{{ classes.picker }}">
-                        <view class="{{ classes.link }}" bindtap="prevMonth">
-                            <view class="{{ classes.prev }}"></view>
+    <view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+        <view style="box-sizing:null;" class="{{ classes.content }}">
+            <view style="box-sizing:null;" class="{{ classes.hd }}" wx:if="{{ toolbar }}">
+                <view style="box-sizing:null;" class="{{ classes.toolbar }}">
+                    <view style="box-sizing:null;" class="{{ classes.picker }}">
+                        <view style="box-sizing:null;" class="{{ classes.link }}" bindtap="prevMonth">
+                            <view style="box-sizing:null;" class="{{ classes.prev }}"></view>
                         </view>
-                        <view class="{{ classes.value }}">{{ currentMonthName }}</view>
-                        <view class="{{ classes.link }}" bindtap="nextMonth">
-                            <view class="{{ classes.next }}"></view>
+                        <view style="box-sizing:null;" class="{{ classes.value }}">{{ currentMonthName }}</view>
+                        <view style="box-sizing:null;" class="{{ classes.link }}" bindtap="nextMonth">
+                            <view style="box-sizing:null;" class="{{ classes.next }}"></view>
                         </view>
                     </view>
-                    <view class="{{ classes.picker }}">
-                        <view class="{{ classes.link }}" bindtap="prevYear">
-                            <view class="{{ classes.prev }}"></view>
+                    <view style="box-sizing:null;" class="{{ classes.picker }}">
+                        <view style="box-sizing:null;" class="{{ classes.link }}" bindtap="prevYear">
+                            <view style="box-sizing:null;" class="{{ classes.prev }}"></view>
                         </view>
                         <text class="{{ classes.value }}">{{ currentYear }}</text>
-                        <view class="{{ classes.link }}" bindtap="nextYear">
-                            <view class="{{ classes.next }}"></view>
+                        <view style="box-sizing:null;" class="{{ classes.link }}" bindtap="nextYear">
+                            <view style="box-sizing:null;" class="{{ classes.next }}"></view>
                         </view>
                     </view>
                 </view>
             </view>
-            <view class="{{ classes.bd }}">
-                <view class="{{ classes.weekdays }}" wx:if="{{ weekHeader }}">
+            <view style="box-sizing:null;" class="{{ classes.bd }}">
+                <view style="box-sizing:null;" class="{{ classes.weekdays }}" wx:if="{{ weekHeader }}">
                     <block wx:for="{{ weeks }}" wx:for-item="week" wx:for-index="weekIndex" wx:key="weekIndex">
-                        <view class="{{ classes.weekday }} {{ week.weekend ? prefixCls + '__weekday--weekend' : '' }}">
+                        <view style="box-sizing:null;" class="{{ classes.weekday }} {{ week.weekend ? prefixCls + '__weekday--weekend' : '' }}">
                             {{ week.dayName }}
                         </view>
                     </block>
                 </view>
-                <view class="{{ classes.months }}">
-                    <view class="{{ classes.monthsContent }}" bindtouchstart="onTouchStart" catchtouchmove="{{ swiping ? 'noop' : '' }}" capture-bind:touchmove="onTouchMove" bindtouchend="onTouchEnd" style="{{ wrapperTranslate }}">
+                <view style="box-sizing:null;" class="{{ classes.months }}">
+                    <view style="box-sizing:null;" class="{{ classes.monthsContent }}" bindtouchstart="onTouchStart" catchtouchmove="{{ swiping ? 'noop' : '' }}" capture-bind:touchmove="onTouchMove" bindtouchend="onTouchEnd" style="{{ wrapperTranslate }}">
                         <block wx:for="{{ months }}" wx:for-item="month" wx:for-index="monthIndex" wx:key="monthIndex">
                             <view
                                 data-year="{{ month.year }}"
@@ -41,7 +41,7 @@
                                 style="{{ monthsTranslate[monthIndex] }}"
                             >
                                 <block wx:for="{{ month.items }}" wx:for-item="row" wx:for-index="rowIndex" wx:key="rowIndex">
-                                    <view class="{{ classes.days }}">
+                                    <view style="box-sizing:null;" class="{{ classes.days }}">
                                         <block wx:for="{{ row }}" wx:for-item="col" wx:for-index="colIndex" wx:key="colIndex">
                                             <view
                                             data-year="{{ col.year }}"

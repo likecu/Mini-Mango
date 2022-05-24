@@ -1,1 +1,2 @@
 /* otherpage/group_member_list/group_member_list.wxss */
+@import "/mangos.wxss";

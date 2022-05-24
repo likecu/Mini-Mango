@@ -1,5 +1,5 @@
 <wxs src="./index.wxs" module="computed" />
 
-<view class="van-config-provider" style="{{ computed.mapThemeVarsToCSSVars(themeVars) }}">
+<view style="box-sizing:null;" class="van-config-provider" style="{{ computed.mapThemeVarsToCSSVars(themeVars) }}">
   <slot />
 </view>

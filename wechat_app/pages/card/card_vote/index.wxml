@@ -5,7 +5,7 @@
   <form bindsubmit="submit">
     <!-- <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
+      <view style="box-sizing:null;" class="picker">
         国家：{{objectArray[index].name}}
       </view>
     </picker>
@@ -13,36 +13,36 @@
     <!-- <view>
     <input name="title" class="title" placeholder="请输入文章标题"></input>
   </view> -->
-    <view class="container">
+    <view style="box-sizing:null;" class="container">
       <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-      <view class="page-body">
-        <view class='wrapper'>
-          <view style="height: 20px;"></view>
-          <view style="  margin-left:6%;font-weight: 600;">
+      <view style="box-sizing:null;" class="page-body">
+        <view style="box-sizing:null;" class='wrapper'>
+          <view style="box-sizing:null;" style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="  margin-left:6%;font-weight: 600;">
             已参与投票成员
           </view>
-          <view style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="height: 20px;"></view>
 
           <!-- <radio-group name="vote" style="width:60%;margin-right: 3%;" wx:for="{{members}}" wx:key="member" >
           <label class="weui-cell weui-check__label" ><radio value="{{item.userID}}"/>{{item.userMessage.userNickname}}</label>
-          <view style="height: 10px;"></view>
+          <view style="box-sizing:null;" style="height: 10px;"></view>
           </radio-group> -->
-          <view class="page-section">
-            <view class="weui-cells weui-cells_after-title">
+          <view style="box-sizing:null;" class="page-section">
+            <view style="box-sizing:null;" class="weui-cells weui-cells_after-title">
               <radio-group name="vote">
                 <label class="weui-cell weui-check__label" wx:for="{{members}}" wx:key="member">
 
-                  <view class="weui-cell__hd" style="margin-left:6%;">
+                  <view style="box-sizing:null;" class="weui-cell__hd" style="margin-left:6%;">
                     <radio value="{{item.userID}}" checked="true" />{{item.userMessage.userNickname}}
                   </view>
-                  <view style="height: 10px;"></view>
+                  <view style="box-sizing:null;" style="height: 10px;"></view>
                 </label>
               </radio-group>
             </view>
           </view>
 
-        <view style="height: 20px;"></view>
-        <view class="submit">
+        <view style="box-sizing:null;" style="height: 20px;"></view>
+        <view style="box-sizing:null;" class="submit">
           <button class="button" type="primary" capture-bind:tap="join1">加入投票</button>
           <button class="button" type="primary" form-type="submit">投票</button>
         </view>

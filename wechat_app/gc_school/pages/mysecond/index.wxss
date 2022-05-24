@@ -1,0 +1,222 @@
+.bgmain,.cu-bar .action:first-child {
+    background-color: #ff6444;
+    color: #fff;
+}
+
+.tab_contain {
+    width: 100%;
+    height: 90rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.tab_contain,.tab_one {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tab_one {
+    width: 25%;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 10rpx;
+}
+
+.tab_one view {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    letter-spacing: 2rpx;
+}
+
+.tab_on {
+    font-size: 32rpx;
+    font-weight: 600;
+    border-bottom: 4rpx solid #7acfa6;
+}
+
+.trade_box {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-trade {
+    width: 90%;
+    height: 100%;
+    margin: 10rpx;
+    background-color: #fff;
+    border-radius: 6rpx;
+    position: relative;
+    box-shadow: 0 0 10rpx rgba(0,0,0,.1);
+    padding-bottom: 20rpx;
+}
+
+.trade {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    border-bottom: 1px solid hsla(0,0%,50.2%,.068);
+}
+
+.first,.trade {
+    height: 21px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.first {
+    width: 80%;
+}
+
+.first view {
+    font-size: 12px;
+    padding-left: 12rpx;
+}
+
+.status {
+    float: right;
+    font-size: 12px;
+}
+
+.trade2 {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.text-coursename {
+    padding-top: 10rpx;
+    font-size: 27rpx;
+    line-height: 40rpx;
+}
+
+.text-bookname,.text-coursename {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 3rpx;
+}
+
+.text-bookname {
+    font-size: 32rpx;
+    font-weight: 700;
+    line-height: 45rpx;
+}
+
+.second-left {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.bookimage {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.textdet {
+    width: calc(80% - 100rpx);
+    display: flex;
+    flex-direction: column;
+}
+
+.textdet view {
+    padding-left: 10rpx;
+}
+
+.second-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 20%;
+}
+
+.second-right image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.second-right view {
+    font-size: 30rpx;
+}
+
+.trade3 {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    justify-content: space-between;
+}
+
+.third-left {
+    font-size: 27rpx;
+    float: left;
+    color: #a9a9a9;
+    padding-left: 20rpx;
+}
+
+.third-right {
+    float: right;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.third-right,.trade4 {
+    display: flex;
+}
+
+.trade4 {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.price {
+    padding-left: 10rpx;
+}
+
+.blank {
+    width: 100%;
+    height: 2px;
+    color: grey;
+}
+
+.nocontent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.nocontent image {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.blank_text {
+    padding-top: 10rpx;
+    font-size: 32rpx;
+    letter-spacing: 2rpx;
+    color: #c6c6c8;
+}
+
+.sm {
+    font-size: 26rpx!important;
+    margin-left: 15rpx;
+}

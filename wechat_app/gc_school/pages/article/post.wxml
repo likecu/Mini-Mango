@@ -1,0 +1,35 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">发布</view>
+</cu-custom>
+<view class="padding">
+    <view class="flex justify-between">
+        <view>所属分类</view>
+        <picker bindchange="bindPickerChange" range="{{cateList}}" rangeKey="name" value="{{index}}">
+      {{cateList[index]['name']}}
+      <text class="cuIcon-right"></text>
+        </picker>
+    </view>
+    <textarea bindinput="getCon" class=" margin-top" maxlength="250" placeholder="请输入此刻的想法"></textarea>
+    <view class="margin-top margin-bottom">上传图片/视频</view>
+    <view>
+        <view wx:if="{{type=='video'}}">
+            <image bindtap="choose" class="add" src="/images/article/add.png" wx:if="{{video==''}}"></image>
+            <view class="preview" wx:else>
+                <video class="add margin-right" src="{{video}}"></video>
+                <text bindtap="delvideo" class="cuIcon-close close"></text>
+            </view>
+        </view>
+        <view class="flex" wx:elif="{{type=='image'}}">
+            <view class="preview" wx:for="{{picList}}">
+                <image class="add margin-right" src="{{item}}"></image>
+                <text bindtap="delimg" class="cuIcon-close close" data-index="{{index}}"></text>
+            </view>
+            <image bindtap="choose" class="add" src="/images/article/add.png" wx:if="{{picList.length<3}}"></image>
+        </view>
+        <image bindtap="choose" class="add" src="/images/article/add.png" wx:else></image>
+    </view>
+    <view class="margin-bottom-sm text-df margin-top flex align-center" wx:if="{{sysparment.is_anonymous==1}}">
+        <checkbox bindtap="checkagree" class="checkbox"></checkbox>是否匿名
+  </view>
+    <view bindtap="submit" class="btn">发布</view>
+</view>

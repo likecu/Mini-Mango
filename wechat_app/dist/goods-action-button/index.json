@@ -2,5 +2,5 @@
   "component": true,
   "usingComponents": {
     "van-button": "../button/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

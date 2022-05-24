@@ -24,15 +24,9 @@ Component({
   methods: {
     backHome: function () {
       let pages = getCurrentPages().length;
-      if (pages >= 10) {
-        wx.reLaunch({
-          url: '/pages/index/index',
-        })
-      } else {
-        wx.redirectTo({
-          url: '/pages/index/index',
-        })
-      }
+      wx.reLaunch({
+        url: '/pages/index/index',
+      })
     },
     back: function () {
 

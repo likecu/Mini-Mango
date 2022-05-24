@@ -1,6 +1,7 @@
 /* pages/update_user/update.wxss */
 @import "/pages/add_detail/index/assets/iconfont.wxss";
 @import "/dist/common/index";
+@import "/mangos.wxss";
 .container {
   position: fixed;
   width: 100%;

@@ -1,18 +1,18 @@
-<view class="wux-class {{ classes.wrap }}">
-    <view class="{{ classes.hd }}" bindtap="onTap">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+    <view style="box-sizing:null;" class="{{ classes.hd }}" bindtap="onTap">
         <block wx:if="{{ thumb }}">
             <image class="{{ classes.thumb }}" src="{{ thumb }}" />
         </block>
         <block wx:if="{{ title }}">
-            <view class="{{ classes.title }}">{{ title }}</view>
+            <view style="box-sizing:null;" class="{{ classes.title }}">{{ title }}</view>
         </block>
         <block wx:else>
             <slot name="header"></slot>
         </block>
-        <view class="{{ classes.arrow }}" wx:if="{{ showArrow }}"></view>
+        <view style="box-sizing:null;" class="{{ classes.arrow }}" wx:if="{{ showArrow }}"></view>
     </view>
-    <view class="{{ classes.bd }}">
-        <view class="{{ classes.content }}" wx:if="{{ content }}">{{ content }}</view>
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
+        <view style="box-sizing:null;" class="{{ classes.content }}" wx:if="{{ content }}">{{ content }}</view>
         <slot></slot>
     </view>
 </view>

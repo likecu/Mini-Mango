@@ -1,9 +1,9 @@
-<view class="wux-class {{ classes.wrap }} {{ className }}">
-    <view class="{{ classes.tail }}"></view>
-    <view class="{{ classes.dot }}" style="{{ extStyle }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }} {{ className }}">
+    <view style="box-sizing:null;" class="{{ classes.tail }}"></view>
+    <view style="box-sizing:null;" class="{{ classes.dot }}" style="{{ extStyle }}">
     	<slot wx:if="{{ custom }}" name="dot"></slot>
     </view>
-    <view class="{{ classes.content }}">
+    <view style="box-sizing:null;" class="{{ classes.content }}">
     	<text>{{ content }}</text>
         <slot></slot>
     </view>

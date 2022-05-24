@@ -1,0 +1,35 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">我的小店</view>
+</cu-custom>
+<view class="list">
+    <view class="list_item">
+        <view>今日订单数</view>
+        <view class="num">{{data.today_count}}</view>
+    </view>
+    <view class="list_item">
+        <view>总订单数</view>
+        <view class="num">{{data.total_count}}</view>
+    </view>
+    <view class="list_item">
+        <view>总收入</view>
+        <view class="num">{{data.total_sum}}</view>
+    </view>
+</view>
+<view class="menu">
+    <view bindtap="jump" class="menu_item" data-url="/gc_school/pages/shop/info">
+        <image src="../../../images/store/store.png"></image>
+        <view>店铺管理</view>
+    </view>
+    <view bindtap="jump" class="menu_item" data-url="/gc_school/pages/shop/order">
+        <image src="../../../images/store/order.png"></image>
+        <view>订单列表</view>
+    </view>
+    <view bindtap="jump" class="menu_item" data-url="/gc_school/pages/shop/cate">
+        <image src="../../../images/store/cate.png"></image>
+        <view>分类管理</view>
+    </view>
+    <view bindtap="jump" class="menu_item" data-url="/gc_school/pages/shop/goods">
+        <image src="../../../images/store/goods.png"></image>
+        <view>商品管理</view>
+    </view>
+</view>

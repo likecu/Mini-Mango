@@ -1,0 +1,263 @@
+<cu-custom bgColor="bgmains" isBack="{{true}}">
+    <view slot="content">订单详情</view>
+</cu-custom>
+<view class="container">
+    <view class="bg-white detail">
+        <view class="text-lg margin-bottom" wx:if="{{detail.order.type=='无所不能/饮品'&&detail.order.title}}">标题：{{detail.order.title}}</view>
+        <view class="action">
+            <text class="text-sm text-bold" id="texts">订单详情</text>
+        </view>
+        <view class="cu-item desc">
+            <view bindtap="copy" class="content" data-content="{{detail.order.desc}}">
+                <text>{{detail.order.desc}}</text>
+            </view>
+        </view>
+        <view id="ilo" wx:if="{{detail.order.is_watch==true}}">
+            <block wx:if="{{detail.order.image!=''}}">
+                <view class="content padding-top">
+                    <text class="text-grey text-lg">取单信息:</text>
+                </view>
+                <view class="action image_flex" id="actiom">
+                    <image bindtap="preview" class="imgs" data-index="{{index}}" mode="aspectFill" src="{{item}}" wx:for="{{detail.order.image}}"></image>
+                </view>
+            </block>
+            <block wx:else></block>
+        </view>
+        <view id="ilo" wx:if="{{detail.order.type=='超市食堂'}}">
+            <view class="content padding-top">
+                <text class="text-grey text-lg">取单信息:</text>
+            </view>
+            <view class="action" wx:for="{{good_details}}">
+                <view class="xiang text-lg">{{item}}</view>
+            </view>
+        </view>
+        <block wx:else></block>
+    </view>
+    <view class="cu-list menu  sm-border ">
+        <view class="cu-item " wx:if="{{detail.order.attach_file&&detail.order.type=='无所不能/饮品'&&detail.order.is_watch==true}}">
+            <view class="content">
+                <text class="text-grey">附件下载:</text>
+            </view>
+            <view bindtap="down" class="action">
+                <text class="text-grey text-sm">点击打开文件</text>
+            </view>
+        </view>
+        <block wx:if="{{detail.order.type=='寄件'}}">
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">联系人姓名:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm">{{detail.order.sh_name}}</text>
+                </view>
+            </view>
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">联系人电话:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm">{{detail.order.sh_phone}}</text>
+                </view>
+            </view>
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">取件地址:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm" style="flex-basis: auto; white-space:normal">{{detail.order.sh_addres}}</text>
+                </view>
+            </view>
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">寄件地址:</text>
+                </view>
+                <view class="action" style="width:50%;text-align:right">
+                    <text class="text-grey text-sm" style="flex-basis: auto; white-space:normal">{{detail.order.qu_addres}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="cu-item " wx:if="{{detail.order.sh_name}}">
+                <view class="content">
+                    <text class="text-grey">收件人:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm">{{detail.order.sh_name}}</text>
+                </view>
+            </view>
+            <view class="cu-item " wx:if="{{detail.order.sh_phone}}">
+                <view class="content">
+                    <text class="text-grey">收件电话:</text>
+                </view>
+                <view class="action">
+                    <text bindtap="makecall" class="cuIcon-dianhua text-green" data-phone="{{detail.order.sh_phone}}" style="font-size:30rpx;"></text>
+                    <text bindtap="makecall" class="text-grey text-sm" data-phone="{{detail.order.sh_phone}}">{{detail.order.sh_phone}}</text>
+                </view>
+            </view>
+            <view class="cu-item " wx:if="{{detail.order.sh_name&&detail.order.sh_phone}}">
+                <view class="content">
+                    <text class="text-grey">收件地址:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm" style="flex-basis: auto; white-space:normal">{{detail.order.sh_addres}}</text>
+                </view>
+            </view>
+            <view class="cu-item" wx:if="{{detail.order.type=='寄件'||detail.order.type=='取件'}}">
+                <view class="content">
+                    <text class="text-grey">取货地址:</text>
+                </view>
+                <view class="action" style="width:65%;text-align:right">
+                    <text class="text-grey text-sm" style="flex-basis: auto; white-space:normal">{{detail.order.qu_addres}}</text>
+                </view>
+            </view>
+        </block>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">性别限制:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.sex_limit}}</text>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">订单编号:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.ordersn}}</text>
+            </view>
+        </view>
+        <view class="cu-item " wx:if="{{detail.order.service_num>0&&detail.order.type=='无所不能/饮品'}}">
+            <view class="content">
+                <text class="text-grey">服务人数:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.service_num}}</text>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">订单时间:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.createtime}}</text>
+            </view>
+        </view>
+        <view class="cu-item " wx:if="{{detail.order.type!='无所不能/饮品'}}">
+            <view class="content">
+                <text class="text-grey">物品重量/大小:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.weight}}</text>
+            </view>
+        </view>
+        <view class="cu-item" wx:if="{{detail.order.type=='寄件'||detail.order.type=='取件'}}">
+            <view class="content">
+                <text class="text-grey">快递数量:</text>
+            </view>
+            <view class="action" style="width:65%;text-align:right">
+                <text class="text-grey text-sm" style="flex-basis: auto; white-space:normal">{{detail.order.express_num}}</text>
+            </view>
+        </view>
+        <view class="cu-item ">
+            <view class="content">
+                <text class="text-grey">费用:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.total}}</text>
+            </view>
+        </view>
+        <view class="cu-item" wx:if="{{detail.order.type=='超市食堂'}}">
+            <view class="content">
+                <text class="text-grey">商品费用:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.guess_prcie}}</text>
+            </view>
+        </view>
+        <view class="cu-item" wx:if="{{detail.order.status=='取消中'}}">
+            <view class="content">
+                <text class="text-grey">取消原因:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.cancel_reason}}</text>
+            </view>
+        </view>
+        <view class="cu-item" wx:if="{{detail.order.status=='待取货'&&detail.order.is_refuse==1}}">
+            <view class="content">
+                <text class="text-grey">拒绝原因:</text>
+            </view>
+            <view class="action">
+                <text class="text-grey text-sm">{{detail.order.refuse_reason}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{detail.order.end_openid}}">
+        <view class="cu-bar bg-white margin-top">
+            <view class="action">
+                <text class="cuIcon-titles text-green"></text>
+                <text class="text-sm text-bold" style="color:#989898">骑手信息</text>
+            </view>
+        </view>
+        <view class="cu-list menu  sm-border ">
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">骑手姓名:</text>
+                </view>
+                <view class="action">
+                    <text class="text-grey text-sm">{{detail.order.end_user_name}}</text>
+                </view>
+            </view>
+            <view class="cu-item ">
+                <view class="content">
+                    <text class="text-grey">骑手电话:</text>
+                </view>
+                <view bindtap="makecall" class="action" data-phone="{{detail.order.end_user_phone}}">
+                    <text class="cuIcon-dianhua text-green" style="font-size:30rpx;"></text>
+                    <text class="text-grey text-sm">{{detail.order.end_user_phone}}</text>
+                </view>
+            </view>
+            <view class="cu-item " wx:if="{{detail.order.proof}}">
+                <view class="content">
+                    <text class="text-grey">凭证:</text>
+                </view>
+                <image bindtap="previews" data-src="{{detail.order.proof}}" mode="aspectFill" src="{{detail.order.proof}}" style="width:200rpx;height:150rpx;margin:20rpx 0;"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="cu-tabbar-height"></view>
+<view class="cu-bar bg-white foot tabbar border shop">
+    <button class="action" openType="contact" style="color:black;">
+        <view class="cuIcon-service text-m"></view>
+		联系客服
+	</button>
+    <view bindtap="handleZF" class="bgmain submit" wx:if="{{detail.order.status=='未支付'}}">
+    立即支付 ¥{{detail.order.t_money}}
+  </view>
+    <block wx:if="{{detail.order.user_type==true}}">
+        <view class="bgmain submit" wx:if="{{detail.order.status=='待接单'}}">待接单</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='待取货'}}">待取货</view>
+        <view bindtap="cancel" class="bgmain submit cancel" data-type="1" wx:if="{{detail.order.status=='待取货'}}">取消抢单</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='user'}}">取消中</view>
+        <view bindtap="agree" class="bgmain submit" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='rider'}}">同意</view>
+        <view bindtap="cancel" class="bgmain submit cancel" data-type="2" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='rider'}}">拒绝</view>
+        <view bindtap="handleWc" class="bgmain submit" wx:if="{{detail.order.status=='待送达'}}">确认完成</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='已完成'}}">已完成</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='已过期'}}">已过期</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='已取消'}}">已取消</view>
+    </block>
+    <block wx:if="{{detail.order.user_type!=true}}">
+        <view bindtap="handleQd" class="bgmain submit" wx:if="{{detail.order.status=='待接单'}}">抢单</view>
+        <view bindtap="handleQh" class="bgmain submit" wx:if="{{detail.order.status=='待取货'}}">确认取货</view>
+        <view bindtap="cancel" class="bgmain submit cancel" data-type="1" wx:if="{{detail.order.status=='待取货'}}">取消抢单</view>
+        <view bindtap="agree" class="bgmain submit" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='user'}}">同意</view>
+        <view bindtap="cancel" class="bgmain submit cancel" data-type="2" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='user'}}">拒绝</view>
+        <view bindtap="proof" class="bg-grey submit cancel" wx:if="{{detail.order.status=='待送达'&&!detail.order.proof}}">上传凭证</view>
+        <view class="bg-grey submit" style="margin-left:10rpx;" wx:if="{{detail.order.status=='待送达'}}">待完成</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='取消中'&&detail.order.cancel_from=='rider'}}">取消中</view>
+        <view class="bg-grey submit" wx:if="{{detail.order.status=='已完成'}}">已完成</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='已过期'}}">已过期</view>
+        <view class="bgmain submit" wx:if="{{detail.order.status=='已取消'}}">已取消</view>
+    </block>
+</view>

@@ -1,0 +1,8 @@
+<view class="images-box">
+    <view class="images">
+        <image bindlongpress="deleteImage" bindtap="previewImage" class="image" data-index="{{index}}" mode="aspectFill" src="{{item}}" wx:for="{{images}}" wx:key="index"></image>
+        <view bindtap="chooseImage" class="image addImageIcon" hoverClass="" hoverStayTime="200" wx:if="{{addedCount<3}}">
+      +
+    </view>
+    </view>
+</view>

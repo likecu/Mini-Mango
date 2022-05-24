@@ -1,0 +1,79 @@
+<scroll-view scrollY class="scrollPage">
+    <cu-custom bgColor="bgmain" isBack="{{true}}">
+        <view slot="content">认证</view>
+    </cu-custom>
+    <form bindsubmit="formSubmit">
+        <block wx:if="{{num==0}}">
+            <view class="cu-form-group">
+                <view class="title">姓名</view>
+                <input bindinput="change" data-type="t_name" name="t_name" placeholder="请输入姓名" value="{{form.t_name}}"></input>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">手机</view>
+                <input bindinput="change" data-type="phone" disabled="true" name="phone" placeholder="请输入手机" value="{{form.phone}}"></input>
+                <button bindgetphonenumber="getPhoneNumber" class="getPhone" openType="getPhoneNumber">获取手机号</button>
+            </view>
+            <view class="cu-form-group" style="border-bottom:1rpx solid #eee;">
+                <view class="title">所属区域</view>
+                <picker bindchange="PickerChange" range="{{school}}" rangeKey="s_name" value="{{sindex}}">
+                    <view class="picker">
+						{{school[sindex].s_name?school[sindex].s_name:'选择区域'}}
+					</view>
+                </picker>
+            </view>
+            <view class="cu-form-group" style="border-bottom:1rpx solid #eee;">
+                <view class="title">性别选择</view>
+                <picker bindchange="bindSexChange" class="picker_name" range="{{gender}}" rangeKey="name" style="text-align:right;" value="{{index}}">
+					{{gender[gender_index].name}}
+					<text class="cuIcon-rounddown"></text>
+                </picker>
+            </view>
+            <block wx:if="{{is_show==1}}">
+                <view class="student" style="display:none;">请上传本人照片</view>
+                <view class="cu-form-group padding-top" style="display:none;">
+                    <view class="grid col-2 grid-square flex-sub">
+                        <view class="bg-img" data-url="{{t_pic[index]}}" wx:for="{{t_pic}}" wx:key="{{index}}">
+                            <image bindtap="ViewImage" data-url="{{t_pic[index]}}" mode="aspectFill" src="{{t_pic[index]}}"></image>
+                        </view>
+                        <view bindtap="ChooseImage" class="solids " data-type="t_pic">
+                            <text class="cuIcon-cameraadd"></text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{num==1}}">
+            <view class="cu-form-group">
+                <view class="title">所属校区</view>
+                <picker bindchange="PickerChange" range="{{school}}" rangeKey="s_name" value="{{sindex}}">
+                    <view class="picker">
+						{{school[sindex].s_name?school[sindex].s_name:'选择学校'}}
+					</view>
+                </picker>
+            </view>
+            <view class="student">请上传证明</view>
+            <view class="cu-form-group margin-top">
+                <view class="grid col-2 grid-square flex-sub">
+                    <view bindtap="ViewImage" class="bg-img" data-url="{{student_pic[index]}}" wx:for="{{student_pic}}" wx:key="{{index}}">
+                        <image mode="aspectFill" src="{{student_pic[index]}}"></image>
+                    </view>
+                    <view bindtap="ChooseImage" class="solids" data-type="student_pic">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view style="margin-top:200rpx;">
+            <view class="agreement margin-top-xl align-center" wx:if="{{num==0}}">
+                <checkbox bindtap="checkagree" checked="{{check}}" class="checkbox"></checkbox>
+                <view bindtap="agreelink">我已阅读并同意<text class="text-red">《平台协议》</text>
+                </view>
+            </view>
+            <view class="submit margin-top">
+                <view class="padding flex flex-direction">
+                    <button class="cu-btn bg-yellow lg round" formType="submit">保存</button>
+                </view>
+            </view>
+        </view>
+    </form>
+</scroll-view>

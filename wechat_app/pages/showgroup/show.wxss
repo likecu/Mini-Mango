@@ -1,1 +1,2 @@
 /* pages/showgroup/show.wxss */
+@import "/mangos.wxss";

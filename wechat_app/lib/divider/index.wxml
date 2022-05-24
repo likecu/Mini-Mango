@@ -1,5 +1,5 @@
-<view class="wux-class {{ classes.wrap }}">
-	<view class="{{ classes.text }}" wx:if="{{ showText }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+	<view style="box-sizing:null;" class="{{ classes.text }}" wx:if="{{ showText }}">
 		{{ text }}
 		<slot></slot>
 	</view>

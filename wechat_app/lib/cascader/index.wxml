@@ -1,18 +1,18 @@
 <wux-popup position="bottom" visible="{{ visible }}" safeArea="bottom" bind:close="onPopupClose">
-	<view class="wux-class {{ classes.wrap }}">
-	    <view class="{{ classes.hd }}">
-	    	<view class="{{ classes.title }}" wx:if="{{ title }}">{{ title }}</view>
-	    	<view class="{{ classes.menus }}" wx:if="{{ activeOptions.length }}">
+	<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+	    <view style="box-sizing:null;" class="{{ classes.hd }}">
+	    	<view style="box-sizing:null;" class="{{ classes.title }}" wx:if="{{ title }}">{{ title }}</view>
+	    	<view style="box-sizing:null;" class="{{ classes.menus }}" wx:if="{{ activeOptions.length }}">
 	    		<block wx:for="{{ activeOptions }}" wx:key="index">
-	    			<view class="{{ classes.menu }} {{ activeIndex === index ? prefixCls + '__menu--active' : '' }}" data-menu-index="{{ index }}" bindtap="onMenuClick">{{ item[fieldNames['label']] }}</view>
+	    			<view style="box-sizing:null;" class="{{ classes.menu }} {{ activeIndex === index ? prefixCls + '__menu--active' : '' }}" data-menu-index="{{ index }}" bindtap="onMenuClick">{{ item[fieldNames['label']] }}</view>
 	    		</block>
 	    	</view>
 	    </view>
-	    <view class="{{ classes.bd }}" style="{{ bodyStyle }}">
+	    <view style="box-sizing:null;" class="{{ classes.bd }}" style="{{ bodyStyle }}">
 	    	<block wx:for="{{ showOptions }}" wx:for-item="option" wx:for-index="optionIndex" wx:key="optionIndex">
-	    		<view class="{{ classes.inner }}">
+	    		<view style="box-sizing:null;" class="{{ classes.inner }}">
 		    		<scroll-view scroll-y class="wux-scroll-view-class {{ classes.scrollView }}">
-			    		<view class="{{ classes.option }}">
+			    		<view style="box-sizing:null;" class="{{ classes.option }}">
 			    			<block wx:for="{{ option }}" wx:key="index">
 					    		<view
 						    		class="{{ classes.item }} {{ activeValue[optionIndex] === item[fieldNames['value']] ? prefixCls + '__item--active' : '' }} {{ item.disabled ? prefixCls + '__item--disabled' : '' }}"

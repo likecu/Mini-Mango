@@ -1,9 +1,9 @@
-<view class="wux-class {{ classes.wrap }}">
-	<view class="{{ classes.label }}" wx:if="{{ label }}">{{ label }}</view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+	<view style="box-sizing:null;" class="{{ classes.label }}" wx:if="{{ label }}">{{ label }}</view>
 	<block wx:else>
 		<slot></slot>
 	</block>
-	<view class="{{ classes.control }}">
+	<view style="box-sizing:null;" class="{{ classes.control }}">
 		<input
 			class="{{ classes.item }}"
 			value="{{ inputValue }}"
@@ -28,13 +28,13 @@
 			bindconfirm="onConfirm"
 		/>
 	</view>
-	<view class="{{ classes.clear }}" bindtap="onClear" wx:if="{{ clear && !disabled && inputValue && inputValue.length > 0 }}">
+	<view style="box-sizing:null;" class="{{ classes.clear }}" bindtap="onClear" wx:if="{{ clear && !disabled && inputValue && inputValue.length > 0 }}">
 		<icon type="clear" color="#B2B2B2" size="14" />
 	</view>
-	<view class="{{ classes.error }}" bindtap="onError" wx:if="{{ error }}">
+	<view style="box-sizing:null;" class="{{ classes.error }}" bindtap="onError" wx:if="{{ error }}">
 		<icon type="warn" color="#ef473a" size="14" />
 	</view>
-	<view class="{{ classes.extra }}" wx:if="{{ extra }}">{{ extra }}</view>
+	<view style="box-sizing:null;" class="{{ classes.extra }}" wx:if="{{ extra }}">{{ extra }}</view>
 	<block wx:else>
 		<slot name="footer"></slot>
 	</block>

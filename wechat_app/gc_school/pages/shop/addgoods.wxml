@@ -1,0 +1,33 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">商品管理</view>
+</cu-custom>
+<view class="box">
+    <view class="flex align-center text-bold">
+        <view class="text-red text-xxl">*</view>
+        <view class="text-lg">商品信息</view>
+    </view>
+    <view class="name text-lg margin-top">名称</view>
+    <view style=" position: relative;">
+        <textarea bindinput="textarea" class="textarea" maxlength="{{maxTextLen}}" placeholder="请输入名称" placeholderStyle="color:#D1D1D1;" value="{{name}}"></textarea>
+        <view class="left_num">{{word_num}}/{{maxTextLen}}</view>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>商品分类</view>
+        <picker bindchange="PickerChange" range="{{cate}}" rangeKey="name" value="{{cate_index}}">
+            <view class="picker text-gray">
+        {{cate[cate_index].name?cate[cate_index].name:'选择分类'}}
+        <text class="cuIcon-right"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="flex justify-between size30 margin-top align-center">
+        <view>商品价格</view>
+        <input bindinput="price" class="name_input text-right" placeholder="请输入价格" placeholderStyle="color:#D1D1D1;" type="digit" value="{{price}}"></input>
+    </view>
+    <view class="size30 margin-top">商品图片</view>
+    <image bindtap="choose" class="img" src="{{img?img:'../../../images/article/add.png'}}"></image>
+</view>
+<view class="flex btn_row justify-between">
+    <view bindtap="submit" class="btn_" data-status="0">存为草稿</view>
+    <view bindtap="submit" class="btn_" data-status="1">发布上架</view>
+</view>

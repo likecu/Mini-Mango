@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "小神推",
+    "navigationBarBackgroundColor": "#7cb8fa",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

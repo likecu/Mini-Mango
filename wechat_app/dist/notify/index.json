@@ -2,5 +2,5 @@
   "component": true,
   "usingComponents": {
     "van-transition": "../transition/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

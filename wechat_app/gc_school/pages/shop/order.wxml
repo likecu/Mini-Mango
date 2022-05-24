@@ -1,0 +1,43 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">订单列表</view>
+</cu-custom>
+<view class="tab_menu">
+    <view bindtap="changeTab" class="item {{tab_index==0?'active':''}}" data-index="0">待取货</view>
+    <view bindtap="changeTab" class="item {{tab_index==1?'active':''}}" data-index="1">待送达</view>
+    <view bindtap="changeTab" class="item {{tab_index==2?'active':''}}" data-index="2">已完成</view>
+</view>
+<view class="order_box">
+    <block wx:if="{{orderList.length>0}}">
+        <view class="order_item" wx:for="{{orderList}}">
+            <view class="text-df text-grey">下单时间：{{item.addtime}}</view>
+            <view class="text-df text-grey">用户姓名：{{item.sh_name}}</view>
+            <view class="text-df text-grey">用户手机号：{{item.sh_phone}}</view>
+            <view class="text-df">商品信息</view>
+            <view class="text-df" wx:for="{{item.good_details}}" wx:for-item="good">{{good}}</view>
+            <view class="flex justify-between margin-top align-center">
+                <view class="text-df " style="line-height:50rpx;">
+                    <view>商品价格:<text class="text-orange text-bold text-xl">￥{{my.tofixed(item.guess_prcie)}}</text>
+                    </view>
+                </view>
+                <view class="status">{{item.status}}</view>
+            </view>
+        </view>
+    </block>
+    <view class="empty" wx:else>
+        <image class="" mode="widthFix" src="../../../images/store/empty.png"></image>
+        <view>暂无相关数据~</view>
+    </view>
+    <view class="text-df text-center margin-bottom" wx:if="{{!is_loadmore&&orderList.length>0}}">暂无更多数据~</view>
+</view>
+<wxs module="my">
+var tofixed = (function(str) {
+    if (str == 'NaN') {
+        return (0)
+    } else {
+        var pick = parseFloat(str).toFixed(2);
+        console.log(pick);
+        return (pick)
+    }
+});
+module.exports.tofixed = tofixed;
+</wxs>

@@ -5,7 +5,7 @@
   <form bindsubmit="submit">
     <!-- <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
+      <view style="box-sizing:null;" class="picker">
         国家：{{objectArray[index].name}}
       </view>
     </picker>
@@ -13,41 +13,41 @@
     <!-- <view>
     <input name="title" class="title" placeholder="请输入文章标题"></input>
   </view> -->
-    <view class="container">
+    <view style="box-sizing:null;" class="container">
       <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-      <view class="page-body">
-        <view class='wrapper'>
+      <view style="box-sizing:null;" class="page-body">
+        <view style="box-sizing:null;" class='wrapper'>
 
-          <view style="height: 30px;"></view>
-          <view style="  margin-left: 6%;float:inline-start;width: 20%;font-weight: 600;">卡片名称
-            <view style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="height: 30px;"></view>
+          <view style="box-sizing:null;" style="  margin-left: 6%;float:inline-start;width: 20%;font-weight: 600;">卡片名称
+            <view style="box-sizing:null;" style="height: 20px;"></view>
           </view>
-          <view style="height: 10px;"></view>
-          <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
+          <view style="box-sizing:null;" style="height: 10px;"></view>
+          <view style="box-sizing:null;" style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
             <input name="cardName" placeholder="小组昵称必须唯一" autosize="{{ true }}" style="margin-left: 5% ;" />
           </view>
 
-          <view style="height: 40px;"></view>
+          <view style="box-sizing:null;" style="height: 40px;"></view>
 
-          <view class="container">
-            <view style="height: 20px;"></view>
-            <view bindtap="format" style="margin-left: 6%;float:inline-start;width:18%;font-weight: 600;">
+          <view style="box-sizing:null;" class="container">
+            <view style="box-sizing:null;" style="height: 20px;"></view>
+            <view style="box-sizing:null;" bindtap="format" style="margin-left: 6%;float:inline-start;width:18%;font-weight: 600;">
               小组简介
             </view>
-            <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;height: 200px;">
+            <view style="box-sizing:null;" style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;height: 200px;">
               <input name="cardInfo" placeholder="请输入卡片介绍" autosize="{{ true }}" style="margin-left: 5% ;" />
             </view>
           </view>
-          <view style="height: 300px;"></view>
-          <view style="  margin-left: 6%;float:inline-start;width: 20%;font-weight: 600;">最大分发数量
-            <view style="height: 20px;"></view>
+          <view style="box-sizing:null;" style="height: 300px;"></view>
+          <view style="box-sizing:null;" style="  margin-left: 6%;float:inline-start;width: 20%;font-weight: 600;">最大分发数量
+            <view style="box-sizing:null;" style="height: 20px;"></view>
           </view>
-          <view style="height: 10px;"></view>
-          <view style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
+          <view style="box-sizing:null;" style="height: 10px;"></view>
+          <view style="box-sizing:null;" style="background-color: white; border-radius: 25px;margin-left: 4%;margin-right: 4%;float:inline-end;width: 65%;">
             <input name="maxNumber" placeholder="" autosize="{{ true }}" style="margin-left: 5% ;" />
           </view>
-          <view class="submit">
-            <button class="button" type="primary" form-type="submit">保存</button>
+          <view style="box-sizing:null;" class="submit">
+            <button class="button" type="primary" form-type="submit" box-sizing="">保存</button>
           </view>
           <!-- <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">
             <input id="editor" name="userMotto" class="toolbar" placeholder="{{aboutme}} 不填则不修改"></input>

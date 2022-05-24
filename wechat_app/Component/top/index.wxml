@@ -1,15 +1,15 @@
-<view class='title-container' style="margin-top:{{statusBarHeight}}">
-  <view class='capsule' wx:if="{{ back || home }}">
-    <view bindtap='back' wx:if="{{back}}">
+<view style="box-sizing:null;" class='title-container' style="margin-top:{{statusBarHeight}}" box-sizing="">
+  <view style="box-sizing:null;" class='capsule' wx:if="{{ back || home }}" box-sizing="">
+    <view style="box-sizing:null;" bindtap='back' wx:if="{{back}}"box-sizing="">
       <image src='/image/back.png'></image>
     </view>
-    <view bindtap='backHome' wx:if="{{home}}">
+    <view style="box-sizing:null;" bindtap='backHome' wx:if="{{home}}"box-sizing="">
       <image src='/image/main.png'></image>
     </view>
   </view>
-  <view class='title'>
-    <view wx:if="{{loading}}" class="navBar-loader">
-      <view class="inner"></view>
+  <view style="box-sizing:null;" box-sizing=""class='title'>
+    <view style="box-sizing:null;" box-sizing=""wx:if="{{loading}}" class="navBar-loader">
+      <view style="box-sizing:null;" box-sizing=""class="inner"></view>
     </view>
     {{title}}
   </view>

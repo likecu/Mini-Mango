@@ -6,7 +6,7 @@
   style="{{ computed.rootStyle({ size, checked, activeColor, inactiveColor, activeValue }) }}"
   bind:tap="onClick"
 >
-  <view class="van-switch__node node-class">
+  <view style="box-sizing:null;" class="van-switch__node node-class">
     <van-loading
       wx:if="{{ loading }}"
       color="{{ computed.loadingColor({ checked, activeColor, inactiveColor, activeValue }) }}"

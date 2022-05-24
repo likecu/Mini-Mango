@@ -1,11 +1,11 @@
-<view class="wux-class {{ classes.wrap }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
     <wux-backdrop id="wux-backdrop" data-index="{{ index }}" bind:click="onClose" />
-    <view class="{{ classes.bd }}">
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
         <block wx:for="{{ options }}" wx:key="index">
-            <view class="{{ classes.item }} {{ common.getItemCls(prefixCls, item) }}" bindtap="onClick" data-index="{{ index }}">
-                <view class="{{ classes.text }}">
+            <view style="box-sizing:null;" class="{{ classes.item }} {{ common.getItemCls(prefixCls, item) }}" bindtap="onClick" data-index="{{ index }}">
+                <view style="box-sizing:null;" class="{{ classes.text }}">
                     {{ item.type !== 'filter' ? displayValues[index] : item.label }}
-                    <view class="{{ classes.icon }} {{ common.getIconCls(prefixCls, item) }}" wx:if="{{ item.type !== 'text' }}"></view>
+                    <view style="box-sizing:null;" class="{{ classes.icon }} {{ common.getIconCls(prefixCls, item) }}" wx:if="{{ item.type !== 'text' }}"></view>
                 </view>
             </view>
         </block>
@@ -14,36 +14,36 @@
         <wux-animation-group wux-class="{{ classes.pop }}" in="{{ item.visible }}" class-names="wux-animate--slideInRight" bind:enter="onEnter" bind:exit="onExit" wx:if="{{ item.type === 'filter' }}">
             <scroll-view class="{{ classes.scrollView }}" scroll-y bindscroll="onScroll">
                 <block wx:for="{{ item.children }}" wx:for-item="p" wx:for-index="pIndex" wx:key="pIndex">
-                    <view class="{{ classes.panel }}">
-                        <view class="{{ classes.panelHd }}">
-                            <view class="{{ classes.panelTitle }}">{{ p.label }}</view>
-                            <view class="{{ classes.panelSelected }}">{{ displayValues[index] && displayValues[index][pIndex] }}</view>
+                    <view style="box-sizing:null;" class="{{ classes.panel }}">
+                        <view style="box-sizing:null;" class="{{ classes.panelHd }}">
+                            <view style="box-sizing:null;" class="{{ classes.panelTitle }}">{{ p.label }}</view>
+                            <view style="box-sizing:null;" class="{{ classes.panelSelected }}">{{ displayValues[index] && displayValues[index][pIndex] }}</view>
                         </view>
-                        <view class="{{ classes.panelBd }}">
+                        <view style="box-sizing:null;" class="{{ classes.panelBd }}">
                             <radio-group bindchange="onPopupSelectChange" data-parent-index="{{ index }}" data-index="{{ pIndex }}" wx:if="{{ p.type === 'radio' }}">
-                                <view class="{{ classes.groups }}">
+                                <view style="box-sizing:null;" class="{{ classes.groups }}">
                                     <block wx:for="{{ p.children }}" wx:for-item="g" wx:for-index="cIndex" wx:key="cIndex">
-                                        <view class="{{ classes.group }}">
+                                        <view style="box-sizing:null;" class="{{ classes.group }}">
                                             <radio
                                                 class="{{ classes.radio }}"
                                                 value="{{ g.value }}"
                                                 checked="{{ common.getChecked(values[index] && values[index][pIndex], g.value) }}"
                                             />
-                                            <view class="{{ classes.btn }} {{ common.getChecked(values[index] && values[index][pIndex], g.value) ? prefixCls + '__btn--checked' : '' }}">{{ g.label }}</view>
+                                            <view style="box-sizing:null;" class="{{ classes.btn }} {{ common.getChecked(values[index] && values[index][pIndex], g.value) ? prefixCls + '__btn--checked' : '' }}">{{ g.label }}</view>
                                         </view>
                                     </block>
                                 </view>
                             </radio-group>
                             <checkbox-group bindchange="onPopupSelectChange" data-parent-index="{{ index }}" data-index="{{ pIndex }}" wx:else="{{ p.type === 'checkbox' }}">
-                                <view class="{{ classes.groups }}">
+                                <view style="box-sizing:null;" class="{{ classes.groups }}">
                                     <block wx:for="{{ p.children }}" wx:for-item="g" wx:for-index="cIndex" wx:key="cIndex">
-                                        <view class="{{ classes.group }}">
+                                        <view style="box-sizing:null;" class="{{ classes.group }}">
                                             <checkbox
                                                 class="{{ classes.check }}"
                                                 value="{{ g.value }}"
                                                 checked="{{ common.getChecked(values[index] && values[index][pIndex], g.value) }}"
                                             />
-                                            <view class="{{ classes.btn }} {{ common.getChecked(values[index] && values[index][pIndex], g.value) ? prefixCls + '__btn--checked' : '' }}">{{ g.label }}</view>
+                                            <view style="box-sizing:null;" class="{{ classes.btn }} {{ common.getChecked(values[index] && values[index][pIndex], g.value) ? prefixCls + '__btn--checked' : '' }}">{{ g.label }}</view>
                                         </view>
                                     </block>
                                 </view>
@@ -52,9 +52,9 @@
                     </view>
                 </block>
             </scroll-view>
-            <view class="{{ classes.btns }}">
-                <view class="{{ classes.btn }}" data-index="{{ index }}" bindtap="onSelectReset">{{ cancelText }}</view>
-                <view class="{{ classes.btn }} {{ prefixCls + '__btn--danger' }}" data-index="{{ index }}" bindtap="onSelectConfirm">{{ confirmText }}</view>
+            <view style="box-sizing:null;" class="{{ classes.btns }}">
+                <view style="box-sizing:null;" class="{{ classes.btn }}" data-index="{{ index }}" bindtap="onSelectReset">{{ cancelText }}</view>
+                <view style="box-sizing:null;" class="{{ classes.btn }} {{ prefixCls + '__btn--danger' }}" data-index="{{ index }}" bindtap="onSelectConfirm">{{ confirmText }}</view>
             </view>
         </wux-animation-group>
         <wux-animation-group wux-class="{{ classes.select }}" in="{{ item.visible }}" class-names="wux-animate--fadeIn" bind:enter="onEnter" bind:exit="onExit" wx:if="{{ item.type === 'radio' }}">
@@ -77,9 +77,9 @@
                     data-index="{{ index }}"
                     data-type="{{ item.type }}"
                 />
-                <view class="{{ classes.btns }}">
-                    <view class="{{ classes.btn }}" data-index="{{ index }}" bindtap="onSelectReset">{{ cancelText }}</view>
-                    <view class="{{ classes.btn }} {{ prefixCls + '__btn--danger' }}" data-index="{{ index }}" data-type="{{ item.type }}" bindtap="onSelectConfirm">{{ confirmText }}</view>
+                <view style="box-sizing:null;" class="{{ classes.btns }}">
+                    <view style="box-sizing:null;" class="{{ classes.btn }}" data-index="{{ index }}" bindtap="onSelectReset">{{ cancelText }}</view>
+                    <view style="box-sizing:null;" class="{{ classes.btn }} {{ prefixCls + '__btn--danger' }}" data-index="{{ index }}" data-type="{{ item.type }}" bindtap="onSelectConfirm">{{ confirmText }}</view>
                 </view>
             </scroll-view>
         </wux-animation-group>

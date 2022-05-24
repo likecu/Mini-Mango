@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="list page">
+        <view bindtap="detail" class="item" data-index="{{index}}" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="title">
+                <view>{{item.title}}</view>
+                <view>¥{{item.zw_price}}/亩</view>
+            </view>
+            <view class="desc">
+				{{item.desc}}
+			</view>
+            <view class="footer">
+                <view class="sm">{{item.createtime}}</view>
+                <view class="sm none">|</view>
+                <view class="sm">状态:<text>{{item.status}}</text>
+                </view>
+                <view class="sm none">|</view>
+                <view class="sm">作物面积:<text>{{item.zw_range}}</text>亩</view>
+            </view>
+        </view>
+    </view>
+</view>

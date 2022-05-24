@@ -3,5 +3,5 @@
   "usingComponents": {
     "picker-column": "../picker-column/index",
     "loading": "../loading/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

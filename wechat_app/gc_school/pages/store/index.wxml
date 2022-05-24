@@ -1,0 +1,15 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">商家列表</view>
+</cu-custom>
+<view class="tops" wx:if="{{list.length>0}}">
+    <view bindtap="{{item.is_open==1?'bank_content':''}}" class="contents" data-click="{{item.is_click}}" data-id="{{item.id}}" wx:for="{{list}}">
+        <view class="title">{{item.name}}</view>
+        <view class="cuIcon-right" wx:if="{{item.is_open==1?1:0}}"></view>
+        <view style="color:red" wx:if="{{item.is_open==1?0:1}}">已打烊</view>
+    </view>
+</view>
+<view class="nodatas" wx:else>
+    <image src="/images/nodata.png" style="width: 110rpx;height: 110rpx;"></image>
+    <view>暂无数据~</view>
+</view>

@@ -1,0 +1,67 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">我的优惠券</view>
+</cu-custom>
+<view class="container">
+    <view class="cu-bar bg-white">
+        <view class="action">
+            <text class="cuIcon-title text-green"></text>
+            <text>可用优惠券</text>
+        </view>
+    </view>
+    <view class="list bg-white">
+        <view bindlongpress="del" bindtap="handleUser" class="yhj_cont mb20" data-id="{{item.co_id}}" data-title="{{item.co_name}}" data-y_money="{{item.y_money}}" wx:if="{{mylist.length!=0}}" wx:for="{{mylist}}" wx:key="item">
+            <view class="j_left">
+                <view class="j_l_top df">
+                    <view class="tc" style="flex-shrink:0;width:200rpx;">
+                        <view>
+                            <text class="fs22">￥</text>
+                            <text class="fs50 fw">{{item.y_money}}</text>
+                        </view>
+                        <view class="fs24">{{item.yhq_yaoqiu}}</view>
+                    </view>
+                    <view class="" style="padding:20rpx;">
+                        <view class="fw fs34">{{item.co_name}}</view>
+                        <view class="fs26">{{item.yhq_shuoming}}</view>
+                    </view>
+                </view>
+                <view class="j_l_bot df jsb" style="padding:20rpx;">
+                    <view></view>
+                    <view class="label">使用</view>
+                </view>
+            </view>
+        </view>
+        <view class="no_more" wx:if="{{yhj_list.length==0}}">
+            <image mode="widthFix" src="/hyb_o2o/resource/images/no_dd.png"></image>
+            <view class="fs30 color_gray">暂无信息</view>
+        </view>
+    </view>
+    <view class="cu-bar bg-white margin-top">
+        <view class="action">
+            <text class="cuIcon-title text-green"></text>
+            <text>可用领取优惠券</text>
+        </view>
+    </view>
+    <view class="list bg-white">
+        <view bindtap="handleGet" class="yhj_cont mb20" data-id="{{item.co_id}}" wx:if="{{list.length!=0}}" wx:for="{{list}}" wx:key="item">
+            <view class="j_left">
+                <view class="j_l_top df">
+                    <view class="tc" style="flex-shrink:0;width:200rpx;">
+                        <view>
+                            <text class="fs22">￥</text>
+                            <text class="fs50 fw">{{item.y_money}}</text>
+                        </view>
+                        <view class="fs24">{{item.yhq_yaoqiu}}</view>
+                    </view>
+                    <view class="" style="padding:20rpx;">
+                        <view class="fw fs34">{{item.co_name}}</view>
+                        <view class="fs26">{{item.yhq_shuoming}}</view>
+                    </view>
+                </view>
+                <view class="j_l_bot df jsb" style="padding:20rpx;">
+                    <view></view>
+                    <view class="label">领取</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

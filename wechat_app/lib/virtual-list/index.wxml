@@ -1,5 +1,5 @@
-<view class="wux-class {{ classes.wrap }}" style="{{ !enablePageScroll ? wrapStyle : '' }}">
-	<view class="{{ classes.mask }}" wx:if="{{ disableScroll }}" catchtouchmove="noop"></view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="{{ !enablePageScroll ? wrapStyle : '' }}">
+	<view style="box-sizing:null;" class="{{ classes.mask }}" wx:if="{{ disableScroll }}" catchtouchmove="noop"></view>
 	<scroll-view
 		class="{{ classes.scrollView }}"
 		scroll-y="{{ !enablePageScroll && !disableScroll }}"
@@ -12,7 +12,7 @@
 		bindscrolltoupper="onScrollToUpper"
 		bindscrolltolower="onScrollToLower"
 	>
-		<view class="{{ classes.scrollArea }}" style="{{ virtual && virtual.style }}">
+		<view style="box-sizing:null;" class="{{ classes.scrollArea }}" style="{{ virtual && virtual.style }}">
 			<slot></slot>
 		</view>
 	</scroll-view>

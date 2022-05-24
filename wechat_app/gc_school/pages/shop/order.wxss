@@ -1,0 +1,60 @@
+page {
+    background-color: #fff;
+}
+
+.tab_menu {
+    display: flex;
+    padding: 20rpx 0;
+}
+
+.tab_menu .item {
+    font-size: 32rpx;
+    width: 33.3%;
+    text-align: center;
+    line-height: 70rpx;
+    border-bottom: 1rpx solid #f9f9f9;
+    margin-bottom: 30rpx;
+    position: relative;
+    padding-bottom: 10rpx;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    width: 55rpx;
+    height: 6rpx;
+    transform: translateX(-50%);
+    left: 50%;
+    margin: 0 auto;
+    bottom: 0;
+    background-color: #ff6344;
+}
+
+.order_item {
+    width: 90%;
+    margin: 10rpx 0 50rpx 5%;
+    padding: 30rpx;
+    border-radius: 15rpx;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.1);
+}
+
+.text-sm,text-df {
+    line-height: 55rpx;
+}
+
+.status {
+    border: 1rpx solid #999;
+    padding: 5rpx 20rpx;
+    color: #323232;
+}
+
+.empty {
+    margin: 100rpx auto;
+    text-align: center;
+    font-size: 30rpx;
+    color: grey;
+}
+
+.empty image {
+    width: 300rpx;
+}

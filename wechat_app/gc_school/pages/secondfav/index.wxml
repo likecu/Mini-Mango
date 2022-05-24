@@ -1,0 +1,24 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">我的收藏</view>
+</cu-custom>
+<view class="trade_box">
+    <view class="single-trade" wx:for="{{dataList}}" wx:for-item="good" wx:key="id">
+        <view bindtap="toDetail" class="trade2" data-id="{{good.gid}}" data-status="{{good.status}}">
+            <image class="bookimage" mode="aspectFill" src="{{good.img[0]}}"></image>
+            <view class="second-left">
+                <view class="textdet">
+                    <view class="text-bookname">{{good.name}}</view>
+                </view>
+                <view class="price">￥{{good.price}}</view>
+            </view>
+            <image catchtap="cancelFav" class="fav" data-id="{{good.gid}}" src="/images/fav.png"></image>
+        </view>
+    </view>
+</view>
+<view class="nocontent" wx:if="{{dataList.length==0}}">
+    <image lazyLoad mode="aspectFit" src="/images/empty.png"></image>
+    <view class="blank_text">暂无数据哦~</view>
+</view>
+<view class="nomore" wx:if="{{!loadmore&&dataList.length>0}}">
+  没有更多数据了~
+</view>

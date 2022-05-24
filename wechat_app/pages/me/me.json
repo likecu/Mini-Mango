@@ -2,5 +2,6 @@
   "usingComponents": {
     "navbar": "/Component/top/index"
  
-  }
+  },
+  "styleIsolation": "page-apply-shared"
 }

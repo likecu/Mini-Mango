@@ -33,7 +33,7 @@
       type="{{ loadingType }}"
       color="{{ computed.loadingColor({ type, color, plain }) }}"
     />
-    <view wx:if="{{ loadingText }}" class="van-button__loading-text">
+    <view style="box-sizing:null;" wx:if="{{ loadingText }}" class="van-button__loading-text">
       {{ loadingText }}
     </view>
   </block>
@@ -46,7 +46,7 @@
       class="van-button__icon"
       custom-style="line-height: inherit;"
     />
-    <view class="van-button__text">
+    <view style="box-sizing:null;" class="van-button__text">
       <slot />
     </view>
   </block>

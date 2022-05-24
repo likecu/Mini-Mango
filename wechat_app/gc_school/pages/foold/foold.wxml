@@ -1,0 +1,63 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">商品列表</view>
+</cu-custom>
+<view class="store-container">
+    <view class="food">
+        <view class="food-class" style="height:{{listHeight}}px">
+            <scroll-view scrollWithAnimation scrollY scrollIntoView="{{viewToLeft}}" style="height:{{listHeight}}px">
+                <view bindtap="selectFood" class="food-class-item {{activeIndex==index?'active':''}}" data-index="{{index}}" data-titleId="{{item.titleId}}" id="{{item.titleId+'left'}}" wx:for="{{food}}" wx:key="item.title">
+                    <view class="text" data-index="{{index}}" data-titleId="{{item.titleId}}">{{item.name}}</view>
+                    <view class="dot" wx:if="{{item.foodCount>0}}">{{item.foodCount}}</view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="food-detail">
+            <scroll-view scrollWithAnimation scrollY bindscroll="scroll" scrollIntoView="{{viewTo}}" style="height:{{listHeight}}px;padding-bottom:110rpx;">
+                <view class="title-group" wx:for="{{food}}" wx:for-index="groupindex" wx:key="item.name">
+                    <view class="title" id="{{item.titleId}}">{{item.name}}</view>
+                    <view class="food-info" wx:for="{{item.items}}" wx:key="item.goodId">
+                        <view class="img">
+                            <image bindtap="preview" data-url="{{item.img}}" src="{{item.img}}"></image>
+                        </view>
+                        <view class="info">
+                            <view class="name">{{item.name}}</view>
+                            <view class="price-count">
+                                <view class="price">￥{{item.price}}</view>
+                                <view class="count">
+                                    <view bindtap="add" class="add btns" data-groupindex="{{groupindex}}" data-index="{{index}}" data-item="{{item}}">+</view>
+                                    <view class="num">{{item.count}}</view>
+                                    <view bindtap="reduce" class="ruduce btns" data-groupindex="{{groupindex}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.count>0?true:false}}">-</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="cart">
+        <view class="cart-container">
+            <view bindtap="listCart" class="cart-img {{cart.length>0?'has-food':''}}">
+                <image src="{{cart.length>0?'/images/gouwuche-black.png':'/images/gouwuche.png'}}"></image>
+            </view>
+            <view class="del-price-money">
+                <view class="money">￥{{totalMoney}}</view>
+            </view>
+            <view class="start-del end" wx:if="{{status==0}}">已打烊</view>
+            <view bindtap="{{totalMoney>=storeInfo.minDelPrice&&cart.length>0?'check':''}}" class="start-del {{totalMoney>=storeInfo.minDelPrice&&cart.length>0?'has-food':''}}" wx:else>{{totalMoney>=storeInfo.minDelPrice&&cart.length>0?'去结算':'选择商品'}}</view>
+        </view>
+        <view class="cart-list" wx:if="{{showCart}}">
+            <view bindtap="listCart" class="cart-list-header">关闭</view>
+            <view class="cart-list-item">
+                <view class="item" wx:for="{{cart}}">
+                    <view class="cart-detail">{{item.name}}</view>
+                    <view class="cart-detail" style="color:red">￥{{item.price}}</view>
+                    <view class="cart-detail cart-count">
+                        <view bindtap="reduce" class="add btns" data-groupindex="{{item.groupindex}}" data-id="{{item.id}}" data-index="{{item.index}}">-</view>{{item.count}}
+            <view bindtap="add" class="add btns" data-groupindex="{{item.groupindex}}" data-id="{{item.id}}" data-index="{{item.index}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

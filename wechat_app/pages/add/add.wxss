@@ -1,7 +1,7 @@
 .topic_item {
   padding: 20rpx;
 }
-
+@import "/mangos.wxss";
 .topic_item {
   display: flex;
   flex-direction: column;

@@ -1,23 +1,23 @@
-<view class="wux-class {{ classes.wrap }} {{ className }}" style="width: {{ width }}">
-    <view class="{{ classes.hd }}">
-        <view class="{{ classes.icon }}" wx:if="{{ !hasIcon }}">{{ index + 1 }}</view>
-        <view class="{{ classes.icon }}" wx:else>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }} {{ className }}" style="width: {{ width }}">
+    <view style="box-sizing:null;" class="{{ classes.hd }}">
+        <view style="box-sizing:null;" class="{{ classes.icon }}" wx:if="{{ !hasIcon }}">{{ index + 1 }}</view>
+        <view style="box-sizing:null;" class="{{ classes.icon }}" wx:else>
             <wux-icon wux-class="{{ classes.thumb }}" type="{{ thumb }}" size="24" wx:if="{{ thumb }}"></wux-icon>
         </view>
     </view>
-    <view class="{{ classes.bd }}">
-        <view class="{{ classes.title }}" wx:if="{{ title }}">
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
+        <view style="box-sizing:null;" class="{{ classes.title }}" wx:if="{{ title }}">
             {{ title }}
         </view>
-        <view class="{{ classes.title }}" wx:else>
+        <view style="box-sizing:null;" class="{{ classes.title }}" wx:else>
             <slot name="title"></slot>
         </view>
-        <view class="{{ classes.content }}" wx:if="{{ content }}">
+        <view style="box-sizing:null;" class="{{ classes.content }}" wx:if="{{ content }}">
             {{ content }}
         </view>
-        <view class="{{ classes.content }}" wx:else>
+        <view style="box-sizing:null;" class="{{ classes.content }}" wx:else>
             <slot name="content"></slot>
         </view>
     </view>
-    <view class="{{ classes.ft }}" wx:if="{{ index !== length - 1 }}"></view>
+    <view style="box-sizing:null;" class="{{ classes.ft }}" wx:if="{{ index !== length - 1 }}"></view>
 </view>

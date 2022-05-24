@@ -1,1 +1,2 @@
 /* pages/card/card_vote_list/index.wxss */
+@import "/mangos.wxss";

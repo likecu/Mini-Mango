@@ -1,7 +1,7 @@
-<view class="wux-class {{ classes.wrap }}">
-    <view class="{{ classes.hd }}" wx:if="{{ title }}">{{ title }}</view>
-    <view class="{{ classes.bd }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+    <view style="box-sizing:null;" class="{{ classes.hd }}" wx:if="{{ title }}">{{ title }}</view>
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
         <slot></slot>
     </view>
-    <view class="{{ classes.ft }}" wx:if="{{ label }}">{{ label }}</view>
+    <view style="box-sizing:null;" class="{{ classes.ft }}" wx:if="{{ label }}">{{ label }}</view>
 </view>

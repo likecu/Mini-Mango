@@ -6,7 +6,7 @@
 <form bindsubmit="submit">
   <!-- <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
+      <view style="box-sizing:null;" class="picker">
         国家：{{objectArray[index].name}}
       </view>
     </picker>
@@ -14,33 +14,33 @@
   <!-- <view>
     <input name="title" class="title" placeholder="请输入文章标题"></input>
   </view> -->
-  <view class="container">
+  <view style="box-sizing:null;" class="container">
     <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-    <view class="page-body">
-      <view class='wrapper'>
+    <view style="box-sizing:null;" class="page-body">
+      <view style="box-sizing:null;" class='wrapper'>
 
-        <view class='toolbar' bindtap="format">
+        <view style="box-sizing:null;" class='toolbar' bindtap="format">
           小组昵称
         </view>
           <vans  name="themeTitle"  type="textarea"  placeholder="{{aboutme}} 小组昵称必须唯一"  clearable="{{true}}"autosize="{{ true }}"/>
 
 
-        <view class="page-section page-section-gap" >
-        <view class="page-section-title" class='toolbar'>小组加入设置:</view>
+        <view style="box-sizing:null;" class="page-section page-section-gap" >
+        <view style="box-sizing:null;" class="page-section-title" class='toolbar'>小组加入设置:</view>
         <radio-group name="themeUse"class='toolbar'>
           <label ><radio value="0"/>所有人都能加入</label>
           <label><radio value="2"/>需要管理员邀请</label>
         </radio-group>
       </view>
-      <view class="submit">
+      <view style="box-sizing:null;" class="submit">
           <button class="button" type="primary" bindtap="insertImage">上传小组图标</button>
         </view>
 
-      <view class='toolbar' bindtap="format">
+      <view style="box-sizing:null;" class='toolbar' bindtap="format">
           小组简介  
         </view>
           <vans id="editor" name="themeIntro" type="textarea" placeholder="请输入小组简介" clearable="{{true}}"autosize="{{ true }}"></vans>
-        <view class="submit">
+        <view style="box-sizing:null;" class="submit">
           <button class="button" type="primary" form-type="submit">保存</button>
         </view>
 

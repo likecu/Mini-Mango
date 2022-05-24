@@ -1,6 +1,6 @@
-<view class="wux-class {{ classes.wrap }}" style="{{ style }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="{{ style }}">
     <canvas style="{{ style }}" canvas-id="circle" />
-    <view class="{{ classes.inner }}">
+    <view style="box-sizing:null;" class="{{ classes.inner }}">
     	<slot></slot>
     </view>
 </view>

@@ -1,1 +1,1 @@
-<view class="wux-class {{ classes.wrap }}" style="{{ extStyle }}" onTap="onTap"></view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="{{ extStyle }}" onTap="onTap"></view>

@@ -1,3 +1,4 @@
+@import "/mangos.wxss";
 .main {
   display: flex;
   flex-direction: column;

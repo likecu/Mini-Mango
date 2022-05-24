@@ -1,0 +1,20 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">我的关注</view>
+</cu-custom>
+<view class="box">
+    <view class="item" wx:for="{{dataList}}">
+        <image src="{{item.nickimg}}"></image>
+        <view class="info">
+            <view class="name">{{item.nickname}}</view>
+            <view class="num">{{item.follow_count}}人关注</view>
+        </view>
+        <view catchtap="cancelFav" class="cancel_btn" data-id="{{item.gid}}">取消关注</view>
+    </view>
+</view>
+<view class="nocontent" wx:if="{{dataList.length==0}}">
+    <image lazyLoad mode="aspectFit" src="/images/empty.png"></image>
+    <view class="blank_text">暂无数据哦~</view>
+</view>
+<view class="nomore" wx:if="{{!loadmore&&dataList.length>0}}">
+  没有更多数据了~
+</view>

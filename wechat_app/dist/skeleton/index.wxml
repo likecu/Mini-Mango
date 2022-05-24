@@ -9,7 +9,7 @@
     class="avatar-class {{ utils.bem('skeleton__avatar', [avatarShape])}}"
     style="{{ 'width:' + avatarSize + ';height:' + avatarSize }}"
   />
-  <view class="{{ utils.bem('skeleton__content')}}">
+  <view style="box-sizing:null;" class="{{ utils.bem('skeleton__content')}}">
     <view
       wx:if="{{ title }}"
       class="title-class {{ utils.bem('skeleton__title') }}"
@@ -24,6 +24,6 @@
     />
   </view>
 </view>
-<view wx:else class="{{ utils.bem('skeleton__content')}}">
+<view style="box-sizing:null;" wx:else class="{{ utils.bem('skeleton__content')}}">
   <slot />
 </view>

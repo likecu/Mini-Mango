@@ -1,16 +1,16 @@
-<view class="wux-class {{ classes.wrap }}">
-    <view class="{{ classes.hd }}">
-        <view wx:if="{{ resultIcon }}" class="{{ classes.icon }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+    <view style="box-sizing:null;" class="{{ classes.hd }}">
+        <view style="box-sizing:null;" wx:if="{{ resultIcon }}" class="{{ classes.icon }}">
             <icon type="{{ resultIcon.type }}" size="{{ resultIcon.size }}" color="{{ resultIcon.color }}" />
         </view>
         <block wx:else>
             <slot name="header"></slot>
         </block>
     </view>
-    <view class="{{ classes.bd }}">
-        <view wx:if="{{ title }}" class="{{ classes.title }}">{{ title }}</view>
-        <view wx:if="{{ label }}" class="{{ classes.desc }}">{{ label }}</view>
-        <view wx:if="{{ buttons.length }}" class="{{ classes.buttons }}">
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
+        <view style="box-sizing:null;" wx:if="{{ title }}" class="{{ classes.title }}">{{ title }}</view>
+        <view style="box-sizing:null;" wx:if="{{ label }}" class="{{ classes.desc }}">{{ label }}</view>
+        <view style="box-sizing:null;" wx:if="{{ buttons.length }}" class="{{ classes.buttons }}">
             <block wx:for="{{ buttons }}" wx:for-item="button" wx:key="index">
                 <wux-button
                     type="{{ button.type }}"
@@ -47,7 +47,7 @@
         </view>
         <slot></slot>
     </view>
-    <view class="{{ classes.ft }}">
+    <view style="box-sizing:null;" class="{{ classes.ft }}">
         <block wx:if="{{ extra }}">
             <text>{{ extra }}</text>
         </block>

@@ -1,6 +1,6 @@
-<view class="wux-class {{ classes.wrap }}">
-    <view class="{{ classes.form }}">
-        <view class="{{ classes.box }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}">
+    <view style="box-sizing:null;" class="{{ classes.form }}">
+        <view style="box-sizing:null;" class="{{ classes.box }}">
             <icon class="{{ classes.search }}" type="search" color="#B2B2B2" size="14" />
             <input
             	type="text"
@@ -31,5 +31,5 @@
             <text class="{{ classes.text }}">{{ placeholder }}</text>
         </label>
     </view>
-    <view class="{{ classes.cancel }}" wx:if="{{ showCancel || inputFocus || (inputValue && inputValue.length > 0) }}" bindtap="onCancel">{{ cancelText }}</view>
+    <view style="box-sizing:null;" class="{{ classes.cancel }}" wx:if="{{ showCancel || inputFocus || (inputValue && inputValue.length > 0) }}" bindtap="onCancel">{{ cancelText }}</view>
 </view>

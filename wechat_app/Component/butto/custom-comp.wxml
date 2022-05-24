@@ -1,1 +1,1 @@
- <button type="primary" form-type="submit">在控制台查看输出</button>
+ <button type="primary" form-type="submit" box-sizing="">在控制台查看输出</button>

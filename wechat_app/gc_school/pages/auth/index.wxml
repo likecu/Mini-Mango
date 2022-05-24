@@ -1,0 +1,32 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">骑手认证</view>
+</cu-custom>
+<view class="cu-form-group">
+    <view class="title">所属校区</view>
+    <picker bindchange="PickerChange" range="{{school}}" rangeKey="s_name" value="{{sindex}}">
+        <view class="picker">
+            {{school[sindex].s_name?school[sindex].s_name:'选择学校'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">真实姓名</view>
+    <input bindinput="change" class="text-right" data-type="t_name" name="t_name" placeholder="请输入真实姓名" value="{{form.t_name}}"></input>
+</view>
+<view class="cu-form-group">
+    <view class="title">手机</view>
+    <input bindinput="change" class="text-right" data-type="phone" name="phone" placeholder="请输入手机" value="{{form.phone}}"></input>
+</view>
+<view class="cu-form-group">
+    <view class="title">性别选择</view>
+    <picker bindchange="bindSexChange" class="picker_name text-right" range="{{gender}}" rangeKey="name" value="{{index}}">
+        <view class="picker">
+            {{gender[gender_index].name}}
+        </view>
+    </picker>
+</view>
+<view class="agreement">
+    <checkbox bindtap="checkagree" checked="{{check}}" class="checkbox"></checkbox>
+    <view bindtap="agreelink">我已阅读并同意跑腿认证</view>
+</view>
+<button class="cu-btn bg-yellow lg round" formType="submit">保存</button>

@@ -4,8 +4,8 @@
   class="{{ utils.bem('search', { withaction: showAction || useActionSlot }) }} custom-class"
   style="background: {{ background }}"
 >
-  <view class="{{ utils.bem('search__content', [shape]) }}">
-    <view class="van-search__label" wx:if="{{ label }}">{{ label }}</view>
+  <view style="box-sizing:null;" class="{{ utils.bem('search__content', [shape]) }}">
+    <view style="box-sizing:null;" class="van-search__label" wx:if="{{ label }}">{{ label }}</view>
     <slot wx:else name="label" />
 
     <van-field
@@ -48,6 +48,6 @@
     hover-stay-time="70"
   >
     <slot wx:if="{{ useActionSlot }}" name="action" />
-    <view wx:else bind:tap="onCancel" class="cancel-class">{{ actionText }}</view>
+    <view style="box-sizing:null;" wx:else bind:tap="onCancel" class="cancel-class">{{ actionText }}</view>
   </view>
 </view>

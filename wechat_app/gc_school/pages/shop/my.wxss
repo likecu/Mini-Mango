@@ -1,0 +1,49 @@
+.title {
+    margin-top: -10rpx;
+    line-height: 120rpx;
+}
+
+.list,.title {
+    background: #fff;
+    margin-bottom: 30rpx;
+}
+
+.list {
+    margin-top: -15rpx;
+    display: flex;
+    padding: 40rpx 0 20rpx;
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 60rpx;
+}
+
+.list_item {
+    width: 50%;
+    border-right: 1rpx solid #f2f2f2;
+}
+
+.list_item .num {
+    font-weight: 700;
+    font-size: 36rpx;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+}
+
+.menu_item {
+    text-align: center;
+    font-size: 30rpx;
+    width: 50%;
+    border-right: 1rpx solid #f2f2f2;
+    border-bottom: 1rpx solid #f2f2f2;
+    padding: 50rpx 0;
+}
+
+.menu_item image {
+    width: 95rpx;
+    height: 95rpx;
+    margin-bottom: 20rpx;
+}

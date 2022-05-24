@@ -8,12 +8,12 @@
     bind:close="close"
     bind:closed="onClosed"
 >
-    <view class="{{ classes.wrap }}" wx:if="{{ mounted }}">
-        <view class="{{ classes.toolbar }}" wx:if="{{ toolbar }}" catchtouchmove="noop">
-            <view class="{{ classes.inner }}">
-                <view class="{{ classes.cancel }}" hover-class="{{ classes.hover }}" bindtap="onCancel" wx:if="{{ toolbar.cancelText }}">{{ toolbar.cancelText }}</view>
-                <view class="{{ classes.title }}">{{ toolbar.title }}</view>
-                <view class="{{ classes.confirm }}" hover-class="{{ classes.hover }}" bindtap="onConfirm" wx:if="{{ toolbar.confirmText }}">{{ toolbar.confirmText }}</view>
+    <view style="box-sizing:null;" class="{{ classes.wrap }}" wx:if="{{ mounted }}">
+        <view style="box-sizing:null;" class="{{ classes.toolbar }}" wx:if="{{ toolbar }}" catchtouchmove="noop">
+            <view style="box-sizing:null;" class="{{ classes.inner }}">
+                <view style="box-sizing:null;" class="{{ classes.cancel }}" hover-class="{{ classes.hover }}" bindtap="onCancel" wx:if="{{ toolbar.cancelText }}">{{ toolbar.cancelText }}</view>
+                <view style="box-sizing:null;" class="{{ classes.title }}">{{ toolbar.title }}</view>
+                <view style="box-sizing:null;" class="{{ classes.confirm }}" hover-class="{{ classes.hover }}" bindtap="onConfirm" wx:if="{{ toolbar.confirmText }}">{{ toolbar.confirmText }}</view>
             </view>
         </view>
         <wux-cascader-picker-view

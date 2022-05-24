@@ -1,1 +1,2 @@
 /* otherpage/dashboard/index.wxss */
+@import "/mangos.wxss";

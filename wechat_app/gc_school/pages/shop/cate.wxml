@@ -1,0 +1,32 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">分类管理</view>
+</cu-custom>
+<view class="box">
+    <block wx:if="{{cate.length>0}}">
+        <view class="item flex justify-between" wx:for="{{cate}}">
+            <view class="name text-df">{{item.name}}</view>
+            <view>
+                <image bindtap="edit" class="edit_icon" data-id="{{item.id}}" data-type="1" src="../../../images/store/edit.png"></image>
+                <image bindtap="del" class="del_icon" data-id="{{item.id}}" src="../../../images/store/del3.png"></image>
+            </view>
+        </view>
+    </block>
+    <view class="empty" wx:else>
+        <image class="" mode="widthFix" src="../../../images/store/empty.png"></image>
+        <view>暂无分类~</view>
+    </view>
+</view>
+<view class="cover" wx:if="{{modal_show}}">
+    <view class="cate_content padding">
+        <view class="text-right">
+            <image bindtap="close" class="close" src="../../../images/store/close.png"></image>
+        </view>
+        <view class="text-bold text-lg flex">
+            <text class="text-red text-bold text-xxl">*</text>{{type==1?'编辑分类':'添加分类'}}</view>
+        <input bindinput="getName" placeholder="请输入分类名称" value="{{name}}"></input>
+        <view bindtap="submit" class="submit_btn">确认</view>
+    </view>
+</view>
+<view class="bottom_fixed">
+    <view bindtap="add" class="create" data-type="2">创建分类</view>
+</view>

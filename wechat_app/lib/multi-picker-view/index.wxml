@@ -1,5 +1,5 @@
 <wux-spin nested spinning="{{ loading }}">
-    <view class="wux-class {{ prefixCls }}" data-picker-value="{{ inputValue }}">
+    <view style="box-sizing:null;" class="wux-class {{ prefixCls }}" data-picker-value="{{ inputValue }}">
         <wux-picker-view
             wx:for="{{ cols }}"
             wx:for-item="col"

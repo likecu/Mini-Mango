@@ -1,9 +1,9 @@
 <wux-animation-group wux-class="{{ classes.wrap }}" in="{{ visible }}" classNames="{{ classNames }}">
-    <view class="{{ classes.bd }}">
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
         <image src="{{ icon }}" class="{{ classes.icon }}" wx:if="{{ icon }}" />
-        <view class="{{ classes.title }}" wx:if="{{ title }}">{{ title }}</view>
-        <view class="{{ classes.text }}" wx:if="{{ text }}">{{ text }}</view>
-        <view class="{{ classes.buttons }}" wx:if="{{ buttons && !!buttons.length }}">
+        <view style="box-sizing:null;" class="{{ classes.title }}" wx:if="{{ title }}">{{ title }}</view>
+        <view style="box-sizing:null;" class="{{ classes.text }}" wx:if="{{ text }}">{{ text }}</view>
+        <view style="box-sizing:null;" class="{{ classes.buttons }}" wx:if="{{ buttons && !!buttons.length }}">
             <block wx:for="{{ buttons }}" wx:for-item="button" wx:key="index">
                 <button
                     class="{{ classes.button[index].wrap }}"

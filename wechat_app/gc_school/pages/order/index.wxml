@@ -1,0 +1,100 @@
+<view class="container">
+    <view class="content" style="background:{{color}}">我发布的订单</view>
+    <view class="modal" wx:if="{{getUseInfo}}">
+        <view class="m_box tc">
+            <view class="title">提示</view>
+            <view class="fs30 p20">请先开启用户授权</view>
+            <view class="border_top_2">
+                <button bindgetuserinfo="getUsetInfo" class="m_btn" openType="getUserInfo">确定</button>
+            </view>
+        </view>
+    </view>
+    <view class="page">
+        <scroll-view scrollWithAnimation scrollX class="nav text-center" scrollLeft="{{scrollLeft}}">
+            <view class="flex text-center">
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{0==TabCur?'text-white cur':''}}" data-id="0" data-index="8">
+                    全部订单
+                </view>
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{7==TabCur?'text-white cur':''}}" data-id="7" data-index="1">
+                    待付款
+                </view>
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{6==TabCur?'text-white cur':''}}" data-id="6" data-index="2">
+                    待接单
+                </view>
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{9==TabCur?'text-white cur':''}}" data-id="9" data-index="3">
+                    待取货
+                </view>
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{5==TabCur?'text-white cur':''}}" data-id="5" data-index="7">
+                    待送达
+                </view>
+                <view bindtap="tabSelect" class="cu-item text-df flex-sub {{3==TabCur?'text-white cur':''}}" data-id="3" data-index="4">
+                    已完成
+                </view>
+                <view bindtap="tabSelect" class="cu-item  text-df flex-sub {{4==TabCur?'text-white cur':''}}" data-id="4" data-index="5">
+                    已过期
+                </view>
+            </view>
+        </scroll-view>
+        <view class="page-container ">
+            <view class="grid col-1 nodata" style="margin:100rpx auto; text-align:center; width:100%" wx:if="{{list.length==0}}">
+                <view class="padding-sm">
+                    <view class=" padding radius text-center light ">
+                        <text class="cuIcon-infofill lg text-lg" style="font-size:50rpx"></text>
+                        <view class="text-lg padding-tb-sm'">暂无数据</view>
+                    </view>
+                </view>
+            </view>
+            <view class="block" style="width:100%" wx:if="{{list.length>0}}">
+                <view class="box bg-white padding-left align-center padding-right padding-bottom " wx:for="{{list}}" wx:key="{{index}}">
+                    <view bindtap="detail" class="flex justify-between" data-index="{{index}}">
+                        <view style="width:65%">
+                            <view class="padding-tb-sm" style="display:flex">
+                                <image class="type_icon" src="/images/jiicon.png" wx:if="{{item.type=='寄件'}}"></image>
+                                <image class="type_icon" src="/images/quicon.png" wx:elif="{{item.type=='取件'}}"></image>
+                                <image class="type_icon" src="/images/shiicon.png" wx:elif="{{item.type=='超市食堂'}}"></image>
+                                <image class="type_icon" src="/images/waiicon.png" wx:else></image>
+                                <view class="text-df text-cut" id="text-df" wx:if="{{item.type=='无所不能/饮品'&&item.title}}">{{item.title}}</view>
+                                <view class="text-df text-cut" id="text-df" wx:else>{{item.desc}}</view>
+                            </view>
+                            <view class="ft">
+                                <view class="cu-tag sm radius cu-tags">
+                                {{item.createtime}}
+                            </view>
+                                <view class="cu-tag sm radius cu-tags" wx:if="{{item.type=='无所不能/饮品'&&item.is_start_show==1}}"> 
+                                服务时间：{{item.start_time}}
+                            </view>
+                                <view class="cu-tag sm radius cu-tags" wx:if="{{item.type!='无所不能/饮品'}}"> 
+                                送达时间：{{item.start_time}}
+                            </view>
+                            </view>
+                        </view>
+                        <view class="flex align-end text-right ">
+                            <view class="margin-right-sm">
+                                <view class="text-yellow text-xl">¥{{item.total}}</view>
+                                <view class="flex justify-end text-sm margin-top-sm">{{item.status}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="flex justify-end">
+                        <view class="margin-top-sm" wx:if="{{item.status=='待接单'&&TabCur==0}}">
+                            <view class="cu-tag sm radius bg-yellows">{{item.status}}</view>
+                        </view>
+                        <view class="margin-top-sm" wx:if="{{item.status!='待接单'&&TabCur==0}}">
+                            <view class="cu-tag sm radius bg-del">{{item.status}}</view>
+                        </view>
+                        <view bindtap="handleDel" class="margin-top-sm margin-left-sm" data-index="{{index}}" wx:if="{{item.status=='未支付'||item.status=='已过期'}}">
+                            <view class="cu-tag sm radius bg-del ">删除</view>
+                        </view>
+                        <view bindtap="handleQX" class="margin-top-sm margin-left-sm" data-index="{{index}}" wx:if="{{item.status=='未支付'}}">
+                            <view class="cu-tag sm radius bg-del">取消订单</view>
+                        </view>
+                        <view bindtap="handleQX" class="margin-top-sm margin-left-sm" data-index="{{index}}" wx:if="{{item.status=='待接单'&&TabCur==0}}">
+                            <view class="cu-tag sm radius bg-del">取消订单</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</view>

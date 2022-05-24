@@ -1,6 +1,6 @@
-<view class="{{ classes.backdrop }}" wx:if="{{ backdrop && buttonVisible }}"></view>
-<view class="wux-class {{ classes.wrap }}" catchtap="onToggle">
-	<view class="{{ classes.action }}" hover-class="{{ classes.hover }}">
+<view style="box-sizing:null;" class="{{ classes.backdrop }}" wx:if="{{ backdrop && buttonVisible }}"></view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" catchtap="onToggle">
+	<view style="box-sizing:null;" class="{{ classes.action }}" hover-class="{{ classes.hover }}">
 		<image class="{{ classes.text }}" src="{{ action }}" wx:if="{{ action }}" />
 		<slot name="action" wx:else></slot>
 	</view>
@@ -32,7 +32,7 @@
 			style="{{ buttonStyle[index] }}"
 		>
 			<image class="{{ classes.icon }}" src="{{ button.icon }}" />
-			<view class="{{ classes.label }}" wx:if="{{ button.label }}">{{ button.label }}</view>
+			<view style="box-sizing:null;" class="{{ classes.label }}" wx:if="{{ button.label }}">{{ button.label }}</view>
 		</button>
 	</block>
 </view>

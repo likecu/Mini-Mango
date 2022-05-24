@@ -1,6 +1,6 @@
 
 @import "./assets/iconfont.wxss";
-
+@import "/mangos.wxss";
 .container {
   position: fixed;
   width: 100%;

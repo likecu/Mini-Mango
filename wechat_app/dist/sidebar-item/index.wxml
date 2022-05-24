@@ -6,13 +6,13 @@
   hover-stay-time="70"
   bind:tap="onClick"
 >
-  <view class="van-sidebar-item__text">
+  <view style="box-sizing:null;" class="van-sidebar-item__text">
     <van-info
       wx:if="{{ badge != null || info !== null || dot }}"
       dot="{{ dot }}"
       info="{{ badge != null ? badge : info }}"
     />
-    <view wx:if="{{ title }}">{{ title }}</view>
+    <view style="box-sizing:null;" wx:if="{{ title }}">{{ title }}</view>
     <slot wx:else name="title" />
   </view>
 </view>

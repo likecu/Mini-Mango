@@ -1,6 +1,6 @@
 /* pages/group_fun/create_group/create_group.wxss */
 @import "/pages/add_detail/index/assets/iconfont.wxss";
-
+@import "/mangos.wxss";
 .container {
   position: fixed;
   width: 100%;

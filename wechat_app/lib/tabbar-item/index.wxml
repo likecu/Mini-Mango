@@ -1,5 +1,5 @@
-<view class="wux-class {{ classes.wrap }}" style="width: {{ width }}" bindtap="onTap">
-	<view class="{{ classes.icon }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="width: {{ width }}" bindtap="onTap">
+	<view style="box-sizing:null;" class="{{ classes.icon }}">
 		<block wx:if="{{ current }}">
 			<slot name="icon-off"></slot>
 		</block>
@@ -7,7 +7,7 @@
 			<slot name="icon-on"></slot>
 		</block>
 	</view>
-	<view class="{{ classes.title }}">
+	<view style="box-sizing:null;" class="{{ classes.title }}">
 		<text wx:if="{{ title }}">{{ title }}</text>
 	    <block wx:else>
 	        <slot></slot>

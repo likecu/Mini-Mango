@@ -1,0 +1,264 @@
+.bgmain,.cu-bar .action:first-child {
+    background-color: #ff6444;
+    color: #fff;
+}
+
+.picture {
+    width: 100%;
+    height: 300px;
+}
+
+.container {
+    height: 100%;
+}
+
+.bottom {
+    width: 100%;
+    background: #fff;
+    opacity: 1;
+    position: fixed;
+    left: 0rpx;
+    bottom: 0rpx;
+    display: flex;
+    padding: 10rpx;
+    border-top: 1rpx solid #eee;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 8;
+}
+
+.clear {
+    clear: both;
+    overflow: hidden;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+
+.flex {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.flex>.sub {
+    -webkit-box-flex: 1;
+    flex: 1;
+    overflow: hidden;
+}
+
+.second {
+    background: #fff;
+    padding: 10px 15px;
+    font-size: 15px;
+}
+
+.pj_box {
+    margin-top: 10px;
+    padding: 0 15px;
+    font-size: 13px;
+    background: #fff;
+}
+
+.detail {
+    width: 100%;
+    height: 148rpx;
+    display: flex;
+    padding: 24rpx;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.detail image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.des_box {
+    height: 100%;
+    width: 450rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 10rpx 0;
+}
+
+.user_name {
+    font-size: 32rpx;
+    letter-spacing: 2rpx;
+    text-indent: 1.45em;
+}
+
+.local_box {
+    align-items: center;
+}
+
+.detail_card,.local_box {
+    display: flex;
+}
+
+.detail_card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx 0;
+    justify-content: space-between;
+}
+
+.detail_border {
+    border-bottom: 1rpx solid #eee;
+}
+
+.detail_title {
+    width: 20%;
+    font-size: 28rpx;
+    letter-spacing: 2rpx;
+    line-height: 45rpx;
+}
+
+.detail_content,.detail_content_d {
+    width: 78%;
+    font-size: 27rpx;
+    letter-spacing: 2rpx;
+    line-height: 44rpx;
+    color: #616161;
+    word-break: break-all;
+}
+
+.detail_content_d {
+    padding-bottom: 40px;
+}
+
+.sex {
+    width: 100rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sex image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.local_box image {
+    width: 20px;
+    height: 20px;
+}
+
+.first {
+    border-bottom: 1px solid #f6f6f6;
+    background: #fff;
+    padding: 0 15px;
+}
+
+.price {
+    float: left;
+    height: 15px;
+    line-height: 30px;
+    color: #f66;
+    font-size: 17px;
+    margin: 5px;
+}
+
+.shoucang {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    width: 50px;
+    line-height: 30px;
+    overflow: hidden;
+    float: right;
+}
+
+.price em {
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.flex {
+    position: relative;
+    width: auto;
+    margin: 0 -15px;
+    padding: 3px 15px 0;
+}
+
+.subc {
+    width: 80%;
+}
+
+.subc,.subg {
+    font-size: 13px;
+}
+
+.subg {
+    width: 20%;
+}
+
+.add-cart {
+    height: 100%;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.add-cart,.add-cart-btn {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-cart-btn {
+    height: 80rpx;
+    background: #ff6444;
+    color: #fff;
+    letter-spacing: 4rpx;
+    font-size: 32rpx;
+    border-radius: 35rpx;
+}
+
+.t_card {
+    position: relative;
+    width: 20%;
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.t_card image {
+    width: 60rpx;
+    height: 80rpx;
+    padding-top: 10rpx;
+}
+
+.t_card text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: calc(100% - 45rpx);
+    width: 100%;
+    font-size: 24rpx;
+    text-align: center;
+    white-space: nowrap;
+    padding-top: 5rpx;
+    color: #696969;
+}
+
+.t_button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    opacity: .01;
+    z-index: 9;
+}

@@ -1,60 +1,60 @@
-<view class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:20rpx;" bindtap="to_me">
+<view style="box-sizing:null;" class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:20rpx;" bindtap="to_me">
 	<image hidden="{{userInfo!=null}}" src="/image/user.png" />
 	<image hidden="{{userInfo==null}}" src="{{userPic}}" />
 </view>
-<!-- <view class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:100rpx;" bindtap="to_group">
+<!-- <view style="box-sizing:null;" class="user_detail_message_image" style="position: fixed;top:{{navTop}}px;left:100rpx;" bindtap="to_group">
 	<image src="/image/group_icon.png" />
 </view> -->
-<view style="padding-top:{{navTop}}px;" class="top">
+<view style="box-sizing:null;" style="padding-top:{{navTop}}px;" class="top">
 	<block wx:for="{{topCa}}" wx:key="hx">
-		<view class="{{index==currentIndex?'lineBottom':''}}" id="{{index}}" bind:tap="tapChange" style="font-weight: 600;">
+		<view style="box-sizing:null;" class="{{index==currentIndex?'lineBottom':''}}" id="{{index}}" bind:tap="tapChange" style="font-weight: 600;">
 			{{item}}
 		</view>
 	</block>
 </view>
-<view class="header" hidden="{{hideHeader}}" style="text-align:center">
+<view style="box-sizing:null;" class="header" hidden="{{hideHeader}}" style="text-align:center">
 	<view>
 		<image src="https://s1.ax1x.com/2022/05/09/OGY7GV.gif" style="width:80rpx;height:80rpx;border-radius:50%"></image>
 	</view>
-	<view style="font-size:20rpx;padding:10rpx">{{refreshTime}}</view>
+	<view style="box-sizing:null;" style="font-size:20rpx;padding:10rpx">{{refreshTime}}</view>
 </view>
-<view class="middle">
+<view style="box-sizing:null;" class="middle">
 
 	<swiper autoplay="{{false}}" style="height: calc(100vh - 44px - {{navTop+'px'}});" current="{{currentIndex}}" bindchange="swiperChange" skip-hidden-item-layout="{{true}}">
 		<swiper-item style="z-index:9999">
 			<scroll-view id="scroll-wrap" bindscrolltolower="newArticelLoadMessage" bindscrolltoupper="flush" style="height: calc(100vh - 44px - {{navTop+'px'}});" class="total_height" scroll-y="{{true}}">
-				<view id="inner-wrap" style="z-index:99999">
+				<view style="box-sizing:null;" id="inner-wrap" style="z-index:99999">
 					<block wx:for="{{new_article}}" wx:key="huangxin">
-						<view class="body">
-							<view class="user_message">
-								<view class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
+						<view style="box-sizing:null;" class="body">
+							<view style="box-sizing:null;" class="user_message">
+								<view style="box-sizing:null;" class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
 									<image src="{{item.userMessage.userAvatar}}" />
 								</view>
-								<view class="message_detail">
-									<view class="user_name">{{item.userMessage.userNickname}} <text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro">{{item.userMessage.userMotto}}</view>
+								<view style="box-sizing:null;" class="message_detail">
+									<view style="box-sizing:null;" class="user_name">{{item.userMessage.userNickname}} <text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro">{{item.userMessage.userMotto}}</view>
 								</view>
 							</view>
-							<!-- <view class="line"></view> -->
-							<view class="content" bind:tap="message_detail" id="{{item.articleId}}">
+							<!-- <view style="box-sizing:null;" class="line"></view> -->
+							<view style="box-sizing:null;" class="content" bind:tap="message_detail" id="{{item.articleId}}">
 
 								<rich-text nodes="{{item.articleContent}}"></rich-text>
 								<!-- <wxparser rich-text="{{item.articleContent}}" image-lazy-load="{{true}}" style="pointer-events: none"   /> -->
 							</view>
-							<!-- <view class="loadMore">查看更多</view> -->
-              <view class="time1" bind:tap="message_detail" id="{{item.articleId}}">
+							<!-- <view style="box-sizing:null;" class="loadMore">查看更多</view> -->
+              <view style="box-sizing:null;" class="time1" bind:tap="message_detail" id="{{item.articleId}}">
               <image style="text-align:left;"src="/image/sigood.png" style="width: 20px;height: 20px;"></image>{{item.likeCounter}}    
               <image style="text-align:left;"src="/image/icommment.png" style="width: 20px;height: 20px;"></image>{{item.commentCounter}}    
             </view>
-							<view class="time" bind:tap="message_detail" id="{{item.articleId}}">
+							<view style="box-sizing:null;" class="time" bind:tap="message_detail" id="{{item.articleId}}">
 
               {{item.createTime}}</view>
-							<view class="flag">
-								<view class="flag_item" bind:tap="theme" id="{{item.themeId}}">
+							<view style="box-sizing:null;" class="flag">
+								<view style="box-sizing:null;" class="flag_item" bind:tap="theme" id="{{item.themeId}}">
 									{{item.themeId==-1?"#生活":"#"+item.themeMessage.themeTitle}}
 								</view>
 							</view>
-							<!-- <view class="operation">
+							<!-- <view style="box-sizing:null;" class="operation">
 																		<text class="iconfont icon-buoumaotubiao15"></text>
 																		<button open-type="share" style="padding: 15rpx;outline: none;margin: 0;background-color: rgba(0, 0, 0, 0);">
 																				<text class="iconfont icon-fenxiang"></text>
@@ -64,7 +64,7 @@
 						</view>
 					</block>
 
-					<view class="tip">暂时没有更多</view>
+					<view style="box-sizing:null;" class="tip">暂时没有更多</view>
 				</view>
 			</scroll-view>
 		</swiper-item>
@@ -77,15 +77,15 @@
 						</swiper-item>
 					</block>
 				</swiper>
-				<view class="topic_content" style="margin-top:20rpx">
+				<view style="box-sizing:null;" class="topic_content" style="margin-top:20rpx">
 					<text class="topic_title">热门功能</text>
-					<view style="margin-top:20rpx;">
+					<view style="box-sizing:null;" style="margin-top:20rpx;">
 						<scroll-view style="width:100%;" scroll-x="{{true}}">
-							<view class="topic_cover">
+							<view style="box-sizing:null;" class="topic_cover">
 								<block wx:for="{{themeMessage}}" wx:key="huangxin">
-									<view class="topic_main" bind:tap="theme" id="{{item.themeId}}">
+									<view style="box-sizing:null;" class="topic_main" bind:tap="theme" id="{{item.themeId}}">
 										<image src="{{item.themeImage}}" mode="aspectFill" />
-										<view class="topic_main_title" style="color:#1296db">{{item.themeTitle}}</view>
+										<view style="box-sizing:null;" class="topic_main_title" style="color:#1296db">{{item.themeTitle}}</view>
 									</view>
 								</block>
 							</view>
@@ -94,36 +94,36 @@
 				</view>
 				<view>
 					<text class="topic_title" style="margin-left:20rpx">精选内容</text>
-					<view style="margin-top:20rpx;">
+					<view style="box-sizing:null;" style="margin-top:20rpx;">
 						<block wx:for="{{new_likeArticle}}" wx:key="huangxin">
-							<view class="body">
-								<view class="user_message">
-									<view class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
+							<view style="box-sizing:null;" class="body">
+								<view style="box-sizing:null;" class="user_message">
+									<view style="box-sizing:null;" class="user_image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
 										<image src="{{item.userMessage.userAvatar}}" />
 									</view>
-									<view class="message_detail">
-										<view class="user_name">{{item.userMessage.userNickname}} <text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-										<view class="intro">{{item.userMessage.userMotto}}</view>
+									<view style="box-sizing:null;" class="message_detail">
+										<view style="box-sizing:null;" class="user_name">{{item.userMessage.userNickname}} <text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+										<view style="box-sizing:null;" class="intro">{{item.userMessage.userMotto}}</view>
 									</view>
 								</view>
-								<!-- <view class="line"></view> -->
-								<view class="content" bind:tap="message_detail" id="{{item.articleId}}">
+								<!-- <view style="box-sizing:null;" class="line"></view> -->
+								<view style="box-sizing:null;" class="content" bind:tap="message_detail" id="{{item.articleId}}">
 
 									<rich-text nodes="{{item.articleContent}}"></rich-text>
 									<!-- <wxparser rich-text="{{item.articleContent}}"  style="pointer-events: none"/> -->
 								</view>
-								<!-- <view class="loadMore">查看更多</view> -->
-                <view class="time1">
+								<!-- <view style="box-sizing:null;" class="loadMore">查看更多</view> -->
+                <view style="box-sizing:null;" class="time1">
                 <image src="/image/sigood.png" style="width: 20px;height: 20px;"></image>{{item.likeCounter}}
                 <image src="/image/icommment.png" style="width: 20px;height: 20px;"></image>{{item.commentCounter}}
               </view>
-								<view class="time">{{item.createTime}}</view>
-								<view class="flag">
-									<view class="flag_item" bind:tap="theme" id="{{item.themeId}}">
+								<view style="box-sizing:null;" class="time">{{item.createTime}}</view>
+								<view style="box-sizing:null;" class="flag">
+									<view style="box-sizing:null;" class="flag_item" bind:tap="theme" id="{{item.themeId}}">
 										{{item.themeId==-1?"#生活":"#"+item.themeMessage.themeTitle}}
 									</view>
 								</view>
-								<!-- <view class="operation">
+								<!-- <view style="box-sizing:null;" class="operation">
 																		<text class="iconfont icon-buoumaotubiao15"></text>
 																		<button open-type="share" style="padding: 15rpx;outline: none;margin: 0;background-color: rgba(0, 0, 0, 0);">
 																				<text class="iconfont icon-fenxiang"></text>
@@ -133,27 +133,27 @@
 							</view>
 						</block>
 
-						<view class="tip">暂时没有更多</view>
+						<view style="box-sizing:null;" class="tip">暂时没有更多</view>
 					</view>
 				</view>
 			</scroll-view>
 		</swiper-item>
 		<swiper-item>
 			<scroll-view style="height: calc(100vh - 44px - {{navTop+'px'}})" scroll-y="{{true}}" bindscrolltolower="newNoticeLoadMessage">
-				<view class="notice">
+				<view style="box-sizing:null;" class="notice">
 					<block wx:for="{{new_notice}}" wx:key="huangxin">
 
 
 						<block wx:if="{{item.noticeType==1}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
 									<image src="{{item.userMessage.userAvatar}}" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name" bind:tap="check_user_message" id="{{item.userMessage.userId}}">{{item.userMessage.userNickname}}<text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro" id="{{item.content}}" bindtap="checkUserNoticeMessage" data-userid="{{item.userMessage.userId}}">{{item.content}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name" bind:tap="check_user_message" id="{{item.userMessage.userId}}">{{item.userMessage.userNickname}}<text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro" id="{{item.content}}" bindtap="checkUserNoticeMessage" data-userid="{{item.userMessage.userId}}">{{item.content}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -162,14 +162,14 @@
 						</block>
 						<block wx:if="{{item.noticeType==2}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image" id="{{item.likeMessage.userMessage.userId}}" bind:tap="check_user_message">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image" id="{{item.likeMessage.userMessage.userId}}" bind:tap="check_user_message">
 									<image src="{{item.likeMessage.userMessage.userAvatar}}" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name">{{item.likeMessage.userMessage.userNickname}}<text class="{{item.likeMessage.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{notice_type_message[item.noticeType-1]}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name">{{item.likeMessage.userMessage.userNickname}}<text class="{{item.likeMessage.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{notice_type_message[item.noticeType-1]}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -178,14 +178,14 @@
 						</block>
 						<block wx:if="{{item.noticeType==3}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image" id="{{item.commentMessage.userMessage.userId}}" bind:tap="check_user_message">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image" id="{{item.commentMessage.userMessage.userId}}" bind:tap="check_user_message">
 									<image src="{{item.commentMessage.userMessage.userAvatar}}" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name">{{item.commentMessage.userMessage.userNickname}}<text class="{{item.commentMessage.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{item.commentMessage.commentContent}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name">{{item.commentMessage.userMessage.userNickname}}<text class="{{item.commentMessage.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{item.commentMessage.commentContent}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -195,14 +195,14 @@
 
 						<block wx:if="{{item.noticeType==4}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image" bind:tap="check_user_message" id="{{item.replayMessage.commentUserMessage.userId}}">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image" bind:tap="check_user_message" id="{{item.replayMessage.commentUserMessage.userId}}">
 									<image src="{{item.replayMessage.commentUserMessage.userAvatar}}" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name">{{item.replayMessage.commentUserMessage.userNickname}}<text class="{{item.replayMessage.commentUserMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro">{{item.replayMessage.replayContent}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name">{{item.replayMessage.commentUserMessage.userNickname}}<text class="{{item.replayMessage.commentUserMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro">{{item.replayMessage.replayContent}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -213,14 +213,14 @@
 						</block>
 						<block wx:if="{{item.noticeType==5}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image">
 									<image src="/image/admin.png" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name">系统管理员</view>
-									<view class="intro">{{item.content}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name">系统管理员</view>
+									<view style="box-sizing:null;" class="intro">{{item.content}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -230,14 +230,14 @@
 
 						<block wx:if="{{item.noticeType==6}}">
 
-							<view class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
-								<view class="image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
+							<view style="box-sizing:null;" class="notice_item" id="{{item.noticeId}}" bindlongtap="deleteNotice">
+								<view style="box-sizing:null;" class="image" id="{{item.userMessage.userId}}" bind:tap="check_user_message">
 									<image src="{{item.userMessage.userAvatar}}" mode="aspectFill" />
 								</view>
-								<view class="notice_detail">
-									<view class="user_name" bind:tap="check_user_message" id="{{item.userMessage.userId}}">{{item.userMessage.userNickname}}<text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
-									<view class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{item.content}}</view>
-									<view class="type">
+								<view style="box-sizing:null;" class="notice_detail">
+									<view style="box-sizing:null;" class="user_name" bind:tap="check_user_message" id="{{item.userMessage.userId}}">{{item.userMessage.userNickname}}<text class="{{item.userMessage.userGender==1?'iconfont icon-nan':'iconfont icon-nv'}}"></text></view>
+									<view style="box-sizing:null;" class="intro" bind:tap="message_detail" id="{{item.articleId}}">{{item.content}}</view>
+									<view style="box-sizing:null;" class="type">
 										{{notice_type[item.noticeType-1]}}
 										<text>{{item.createTime}}</text>
 									</view>
@@ -246,21 +246,21 @@
 						</block>
 					</block>
 
-					<view class="tip">暂时没有新消息</view>
+					<view style="box-sizing:null;" class="tip">暂时没有新消息</view>
 				</view>
 			</scroll-view>
 		</swiper-item>
 
 	</swiper>
 </view>
-<view class="bottom">
+<view style="box-sizing:null;" class="bottom">
 	<image src="/image/add.png" bindtap="add" />
 </view>
-<view id="popLayer" wx:if='{{!isShow}}'></view>
-<view id="popBox" wx:if='{{!isShow}}'>
-	<view class="content">
+<view style="box-sizing:null;" id="popLayer" wx:if='{{!isShow}}'></view>
+<view style="box-sizing:null;" id="popBox" wx:if='{{!isShow}}'>
+	<view style="box-sizing:null;" class="content">
 		<scroll-view scroll-y="true" style="height:700rpx" class="read">
-			<view style="text-align:center">用户注册及使用APP隐私协议</view>
+			<view style="box-sizing:null;" style="text-align:center">用户注册及使用APP隐私协议</view>
 			<view></view>
 			<view>
 				在此特别提醒您（用户）在注册成为用户之前，请认真阅读本《用户协议》（以下简称“协议”），确保您充分理解本协议中各条款。请您审慎阅读并选择接受或不接受本协议。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。本协议约定（以下简称“本软件”）与用户之间关于本软件服务（以下简称“服务“）的权利义务。“用户”是指注册、登录、使用本服务的个人。本协议可由随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知，用户可在本APP中查阅最新版协议条款。在修改协议条款后，如果用户不接受修改后的条款，请立即停止使用本软件提供的服务，用户继续使用服务将被视为接受修改后的协议。
@@ -367,13 +367,13 @@
 			<view></view>
 			本《协议》版权由本软件所有，本软件保留一切对本《协议》解释的权利。
 		</scroll-view>
-		<view class="login">
-			<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
+		<view style="box-sizing:null;" class="login">
+			<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo" box-sizing="">
 				<text class="iconfont icon-weixin"></text>
 			</button>
 		</view>
-		<view class="agree">登录即同意本协议</view>
-		<view class="exit" bind:tap="exit">暂不登陆</view>
+		<view style="box-sizing:null;" class="agree">登录即同意本协议</view>
+		<view style="box-sizing:null;" class="exit" bind:tap="exit">暂不登陆</view>
 	</view>
 
 </view>

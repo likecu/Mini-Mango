@@ -1,0 +1,7 @@
+<cu-custom bgColor="bgmains" isBack="{{true}}">
+    <view slot="content">原因填写</view>
+</cu-custom>
+<view class="box">
+    <textarea bindinput="getVal" placeholder="{{placeholder}}" rows="5"></textarea>
+    <view bindtap="submit" class="submit">提交</view>
+</view>

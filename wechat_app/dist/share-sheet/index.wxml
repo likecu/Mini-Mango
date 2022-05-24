@@ -14,16 +14,16 @@
   bind:close="onClose"
   bind:click-overlay="onClickOverlay"
 >
-  <view class="van-share-sheet__header">
-    <view class="van-share-sheet__title">
+  <view style="box-sizing:null;" class="van-share-sheet__header">
+    <view style="box-sizing:null;" class="van-share-sheet__title">
       <slot name="title" />
     </view>
-    <view wx:if="{{ title }}" class="van-share-sheet__title">{{ title }}</view>
+    <view style="box-sizing:null;" wx:if="{{ title }}" class="van-share-sheet__title">{{ title }}</view>
 
-    <view class="van-share-sheet__description">
+    <view style="box-sizing:null;" class="van-share-sheet__description">
       <slot name="description" />
     </view>
-    <view wx:if="{{ description }}" class="van-share-sheet__description">
+    <view style="box-sizing:null;" wx:if="{{ description }}" class="van-share-sheet__description">
       {{ description }}
     </view>
   </view>

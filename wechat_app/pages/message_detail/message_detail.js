@@ -285,7 +285,7 @@ Page({
                   confirmColor: '#3CC51F',
                   success: (result) => {
                     if (result.confirm) {
-                      wx.redirectTo({
+                      wx.reLaunch({
                         url: "/pages/index/index"
                       })
                     }

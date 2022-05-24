@@ -1,3 +1,3 @@
-<view class="wux-class {{ classes.wrap }}" style="{{ colStyle }}">
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="{{ colStyle }}">
     <slot></slot>
 </view>

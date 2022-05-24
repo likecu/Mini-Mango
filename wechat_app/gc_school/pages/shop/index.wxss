@@ -1,0 +1,64 @@
+.tongji {
+    background: #ff6344;
+    width: 100%;
+    padding: 90rpx 70rpx 30rpx;
+    text-align: center;
+    line-height: 44rpx;
+    margin-top: -15rpx;
+}
+
+.small {
+    color: #fff;
+}
+
+.store {
+    border-bottom: 1rpx solid #ebebeb;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.menu,.store {
+    background: #fff;
+    padding: 30rpx 40rpx;
+}
+
+.menu_item {
+    font-size: 28rpx;
+    text-align: center;
+    flex: 1;
+}
+
+.menu_item image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-bottom: 15rpx;
+}
+
+.box {
+    padding: 30rpx 40rpx;
+}
+
+.grey {
+    color: #999;
+}
+
+.box {
+    background: #fff;
+    margin-top: 30rpx;
+}
+
+.orange {
+    color: #ffba20;
+}
+
+.box_item {
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.tixian {
+    padding: 14rpx 28rpx;
+    border: 1rpx solid #ffba20;
+    border-radius: 10rpx;
+    color: #ffba20;
+}

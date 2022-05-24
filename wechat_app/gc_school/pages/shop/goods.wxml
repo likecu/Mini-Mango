@@ -1,0 +1,35 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">商品管理</view>
+</cu-custom>
+<view class="padding">
+    <view class="menu flex">
+        <view bindtap="changeTab" class="menu_item {{tab_index==0?'active':''}}" data-index="0">出售中</view>
+        <view bindtap="changeTab" class="menu_item {{tab_index==1?'active':''}}" data-index="1">未发布</view>
+        <view bindtap="changeTab" class="menu_item {{tab_index==2?'active':''}}" data-index="2">已下架</view>
+    </view>
+    <block wx:if="{{goods.length>0}}">
+        <view class="goods" wx:for="{{goods}}" wx:key="indexs">
+            <view class="flex">
+                <image class="goods_img" src="{{item.img}}"></image>
+                <view class="justify-between right_info" style="">
+                    <view class="name text-bold">{{item.name}}</view>
+                    <view class="flex align-center justify-between">
+                        <view class="price">￥{{item.price}}</view>
+                        <view class="edit_box">
+                            <image bindtap="changeStatus" class="xiajia" data-id="{{item.id}}" data-status="-1" src="../../../images/store/xiajia_.png" wx:if="{{tab_index==0}}"></image>
+                            <image bindtap="changeStatus" class="xiajia" data-id="{{item.id}}" data-status="1" src="../../../images/store/fabu_.png" wx:if="{{tab_index==1}}"></image>
+                            <image bindtap="changeStatus" class="xiajia" data-id="{{item.id}}" data-status="1" src="../../../images/store/shangjia_.png" wx:if="{{tab_index==2}}"></image>
+                            <image bindtap="jump" class="edit" data-url="/gc_school/pages/shop/addgoods?id={{item.id}}" src="../../../images/store/edit.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="empty" wx:else>
+        <image class="" mode="widthFix" src="../../../images/store/empty.png"></image>
+        <view>暂无相关数据~</view>
+    </view>
+    <view class="text-df text-center margin-top" wx:if="{{!is_loadmore[tab_index]&&goods.length>0}}">暂无更多数据~</view>
+</view>
+<image bindtap="jump" class="add" data-url="/gc_school/pages/shop/addgoods" src="../../../images/store/add.png"></image>

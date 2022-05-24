@@ -5,7 +5,7 @@
   align-items: center;
   padding: 20rpx;
 }
-
+@import "/mangos.wxss";
 .user_message_detail .user_image image {
   height: 150rpx;
   width: 150rpx;

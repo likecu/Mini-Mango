@@ -3,5 +3,6 @@
     "navbar": "/Component/top/index",
     "custom-comp": "/Component/butto/custom-comp",
     "vans":"/dist/field/index"
-  }
+  },
+   "styleIsolation": "page-apply-shared"
 }

@@ -6,7 +6,7 @@
 <form bindsubmit="formSubmit">
   <!-- <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="picker">
+      <view style="box-sizing:null;" class="picker">
         国家：{{objectArray[index].name}}
       </view>
     </picker>
@@ -14,11 +14,11 @@
   <!-- <view>
     <input name="title" class="title" placeholder="请输入文章标题"></input>
   </view> -->
-  <view class="container">
+  <view style="box-sizing:null;" class="container">
     <!-- <template is="head" data="{{title: 'editor'}}"/> -->
-    <view class="page-body">
-      <view class='wrapper'>
-        <view class='toolbar' bindtap="format">
+    <view style="box-sizing:null;" class="page-body">
+      <view style="box-sizing:null;" class='wrapper'>
+        <view style="box-sizing:null;" class='toolbar' bindtap="format">
           <view>
             <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
             <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
@@ -63,14 +63,14 @@
         <scroll-view scroll-y="{{true}}" style="height: 600rpx;width:100%">
           <editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindinput="input" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady"></editor>
         </scroll-view>
-        <view class="submit">
+        <view style="box-sizing:null;" class="submit">
           <button class="button" type="primary" formType="submit">保存</button>
           <button class="button" type="primary" bindtap="priview">预览</button>
         </view>
         <view>
-          <view class="tip"  bindtap="speechStart" hidden="{{speech}}" ><image src="/image/speech.png" ></image></view>
-                 <view class="tip" bindtap="stopRecord" hidden="{{!speech}}"><image src="/image/speech_active.png" ></image>
-                 <view style="color:red;font-size:20rpx">正在录音,点击关闭</view></view>
+          <view style="box-sizing:null;" class="tip"  bindtap="speechStart" hidden="{{speech}}" ><image src="/image/speech.png" ></image></view>
+                 <view style="box-sizing:null;" class="tip" bindtap="stopRecord" hidden="{{!speech}}"><image src="/image/speech_active.png" ></image>
+                 <view style="box-sizing:null;" style="color:red;font-size:20rpx">正在录音,点击关闭</view></view>
         </view>
       </view>
     </view>

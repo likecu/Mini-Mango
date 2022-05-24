@@ -20,7 +20,7 @@
     bindopensetting="bindopensetting"
     bindtap="onTap"
 >
-    <view class="{{ classes.hd }}">
+    <view style="box-sizing:null;" class="{{ classes.hd }}">
         <block wx:if="{{ thumb }}">
             <image class="{{ classes.thumb }}" src="{{ thumb }}" />
         </block>
@@ -28,12 +28,12 @@
             <slot name="header"></slot>
         </block>
     </view>
-    <view class="{{ classes.bd }}">
-        <view wx:if="{{ title }}" class="{{ classes.text }}">{{ title }}</view>
-        <view wx:if="{{ label }}" class="{{ classes.desc }}">{{ label }}</view>
+    <view style="box-sizing:null;" class="{{ classes.bd }}">
+        <view style="box-sizing:null;" wx:if="{{ title }}" class="{{ classes.text }}">{{ title }}</view>
+        <view style="box-sizing:null;" wx:if="{{ label }}" class="{{ classes.desc }}">{{ label }}</view>
         <slot></slot>
     </view>
-    <view class="{{ classes.ft }}">
+    <view style="box-sizing:null;" class="{{ classes.ft }}">
         <block wx:if="{{ extra }}">{{ extra }}</block>
         <block wx:else>
             <slot name="footer"></slot>

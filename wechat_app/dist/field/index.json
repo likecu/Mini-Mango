@@ -3,5 +3,5 @@
   "usingComponents": {
     "van-cell": "../cell/index",
     "van-icon": "../icon/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

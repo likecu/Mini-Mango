@@ -7,10 +7,10 @@
     bind:close="onClose"
     bind:closed="onClosed"
 >
-    <view slot="header">{{ title }}</view>
-    <view wx:if="{{ content || prompt }}">
+    <view style="box-sizing:null;" slot="header">{{ title }}</view>
+    <view style="box-sizing:null;" wx:if="{{ content || prompt }}">
         <text>{{ content }}</text>
-        <view class="{{ classes.prompt }}" wx:if="{{ prompt }}">
+        <view style="box-sizing:null;" class="{{ classes.prompt }}" wx:if="{{ prompt }}">
             <label>
                 <input
                     type="{{ prompt.fieldtype }}"
@@ -24,7 +24,7 @@
             </label>
         </view>
     </view>
-    <view slot="footer" class="{{ classes.buttons }}">
+    <view style="box-sizing:null;" slot="footer" class="{{ classes.buttons }}">
         <block wx:for="{{ buttons }}" wx:for-item="button" wx:key="index">
             <button
                 class="{{ classes.button[index].wrap }}"

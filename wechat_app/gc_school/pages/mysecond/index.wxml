@@ -1,0 +1,35 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">我的发布</view>
+</cu-custom>
+<view class="trade_box">
+    <view class="single-trade" wx:for="{{dataList}}" wx:for-item="good" wx:key="id">
+        <view bindtap="toDetail" class="trade2" data-id="{{good.id}}" data-status="{{good.status}}">
+            <view class="second-left">
+                <image class="bookimage" src="{{good.img[0]}}"></image>
+                <view class="textdet">
+                    <view class="text-bookname">{{good.name}}</view>
+                </view>
+                <view class="second-right">
+                    <view>￥{{good.price}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="trade3">
+            <view class="third-left">
+                <view>{{good.addtime}}</view>
+            </view>
+            <view class="third-right">
+                <view class="margin-tb-sm-my text-center">
+                    <button bindtap="toCurdetails" class="cu-btn bg-green shadow sm" data-buyerflag="{{good.buyer_flag}}" data-id="{{good._id}}">{{good.status}}</button>
+                </view>
+                <view class="margin-tb-sm-my text-center">
+                    <button bindtap="delorder" class="cu-btn bg-green shadow sm" data-id="{{good.id}}">删除</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="nocontent" wx:if="{{goodsList.length==0}}">
+    <image lazyLoad mode="aspectFit" src="/images/empty.png"></image>
+    <view class="blank_text">暂无数据哦~</view>
+</view>

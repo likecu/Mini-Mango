@@ -1,0 +1,105 @@
+<scroll-view scrollY class="scrollPage">
+    <view class="contents" style="background:{{color}}">我的</view>
+    <view class="UCenter-bg">
+        <image class="png round" src="{{loginuserinfo.avatarUrl?loginuserinfo.avatarUrl:logo}}"></image>
+        <view class="text-xl margin-top">{{loginuserinfo.nickName}}
+        </view>
+        <view class="margin-top-sm">
+            <view bindtap="bindgetuserinfo" class="m_btn" style="color:black !important;" wx:if="{{!islogin}}">点击登录</view>
+        </view>
+    </view>
+    <view class="padding flex text-center text-grey bg-white" wx:if="{{islogin}}">
+        <view bindtap="yue" class="flex flex-sub solid-right middle" data-url="" style="border-right:1px solid #F9F9F9">
+            <view class="margin-top-sm two_flex">
+                <image src="/images/balance.png"></image>
+            </view>
+            <view class="flex-direction">
+                <view class="text-xxl text-black" style="height:50rpx">{{userInfo.money}}</view>
+                <view class="text-lg">余额</view>
+            </view>
+        </view>
+        <view bindtap="link2" class="flex flex-sub solid-right middle" data-url="/gc_school/pages/cupon/index">
+            <view class="margin-top-sm two_flex">
+                <image src="/images/coupon.png"></image>
+            </view>
+            <view class="flex-direction">
+                <view class="text-xxl text-black" style="height:50rpx">{{userInfo.coupu}}</view>
+                <view class="text-lg">优惠券</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="bindgetuserinfo" class="isrun" wx:if="{{!islogin}}">
+        <image mode="widthFix" src="https://gcwe7.link1024.com/web/img/auth.png"></image>
+    </view>
+    <view bindtap="link" class="isrun" data-url="/gc_school/pages/register/index" wx:if="{{sysparment.is_run_show==1}}">
+        <image mode="widthFix" src="https://gcwe7.link1024.com/web/img/auth.png" wx:if="{{islogin&&userInfo.runerStatus=='0'}}"></image>
+        <image mode="widthFix" src="/images/auth_ing.png" wx:if="{{islogin&&userInfo.runerStatus=='1'}}"></image>
+        <image mode="widthFix" src="/images/auth_already.png" wx:if="{{islogin&&userInfo.runerStatus=='2'}}"></image>
+        <image mode="widthFix" src="https://gcwe7.link1024.com/web/auth_fail.png" wx:if="{{islogin&&userInfo.runerStatus=='3'}}"></image>
+    </view>
+    <view class="">
+        <view class="cu-list menu  card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+            <view class="cu-item arrow" wx:if="{{userInfo.has_store==1}}">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/shop/my?id={{userInfo.store_id}}">
+                    <image src="/images/dianpu.png"></image>
+                    <text class="text-black">我的小店</text>
+                </navigator>
+            </view>
+            <!-- <view bindtap="msg" class="cu-item arrow">
+                <navigator class="content" hoverClass="none" url="/pages/index/index">
+                    <image src="https://s1.ax1x.com/2022/05/21/Oj6TPA.png"></image>
+                    <text class="text-black">社区</text>
+                </navigator>
+            </view> -->
+            <view bindtap="msg" class="cu-item arrow">
+                <navigator class="content" hoverClass="none" url="">
+                    <image src="/images/msg1.png"></image>
+                    <text class="text-black">订阅消息</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/address/index">
+                    <image src="/images/address.png"></image>
+                    <text class="text-black">我的地址</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/replaylist/index">
+                    <image src="/images/cashout.png"></image>
+                    <text class="text-black">我的提现</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <button class="cu-btn content" openType="contact">
+                    <image src="/images/contact.png"></image>
+                    <text class="text-black">在线客服</text>
+                </button>
+            </view>
+            <view class="cu-item arrow" wx:if="{{sysparment.vip==1}}">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/vip/index">
+                    <image src="/images/vips.png"></image>
+                    <text class="text-black">VIP会员</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/help/index">
+                    <image src="/images/help.png"></image>
+                    <text class="text-black">帮助中心</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow" wx:if="{{userInfo.runerStatus=='2'}}">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/grab/index">
+                    <image src="/images/order.png"></image>
+                    <text class="text-black">抢单中心</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow" wx:if="{{userInfo.runerStatus=='2'}}">
+                <navigator class="content" hoverClass="none" url="/gc_school/pages/mygrab/index">
+                    <image src="/images/order.png"></image>
+                    <text class="text-black">我的抢单</text>
+                </navigator>
+            </view>
+            <image src="https://13477601127a.limeixinjy.com/images/1004/2021/03/AYP8ySYpeCPOcOD0Fe863DGP8B260E.png"></image>
+        </view>
+    </view>
+</scroll-view>

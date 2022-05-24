@@ -1,0 +1,37 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">排行榜</view>
+</cu-custom>
+<view class="container">
+    <view class="mine_box" wx:if="{{my!=''}}">
+        <image class="avatar" src="{{my.pic}}"></image>
+        <view class="flex-direction" style="width:72%">
+            <view class="username">{{my.username}}</view>
+            <view class="rank">
+                <view>排名：{{my.ranks}}</view>
+                <view>总赚：{{my.money}}</view>
+            </view>
+        </view>
+    </view>
+    <view class=" flex-wrap bg-white ">
+        <view class="radius" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="flex align-center">
+                <view class="left">
+                    <image mode="withFix" src="/gc_school/resource/images/{{index+1}}.png" style="width:70rpx;height:70rpx" wx:if="{{index<3}}"></image>
+                    <text class="text-xl" wx:if="{{index>=3}}">{{index+1}}</text>
+                </view>
+                <view class="flex align-center middle">
+                    <view class="cu-avatar  round margin-right" style="background-image:url({{item.pic}})"></view>
+                    <view>
+                        <view style="width:250rpx">
+                            <text class="text-sm">{{item.username}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="right">
+                    <text class="text-red text-lg">￥<text class="text-xl">{{item.money}}</text>
+                    </text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

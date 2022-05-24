@@ -11,6 +11,7 @@ background-image: linear-gradient(324deg, #FF3CAC 0%, #784BA0 47%, #2B86C5 100%)
   padding: 30rpx;
   margin-bottom: 30rpx;
 }
+@import "/mangos.wxss";
 
 .body .content {
   margin-top: 20rpx;

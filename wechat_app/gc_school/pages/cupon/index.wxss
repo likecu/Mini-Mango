@@ -1,0 +1,79 @@
+.list {
+    padding: 20rpx;
+}
+
+.yhj_cont {
+    padding: 0 20rpx;
+    color: #cdcccc;
+}
+
+.j_left {
+    border-top: 10rpx solid #eca72c;
+    border-radius: 10rpx;
+    box-shadow: 0 10rpx 10px #f0f0f0;
+    background: #fff;
+}
+
+.j_left .j_l_top {
+    padding: 10rpx 0;
+    border-bottom: 2rpx dashed #eca72c;
+    color: #eca72c;
+}
+
+.j_l_bot {
+    font-size: 24rpx;
+    color: #a6a6a6;
+    padding: 20rpx 0;
+}
+
+.dian {
+    width: 10rpx;
+    height: 10rpx;
+    margin-right: 10rpx;
+    background: #eca72c;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.j_right {
+    width: 25%;
+}
+
+.label {
+    background: #f0ac2d;
+    color: #fff;
+    padding: 5rpx 20rpx;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+}
+
+.j_left.failure {
+    border-top: 10rpx solid #cdcccc;
+    box-shadow: 0 10rpx 10rpx #cdcccc;
+    background: #f8f8f8;
+}
+
+.j_left.failure .j_l_top {
+    border-bottom: 2rpx dashed #cdcccc;
+    color: #cdcccc;
+}
+
+.j_left.failure .j_l_bot {
+    color: #cdcccc;
+}
+
+.j_left.failure .dian,.j_left.failure .label {
+    background: #cdcccc;
+}
+
+.action {
+    color: #000!important;
+}
+
+.bgmain {
+    background-color: #ff6344;
+}
+
+.bgmain,.cuIcon-back {
+    color: #fff;
+}

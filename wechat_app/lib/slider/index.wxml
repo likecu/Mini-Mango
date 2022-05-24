@@ -1,9 +1,9 @@
-<view class="wux-class {{ classes.wrap }}" style="{{ extWrapStyle }}">
-	<view class="{{ classes.min }}" wx:if="{{ common.getValue(showValue, 'min') }}">{{ min }}</view>
+<view style="box-sizing:null;" class="wux-class {{ classes.wrap }}" style="{{ extWrapStyle }}">
+	<view style="box-sizing:null;" class="{{ classes.min }}" wx:if="{{ common.getValue(showValue, 'min') }}">{{ min }}</view>
     <slot name="min" wx:else></slot>
-    <view class="{{ classes.rail }}" style="{{ extRailStyle }}">
+    <view style="box-sizing:null;" class="{{ classes.rail }}" style="{{ extRailStyle }}">
     	<block wx:for="{{ marks }}" wx:key="index" wx:if="{{ showMark && marks.length > 0 }}">
-    		<view class="{{ classes.mark }}" style="left: {{ item + '%' }}; {{ common.getStyle(extMarkStyle, index) }}" />
+    		<view style="box-sizing:null;" class="{{ classes.mark }}" style="left: {{ item + '%' }}; {{ common.getStyle(extMarkStyle, index) }}" />
     	</block>
 	    <block wx:for="{{ inputValue }}" wx:key="index">
 	    	<view
@@ -23,7 +23,7 @@
 	    	/>
 	    </block>
     </view>
-    <view class="{{ classes.max }}" wx:if="{{ common.getValue(showValue, 'max') }}">{{ max }}</view>
+    <view style="box-sizing:null;" class="{{ classes.max }}" wx:if="{{ common.getValue(showValue, 'max') }}">{{ max }}</view>
     <slot name="max" wx:else></slot>
 </view>
 

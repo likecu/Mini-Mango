@@ -1,27 +1,27 @@
 
-<view class="demo-home-nav">
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='我的小组'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='我的小组'}}" >
-    <view 
+<view style="box-sizing:null;" class="demo-home-nav">
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='我的小组'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='我的小组'}}" >
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
       data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1"
       bind:tap="onClick">
       {{ item.themeId }}
-      <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">  （</view>
-      <view class="call" hidden="{{item.userType!=1}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
-      <view class="call" hidden="{{item.userType!=2}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
-      <view class="call" hidden="{{item.userType!=3}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
-      <view class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">）  </view>
-      <view class="call" hidden="{{item.userType!=4}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">  （</view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=1}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=2}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=3}}" style="text-decoration:underline;"bind:tap="onClick" data-url="/otherpage/group_member_list/group_member_list?id={{item.themeId}}">成员管理</view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=2 &&item.userType!=3}}">）  </view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=4}}" bind:tap="onClick" data-url="/pages/theme/theme?name={{ item.themeId }}&theme_id=0&is_group=1" >    </view>
 
     </view>
   </view>
 
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='我的身份卡'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='我的身份卡'}}" >
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='我的身份卡'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='我的身份卡'}}" >
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
@@ -31,9 +31,9 @@
     </view>
   </view>
 
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='投票列表'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='投票列表'}}" >
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='投票列表'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='投票列表'}}" >
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
@@ -44,9 +44,9 @@
   </view>
 
   
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='身份卡获取'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='身份卡获取'}}" >
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='身份卡获取'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='身份卡获取'}}" >
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
@@ -56,9 +56,9 @@
     </view>
   </view>
 
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组功能'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组功能'}}">
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='小组功能'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='小组功能'}}">
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
@@ -68,9 +68,9 @@
     </view>
   </view>
 
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='正在开发中的功能'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='正在开发中的功能'}}">
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='正在开发中的功能'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='正在开发中的功能'}}">
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       wx:key="id"
       class="demo-home-nav__block"
@@ -80,51 +80,51 @@
     </view>
   </view>
 
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">{{ group.groupName }}</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">{{ group.groupName }}</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
+    <view style="box-sizing:null;" 
       wx:for="{{ group.list }}"
       class="demo-home-nav__block"
       data-url="/pages/me/me?id={{item.userMessage.userId}}"
       bind:tap="onClick">
       {{ item.userMessage.userNickname}}  
-      <view class="call" hidden="{{item.userType!=2}}" >  (管理员)  </view>
-      <view class="call" hidden="{{item.userType!=3}}" >  (管理员)  </view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=2}}" >  (管理员)  </view>
+      <view style="box-sizing:null;" class="call" hidden="{{item.userType!=3}}" >  (管理员)  </view>
     </view>
   </view>
-  <view class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">小组操作</view>
-  <view class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
-    <view 
+  <view style="box-sizing:null;" class="demo-home-nav__title" hidden="{{group.groupName!='小组成员列表'}}">小组操作</view>
+  <view style="box-sizing:null;" class="demo-home-nav__group" hidden="{{group.groupName!='小组成员列表'}}">
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages/group_fun/invite_by_name/index?id={{group.group_id}}"
       bind:tap="onClick">
       通过用户名添加成员
     </view>
-    <view 
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages/group_fun/delete_by_name/index?id={{group.group_id}}"
       bind:tap="onClick">
       通过用户名删除成员
     </view>
-    <view 
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages"
       bind:tap="onClick1">
       通过用户名添加管理员
     </view>
-    <view 
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages"
       bind:tap="onClick1">
       通过用户名删除管理员
     </view>
-    <view 
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages"
       bind:tap="onClick1">
       通过用户名删除管理员
     </view>
-    <view 
+    <view style="box-sizing:null;" 
       class="demo-home-nav__block"
       data-url="/pages"
       bind:tap="onClick1">

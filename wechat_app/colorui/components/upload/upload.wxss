@@ -1,0 +1,39 @@
+.images-box {
+    border-radius: 10rpx;
+    width: 100%;
+}
+
+.imageCount {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.images {
+    height: 240rpx;
+    display: flex;
+    align-items: center;
+}
+
+.addImageIcon {
+    text-align: center;
+    line-height: 200rpx;
+    background-color: #f7f7f7;
+}
+
+.addImageIconHover {
+    background-color: #c0c4cc;
+}
+
+.image {
+    width: 30%;
+    border-radius: 10rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    font-size: 80rpx;
+    color: #ff6344;
+}
+
+.del {
+    width: 60rpx;
+    height: 60rpx;
+}

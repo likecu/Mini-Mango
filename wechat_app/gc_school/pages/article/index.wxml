@@ -1,0 +1,77 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">校园圈子</view>
+</cu-custom>
+<view class="padding">
+    <view class="slide_box">
+        <swiper circular autoplay="{{autoplay}}" bindchange="index_swiperChange" class="swiper-box" duration="{{duration}}">
+            <block wx:if="{{slideList.length>0}}">
+                <swiper-item wx:for="{{slideList}}" wx:key="index">
+                    <image bindtap="slideJump" class="{{index_swiperCurrent==index?'on slide-image':' slide-image'}}" data-index="{{index}}" data-type="{{item.url_type}}" data-url="{{item.url}}" lazyLoad="true" src="{{item.img}}"></image>
+                </swiper-item>
+            </block>
+            <swiper-item wx:else>
+                <image class="{{index_swiperCurrent==index?'on slide-image':' slide-image'}}" lazyLoad="true" src="https://gcwe7.link1024.com/web/img/article_bg.png"></image>
+            </swiper-item>
+        </swiper>
+        <view class="indicator-dots">
+            <view class="{{index_swiperCurrent==index?'dots_on':''}}" wx:for="{{slideList}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="cate_box flex margin-top justify-between">
+        <view class="cate_item_box flex">
+            <view bindtap="cateChange" class="cate_item {{cate_index==index?'cate_active':''}}" data-index="{{index}}" wx:for="{{cateList}}">{{item.name}}</view>
+        </view>
+        <view class="flex label_box" wx:if="{{cateList.length>0}}">
+            <view bindtap="changetype" class="label_item {{type==2?'label_item_active':''}}" data-type="2">最新</view>
+            <view bindtap="changetype" class="label_item {{type==1?'label_item_active':''}}" data-type="1">最热</view>
+        </view>
+    </view>
+    <view class="padding-bottom" style="padding-bottom:100rpx">
+        <view class="text-center margin-top text-df" wx:if="{{dataList.length==0}}">暂无数据~</view>
+        <block wx:else>
+            <view bindtap="toDetail" class="article_box padding" data-id="{{item.id}}" wx:for="{{dataList}}">
+                <view class="flex">
+                    <block wx:if="{{item.is_anonymous==0}}">
+                        <image class="avatar" src="{{item.avatar?item.avatar:'https://gcwe7.link1024.com/web/img/avatar.png'}}"></image>
+                        <view class="">
+                            <view class="nickname">{{item.nickname}}</view>
+                            <view class="date">{{item.time}}</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <image class="avatar" src="https://gcwe7.link1024.com/web/img/avatar.png"></image>
+                        <view class="">
+                            <view class="nickname">匿名用户</view>
+                            <view class="date">{{item.time}}</view>
+                        </view>
+                    </block>
+                </view>
+                <view class="content margin-top">{{item.content}}</view>
+                <view class="margin-top" wx:if="{{item.media_type=='video'}}">
+                    <video catchtap="play" src="{{item.video}}" style="width:100%;"></video>
+                </view>
+                <view class="margin-top" wx:elif="{{item.media_type=='image'}}">
+                    <image catchtap="preview" class="item_img" data-img="{{img}}" data-list="{{item.img}}" mode="aspectFill" src="{{img}}" wx:for="{{item.img}}" wx:for-item="img"></image>
+                </view>
+                <view class="flex justify-between margin-top">
+                    <view class="flex icon_item">
+                        <image src="/images/article/share.png"></image>
+                        <text>{{item.share_num}}</text>
+                    </view>
+                    <view class="flex icon_item">
+                        <image src="/images/article/comment.png"></image>
+                        <text>{{item.comment_num}}</text>
+                    </view>
+                    <view class="flex icon_item">
+                        <image src="/images/article/fav.png"></image>
+                        <text>{{item.fav_num}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="right_fixed">
+        <image bindtap="jump" data-url="/gc_school/pages/article/post" src="/images/article/i_fabu.png" wx:if="{{cateList.length>0}}"></image>
+        <image bindtap="jump" class="my" data-url="/gc_school/pages/article/my" src="/images/article/i_my.png"></image>
+    </view>
+</view>

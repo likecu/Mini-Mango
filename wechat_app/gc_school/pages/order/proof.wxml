@@ -1,0 +1,8 @@
+<cu-custom bgColor="bgmains" isBack="{{true}}">
+    <view slot="content">上传凭证</view>
+</cu-custom>
+<view class="padding">
+    <view bindtap="choose" class="image" wx:if="{{!img}}">+</view>
+    <image bindtap="choose" class="image" src="{{img}}" wx:else></image>
+    <view bindtap="submit" class="submit">提交</view>
+</view>

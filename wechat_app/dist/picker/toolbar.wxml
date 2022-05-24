@@ -1,4 +1,4 @@
-<view wx:if="{{ showToolbar }}" class="van-picker__toolbar toolbar-class">
+<view style="box-sizing:null;" wx:if="{{ showToolbar }}" class="van-picker__toolbar toolbar-class">
   <view
     class="van-picker__cancel"
     hover-class="van-picker__cancel--hover"
@@ -8,7 +8,7 @@
   >
     {{ cancelButtonText }}
   </view>
-  <view wx:if="{{ title }}" class="van-picker__title van-ellipsis">{{
+  <view style="box-sizing:null;" wx:if="{{ title }}" class="van-picker__title van-ellipsis">{{
     title
   }}</view>
   <view

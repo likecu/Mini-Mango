@@ -1,0 +1,36 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">商家列表</view>
+</cu-custom>
+<view class="slide_box padding-left padding-right margin-top" style="max-height:230rpx;" wx:if="{{slideList.length>0}}">
+    <swiper circular autoplay="{{autoplay}}" bindchange="index_swiperChange" class="swiper-box" duration="{{duration}}" style="height:220rpx">
+        <swiper-item wx:for="{{slideList}}" wx:key="index">
+            <image bindtap="slideJump" class="{{index_swiperCurrent==index?'on slide-image':' slide-image'}}" data-index="{{index}}" data-type="{{item.url_type}}" data-url="{{item.url}}" lazyLoad="true" src="{{item.img}}" style="height:220rpx"></image>
+        </swiper-item>
+    </swiper>
+    <view class="indicator-dots">
+        <view class="{{index_swiperCurrent==index?'dots_on':''}}" wx:for="{{slideList}}" wx:key="index"></view>
+    </view>
+</view>
+<view class="cate_box" wx:if="{{list.length>0}}">
+    <view bindtap="cateTab" class="cate_item {{index==cate_index?'cate_active':''}}" data-index="{{index}}" wx:for="{{list}}">{{item.name}}</view>
+</view>
+<view class="padding-bottom-xl" wx:if="{{goods.length>0}}">
+    <view bindtap="toStore" class="goods_item padding flex" data-id="{{item.id}}" wx:for="{{goods}}">
+        <image class="goods_img" src="{{item.img}}"></image>
+        <view class="flex margin-left justify-between right_content">
+            <view>
+                <view class="name text-lg text-bold">{{item.name}}</view>
+                <view class="text-sm text-grey">{{item.address}}</view>
+            </view>
+            <view class="text-df" style="color:#00BB67;">营业时间：{{item.start_time}}-{{item.end_time}}</view>
+        </view>
+    </view>
+</view>
+<view class="nodatas" wx:else>
+    <image mode="widthFix" src="/images/store/empty.png" style="width: 250rpx;"></image>
+    <view>暂无数据~</view>
+</view>
+<view class="text-center margin-bottom text-df" wx:if="{{!is_loadmore&&goods.length>0}}">
+	没有更多数据了~
+</view>

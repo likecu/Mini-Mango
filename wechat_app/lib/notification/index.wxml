@@ -1,12 +1,12 @@
 <wux-animation-group wux-class="{{ classes.wrap }}" in="{{ in }}" classNames="{{ classNames }}" bind:click="onClick">
-    <view class="{{ classes.content }}">
-        <view class="{{ classes.hd }}" wx:if="{{ image }}">
+    <view style="box-sizing:null;" class="{{ classes.content }}">
+        <view style="box-sizing:null;" class="{{ classes.hd }}" wx:if="{{ image }}">
             <image class="{{ classes.image }}" src="{{ image }}" />
         </view>
-        <view class="{{ classes.bd }}" wx:if="{{ title || text }}">
-            <view wx:if="{{ title }}" class="{{ classes.title }}">{{ title }}</view>
-            <view wx:if="{{ text }}" class="{{ classes.text }}">{{ text }}</view>
+        <view style="box-sizing:null;" class="{{ classes.bd }}" wx:if="{{ title || text }}">
+            <view style="box-sizing:null;" wx:if="{{ title }}" class="{{ classes.title }}">{{ title }}</view>
+            <view style="box-sizing:null;" wx:if="{{ text }}" class="{{ classes.text }}">{{ text }}</view>
         </view>
-        <view class="{{ classes.ft }}"></view>
+        <view style="box-sizing:null;" class="{{ classes.ft }}"></view>
     </view>
 </wux-animation-group>

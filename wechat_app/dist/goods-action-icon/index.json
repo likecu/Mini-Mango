@@ -3,5 +3,5 @@
   "usingComponents": {
     "van-icon": "../icon/index",
     "van-button": "../button/index"
-  }
+  } ,"styleIsolation": "page-apply-shared"
 }

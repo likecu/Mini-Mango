@@ -1,0 +1,147 @@
+<view class="container">
+    <view class="content">首页</view>
+    <view class="cu-bar search bgmain " id="tops">
+        <view class="cu-avatar round" style="background-image:url({{userInfo.avatarUrl}});"></view>
+        <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <navigator hoverClass="none" url="/gc_school/pages/order/index">
+                <input disabled confirmType="search" placeholder="订单查询" type="text"></input>
+            </navigator>
+        </view>
+        <view class="cu-form-group">
+            <picker bindchange="PickerChange" range="{{school}}" rangeKey="s_name" value="{{index}}">
+                <view class="picker">
+					{{school[index].s_name?school[index].s_name:'选择学校'}}
+				</view>
+            </picker>
+        </view>
+    </view>
+    <view class="page-guide">
+        <view class="shop-wrapper">
+            <view class="shop">
+                <view class="shop-banner">
+                    <view class="swiper-container">
+                        <swiper autoplay="true" circular="true" class="swiper-wrapper" interval="{{sysparment.speed||3000}}">
+                            <view hoverClass="none" url="{{item.linkurl}}" wx:for="{{schoolInfo.school.thums}}" wx:key="{{index}}">
+                                <swiper-item bindtap="openview" class="swiper-slide" data-url="{{url+item}}" id="swipers" style="background-image:url({{url+item}})">
+                                    <image class="slide-image" src="{{item.img}}" width="355"></image>
+                                </swiper-item>
+                            </view>
+                        </swiper>
+                    </view>
+                </view>
+                <view class="good-edit">
+                    <view class="good-input">
+                        <view class="good-input-content {{showText?'':'active'}}">
+                            <textarea bindinput="onGoodsInfo" class="good-input-textarea" maxlength="100" placeholder="{{homeitem.params.placeholder}}" value="{{note}}"></textarea>
+                            <view bind:tap="onJsEvent" class="good-input-submit" data-event-type="jsUrl" data-type="1" data-url="{{homeitem.params.submiturl+'&note='+extra.note}}"></view>
+                        </view>
+                    </view>
+                    <view class="bg-white" id="cus">
+                        <view class="action">
+                            <view class="titl">想让你同学帮你做点什么</view>
+                        </view>
+                        <view class="tab-container">
+                            <view class="tab-item">
+                                <image bind:tap="onJsEvent" data-type="1" data-url="{{item.linkurl}}" src="https://gcwe7.link1024.com/web/img/home/get_courier.png"></image>
+                                <image bind:tap="onJsEvent" data-event-type="jsUrl" data-type="2" data-url="{{item.linkurl}}" src="https://gcwe7.link1024.com/web/img/home/post_courier.png"></image>
+                                <image bind:tap="onJsEvent" data-event-type="jsUrl" data-type="3" data-url="{{item.linkurl}}" src="https://gcwe7.link1024.com/web/img/home/food.png"></image>
+                                <image bind:tap="onJsEvent" data-event-type="jsUrl" data-type="4" data-url="{{item.linkurl}}" src="https://gcwe7.link1024.com/web/img/home/dai.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="contents">
+                    <view class="content_top">
+                        <view class="crol">
+                            <text class="">排行榜 <text class="text-sm">赠人玫瑰手留余香</text>
+                            </text>
+                        </view>
+                        <view class="geng">
+                            <navigator hoverClass="none" url="/gc_school/pages/rank/index?s_id={{s_id}}">
+                                <text class="text-grey">查看更多</text>
+                            </navigator>
+                        </view>
+                    </view>
+                    <view class="cont_con" wx:for="{{schoolInfo.rank}}" wx:key="{{index}}">
+                        <view class="img">
+                            <image src="{{item.pic}}"></image>
+                            <view class="names">
+                                <view>{{item.username}}</view>
+                                <view class="moneyst">月赚</view>
+                            </view>
+                        </view>
+                        <view class="money">¥{{item.money}}</view>
+                    </view>
+                </view>
+                <view class="contents">
+                    <view class="content_top">
+                        <view class="crol">
+                            <text class="">最新订单</text>
+                        </view>
+                    </view>
+                    <view class="block" style="width: 100%;margin: auto; " wx:if="{{list.length>0}}">
+                        <view bindtap="detail" class="flex bg-white  align-center  padding-bottom justify-between" data-index="{{index}}" id="lops" style="border-bottom:1rpx solid #f3eded;padding:10rpx 0 16rpx 0;" wx:for="{{list}}" wx:key="{{index}}">
+                            <view style="width:70%">
+                                <view class="padding-tb-sm">
+                                    <view class="text-df text-cut" id="text-df">{{item.desc}}</view>
+                                </view>
+                                <view class="ft">
+                                    <view class="cu-tag sm radius" id="bgmain">
+										{{item.type}}
+									</view>
+                                    <view class="cu-tag sm radius" id="radius">
+										{{item.createtime}}
+									</view>
+                                    <view class="cu-tag sm radius" id="radius">
+										{{item.start_time}}
+									</view>
+                                </view>
+                            </view>
+                            <view class="align-center text-center">
+                                <text class="text-yellow text-xl" id="text-xl">¥{{item.total}}</text>
+                                <view class="margin-top-sm" wx:if="{{item.status=='待接单'}}">
+                                    <button class="cu-btn sm bg-yellow" id="cu-btn">待抢单</button>
+                                </view>
+                                <view class="margin-top-sm" wx:if="{{item.status!='待接单'}}">
+                                    <button class="cu-btn sm bgmain" id="cu-btn">{{item.status}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="grid flex-1 col-1 bg-white nodata" style="padding:100rpx auto; margin:auto; text-align:center; width:90%" wx:if="{{list.length==0}}">
+                    <view class="padding-sm">
+                        <view class=" padding radius text-center light ">
+                            <text class="cuIcon-infofill lg text-lg text-main" style="font-size:50rpx"></text>
+                            <view class="text-main">暂无数据</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="cu-tabbar-height"></view>
+<view class="cu-bar tabbar foot bgmain">
+    <view class="action text-white">
+        <navigator hoverClass="none" openType="redirect" url="/gc_school/pages/index/index">
+            <image id="cuIcon-homefills" src="/images/code/icon-home1.png"></image>
+            <view class="indedx">首页</view>
+        </navigator>
+    </view>
+    <view class="action text-gray add-action">
+        <navigator hoverClass="none" openType="redirect" url="/gc_school/pages/order/index">
+            <view class="cu-btn cuIcon-add bgmain shadow ">
+                <image id="cuIcon-homefillt" src="/images/code/fans.png"></image>
+            </view>
+            <view class="indedxs">我的发布</view>
+        </navigator>
+    </view>
+    <view class="action text-gray">
+        <navigator hoverClass="none" openType="redirect" url="/gc_school/pages/user/index">
+            <image id="cuIcon-homefills" src="/images/code/wode2.png"></image>
+            <view class="indedxt">我的</view>
+        </navigator>
+    </view>
+</view>

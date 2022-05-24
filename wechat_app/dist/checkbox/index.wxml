@@ -1,7 +1,7 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 <wxs src="./index.wxs" module="computed" />
 
-<view class="{{ utils.bem('checkbox', [{ horizontal: direction === 'horizontal' }]) }} custom-class">
+<view style="box-sizing:null;" class="{{ utils.bem('checkbox', [{ horizontal: direction === 'horizontal' }]) }} custom-class">
   <view
     wx:if="{{ labelPosition === 'left' }}"
     class="label-class {{ utils.bem('checkbox__label', [labelPosition, { disabled: disabled || parentDisabled }]) }}"
@@ -9,7 +9,7 @@
   >
     <slot />
   </view>
-  <view class="van-checkbox__icon-wrap" bindtap="toggle">
+  <view style="box-sizing:null;" class="van-checkbox__icon-wrap" bindtap="toggle">
     <slot wx:if="{{ useIconSlot }}" name="icon" />
     <van-icon
       wx:else

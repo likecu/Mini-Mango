@@ -2,5 +2,6 @@
   "usingComponents": {
     "navbar": "/Component/top/index",
     "swipe":"/lib/swipe-action"
-  }
+  },
+  "styleIsolation": "page-apply-shared"
 }

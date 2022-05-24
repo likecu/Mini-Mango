@@ -1,7 +1,7 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
 
-<view class="custom-class {{ utils.bem('steps', [direction]) }}">
-  <view class="van-step__wrapper">
+<view style="box-sizing:null;" class="custom-class {{ utils.bem('steps', [direction]) }}">
+  <view style="box-sizing:null;" class="van-step__wrapper">
     <view
       wx:for="{{ steps }}"
       wx:key="index"
@@ -10,11 +10,11 @@
       class="{{ utils.bem('step', [direction, status(index, active)]) }} van-hairline"
       style="{{ status(index, active) === 'inactive' ? 'color: ' + inactiveColor: '' }}"
     >
-      <view class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
+      <view style="box-sizing:null;" class="van-step__title" style="{{ index === active ? 'color: ' + activeColor : '' }}">
         <view>{{ item.text }}</view>
-        <view class="desc-class">{{ item.desc }}</view>
+        <view style="box-sizing:null;" class="desc-class">{{ item.desc }}</view>
       </view>
-      <view class="van-step__circle-container">
+      <view style="box-sizing:null;" class="van-step__circle-container">
         <block wx:if="{{ index !== active }}">
           <van-icon
             wx:if="{{ item.inactiveIcon || inactiveIcon }}"

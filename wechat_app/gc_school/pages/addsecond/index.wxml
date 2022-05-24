@@ -1,0 +1,63 @@
+<cu-custom bgColor="bgmain" isBack="{{true}}">
+    <view slot="content">发布</view>
+</cu-custom>
+<view class="weui-cells weui-cells_after-title page">
+    <view class="box">
+        <view class="cu-bar bg-white">
+            <view class="info">
+                <text class="cuIcon-titles text-green"></text>
+                <text class="text-xl text-bold">商品基本信息</text>
+            </view>
+        </view>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">商品名称</view>
+        <input bindinput="bookNameInput" placeholder="请输入商品的名称"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">原价</view>
+        <input bindinput="oldpriceInput" name="oldPrice" placeholder="最多保留两位小数" type="digit"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">现价</view>
+        <input bindinput="newpriceInput" name="newPrice" placeholder="最多保留两位小数" type="digit"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">联系电话</view>
+        <input bindinput="phone" name="phone" placeholder="请输入电话" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">库存</view>
+        <input bindinput="stock" name="stock" placeholder="请输入库存" type="number"></input>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">新旧程度</view>
+        <picker bindchange="bindPickerChange" range="{{array}}" value="{{index}}">
+            <view class="picker">
+            {{array[index]}}
+          </view>
+        </picker>
+    </view>
+    <view class="cu-form-group">
+        <view class="title">所属分类</view>
+        <picker bindchange="bindPickerChanges" range="{{cateList}}" rangeKey="{{'name'}}" value="{{cateList[indexs].id}}">
+            <view class="picker">
+            {{cateList[indexs].name}}
+          </view>
+        </picker>
+    </view>
+    <view class="cu-form-group  margin-bottom">
+        <view class="title">具体描述</view>
+        <textarea autoHeight="true" bindinput="descInput" disabled="{{modalName!=null}}" maxlength="-1" placeholder="请输入描述"></textarea>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">添加图片</view>
+        </view>
+    </view>
+    <view class="margin-left" style="">
+        <addImage addedCount="{{addedCount}}" bind:chooseImage="chooseImages" bind:deleteImage="deleteImage" count="{{count}}" images="{{images}}"></addImage>
+    </view>
+    <view class="del_remark text-sm margin-left margin-bottom">*长按图片可进行删除</view>
+    <button bindtap="save" class="my_button" type="primary">发布</button>
+</view>

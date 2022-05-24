@@ -3,4 +3,5 @@
   "usingComponents": {
     "van-picker": "../picker/index"
   }
+  ,"styleIsolation": "page-apply-shared"
 }
