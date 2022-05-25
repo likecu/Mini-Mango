@@ -74,24 +74,52 @@ Page({
         var e = this;
         wx.showLoading({
             title: "上传中"
-        }), wx.uploadFile({
-            url: t.util.url() + "c=entry&a=wxapp&do=ImgPost&m=gc_school",
-            filePath: a.tempFilePaths[0],
-            header: {
-                "content-type": "application/x-www-form-urlencoded"
-            },
-            name: "file",
-            success: function(t) {
-                wx.hideLoading();
-                var a = JSON.parse(t.data);
+        });
+        var date = new Date();
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var currentdate = year + seperator1 + month + seperator1 + strDate;
+        var path = 'images/' + currentdate + '/' + new Date().getTime() + Math.floor(Math.random() * 150) + '.png';
+  
+        wx.cloud.uploadFile({
+          cloudPath: path,
+          filePath: a.tempFilePaths[0],
+          config: {
+            env: 'cloud-0ggabd9q9ceb4c32'
+          }
+        }).then(res1 => {
+          wx.hideLoading();
                 console.log(a), 0 == a.errno ? e.setData({
-                    img: a.data
+                    img: res1.fileID
                 }) : wx.showToast({
-                    title: a.message,
+                    title: result,
                     icon: "none"
                 });
-            }
+        }).catch((e) => {
+          console.log("======上传失败======", result);
+          wx.hideLoading();
         });
+
+        // wx.uploadFile({
+        //     url: t.util.url() + "c=entry&a=wxapp&do=ImgPost&m=gc_school",
+        //     filePath: a.tempFilePaths[0],
+        //     header: {
+        //         "content-type": "application/x-www-form-urlencoded"
+        //     },
+        //     name: "file",
+        //     success: function(t) {
+        //         wx.hideLoading();
+        //         var a = JSON.parse(t.data);
+        //         console.log(a), 0 == a.errno ? e.setData({
+        //             img: a.data
+        //         }) : wx.showToast({
+        //             title: a.message,
+        //             icon: "none"
+        //         });
+        //     }
+        // });
     },
     price: function(t) {
         this.setData({

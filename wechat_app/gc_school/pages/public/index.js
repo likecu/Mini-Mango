@@ -545,21 +545,46 @@ Page({
   },
   upload: function (a, s) {
     var i = this;
-    console.log("连接", e.util.url()), wx.showLoading(), wx.uploadFile({
-      url: e.util.url() + "c=entry&a=wxapp&do=ImgPost&m=gc_school",
+    console.log("连接", e.util.url()), wx.showLoading();
+    var date = new Date();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var currentdate = year + seperator1 + month + seperator1 + strDate;
+    var path = 'images/' + currentdate + '/' + new Date().getTime() + Math.floor(Math.random() * 150) + '.png';
+
+    wx.cloud.uploadFile({
+      cloudPath: path,
       filePath: a.tempFilePaths[0],
-      header: {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      name: "file",
-      success: function (a) {
-        console.log("打印", a);
-        var e = a.data;
-        e = JSON.parse(e).data, wx.hideLoading(), i.setData(t({}, s, [e])), "t_pic" == s && i.setData({
-          showsfzupload: !1
-        });
+      config: {
+        env: 'cloud-0ggabd9q9ceb4c32'
       }
+    }).then(res1 => {
+      var e = res1.fileID;
+      wx.hideLoading(), i.setData(t({}, s, [e])), "t_pic" == s && i.setData({
+        showsfzupload: !1
+      });
+    }).catch((e) => {
+      console.log("======上传失败======", result);
+      wx.hideLoading();
     });
+
+    // wx.uploadFile({
+    //   url: e.util.url() + "c=entry&a=wxapp&do=ImgPost&m=gc_school",
+    //   filePath: a.tempFilePaths[0],
+    //   header: {
+    //     "content-type": "application/x-www-form-urlencoded"
+    //   },
+    //   name: "file",
+    //   success: function (a) {
+    //     console.log("打印", a);
+    //     var e = a.data;
+    //     e = JSON.parse(e).data, wx.hideLoading(), i.setData(t({}, s, [e])), "t_pic" == s && i.setData({
+    //       showsfzupload: !1
+    //     });
+    //   }
+    // });
   },
   ChooseImage: function (t) {
     var a = this;
