@@ -92,6 +92,9 @@ public class LoginController {
         if (list.size() == 0) {
             userMessage.setUserMotto("这个人很懒,什么也没有留下");
             userMessage.setUserToken(openid);
+            userMessage.setUserCity("普通会员");
+            userMessage.setUserNickname("用户"+openid);
+            userMessage.setUserAvatar("/image/user.png");
             userMessageOperationService.add(userMessage);
 
             tem = new UserMessage();
