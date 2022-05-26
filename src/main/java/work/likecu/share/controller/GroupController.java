@@ -156,6 +156,7 @@ public class GroupController {
         if (userId < 0) {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
+
         //先判断string内有没有“” 或者 ‘’
         userName = userName.replaceAll("\"", "");
         userName = userName.replaceAll("\'", "");
@@ -171,6 +172,15 @@ public class GroupController {
         if (userMessages.size() == 0) {
             return ResponseData.out(CodeEnum.User_Name_Not_Found);
         }
+
+        //判断是否有权限操作
+        GroupMessage groupMessage2 = new GroupMessage();
+        groupMessage2.setThemeId(themeName);
+        groupMessage2.setuserId(userId);
+
+        if(groupOperationService.findList(groupMessage2).get(0).getuserType()==1)
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+
 
         //新建将小组成员赋值 ，通过id
         GroupMessage groupMessage1 = new GroupMessage();
@@ -198,6 +208,7 @@ public class GroupController {
         if (userId < 0) {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
+
         //先判断string内有没有“” 或者 ‘’
         userName = userName.replaceAll("\"", "");
         userName = userName.replaceAll("\'", "");
@@ -213,6 +224,14 @@ public class GroupController {
         if (userMessages.size() == 0) {
             return ResponseData.out(CodeEnum.User_Name_Not_Found);
         }
+
+        //判断是否有权限操作
+        GroupMessage groupMessage2 = new GroupMessage();
+        groupMessage2.setThemeId(themeName);
+        groupMessage2.setuserId(userId);
+
+        if(groupOperationService.findList(groupMessage2).get(0).getuserType()==1)
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
 
         //新建将小组成员赋值 ，通过id
         GroupMessage groupMessage1 = new GroupMessage();

@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class uploadWeb {
     static final String IMGTU_USER_NAME = "mimeyour@qq.com";
 
-    static final String IMGTU_PASSWORD = "wqe12345";
+    static final String IMGTU_PASSWORD = "qwe12345";
 
     static final Logger log = LogManager.getLogger(uploadWeb.class);
 
@@ -254,8 +254,10 @@ public class uploadWeb {
 
     public static void main(String[] args) throws IOException {
         uploadWeb.initSession();
-        byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
-        System.out.println(Objects.requireNonNull(uploadWeb.upload(a, "psc3.jpg", ContentType.IMAGE_JPEG)).getAsJsonObject("image").get("url"));
+        for (int i = 0; i < 20; i++) {
+            byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
+            System.out.println(Objects.requireNonNull(uploadWeb.upload(a, String.valueOf(i)+"test.jpg", ContentType.IMAGE_JPEG)).getAsJsonObject("image").get("url"));
+        }
     }
 
 }
