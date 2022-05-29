@@ -9,8 +9,12 @@
         <result column="sign_type" jdbcType="INTEGER" property="signType"/>
         <result column="sign_time" jdbcType="TIMESTAMP" property="signtime"/>
 
-
     </resultMap>
+
+    <resultMap id="intMap" type="int">
+        <result column="sign_time" jdbcType="TIMESTAMP" property="signtime"/>
+    </resultMap>
+
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
         <!--
@@ -19,6 +23,9 @@
         user_id,record_id,sign_type,sign_time
     </sql>
 
+    <select id="getMySign" resultMap="intMap">
+
+    </select>
 
 
 </mapper>

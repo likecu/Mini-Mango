@@ -50,7 +50,7 @@ public class SignRankController {
      * @return
      */
     @Transactional
-    @GetMapping ("/signrank/{id}")
+    @PostMapping ("/signrank/{id}")
     public BaseResponse signrank(HttpServletRequest request, @PathVariable Integer id) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
 
@@ -69,7 +69,7 @@ public class SignRankController {
      */
     @ApiOperation(value = "签到功能")
     @Transactional
-    @GetMapping("/sign/{id}")
+    @PostMapping("/sign/{id}")
     public BaseResponse sign(HttpServletRequest request, @PathVariable Integer id) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
 
@@ -123,6 +123,51 @@ public class SignRankController {
 
             return ResponseData.success();
         }
+    }
+
+    /**
+     * 签到列表
+     * @param request
+     * @param id
+     * @return
+     */
+    @Transactional
+    @GetMapping ("/getSign/{id}")
+    public BaseResponse getSign(HttpServletRequest request, @PathVariable Integer id) {
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+
+        SignRecord signRecord=new SignRecord();
+        signRecord.setUserId(id);
+
+        List<SignRecord> list=signRecordService.findList(signRecord);
+        return ResponseData.success(list);
+    }
+
+    /**
+     * 个人签到次数
+     * @param request
+     * @param id
+     * @return
+     */
+    @Transactional
+    @PostMapping ("/getMySign")
+    public BaseResponse getMySign(HttpServletRequest request) {
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+
+        SignRecord signRecord=new SignRecord();
+        signRecord.setUserId(userId);
+        int[] ints=new int[2];
+        ints[0]=signRecordService.findCount(signRecord);
+
+        return ResponseData.success(ints);
     }
 
 

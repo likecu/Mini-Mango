@@ -31,4 +31,6 @@ public class SignUsers {
     @Column(name = "`is_group`")
     private Integer isGroup;
 
+    private UserMessage userMessage;
+
 }

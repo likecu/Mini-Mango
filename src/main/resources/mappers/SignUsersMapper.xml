@@ -13,7 +13,14 @@
         <result column="counter" jdbcType="INTEGER" property="counter"/>
         <result column="sign_time" jdbcType="TIMESTAMP" property="signtime" />
         <result column="is_group" jdbcType="INTEGER" property="isGroup"/>
-
+        <association property="userMessage" javaType="work.likecu.share.model.UserMessage">
+            <id column="user_id" jdbcType="INTEGER" property="userId"/>
+            <result column="user_city" jdbcType="VARCHAR" property="userCity"/>
+            <result column="user_nickname" jdbcType="VARCHAR" property="userNickname"/>
+            <result column="user_gender" jdbcType="TINYINT" property="userGender"/>
+            <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
+            <result column="user_motto" jdbcType="VARCHAR" property="userMotto"/>
+        </association>
     </resultMap>
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
@@ -24,7 +31,7 @@
     </sql>
 
     <select id="getRank20" resultMap="BaseResultMap">
-        select * from sign_users where sign_type = #{signType} order by counter desc limit 20
+        select DISTINCT a.*,b.* from sign_users as a,user_message as b  where sign_type = #{signType} and a.user_id = b.user_id order by counter desc limit 20
     </select>
 
 
