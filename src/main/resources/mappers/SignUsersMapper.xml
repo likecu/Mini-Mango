@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="work.likecu.share.mapper.SignUsersMapper">
-    <resultMap id="BaseResultMap" type="work.likecu.share.model.SignUsers">
+    <resultMap id="BaseResultMap" type="work.likecu.share.model.SignUsers" autoMapping="true">
         <!--
           WARNING - @mbg.generated
         -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="group_id" jdbcType="INTEGER" property="groupId"/>
         <result column="sign_type" jdbcType="INTEGER" property="signType"/>
         <result column="counter" jdbcType="INTEGER" property="counter"/>
-        <result column="sign_time" jdbcType="TIMESTAMP" property="signTime"/>
+        <result column="sign_time" jdbcType="TIMESTAMP" property="signtime" />
         <result column="is_group" jdbcType="INTEGER" property="isGroup"/>
-
 
     </resultMap>
     <!-- 通用查询结果列-->
@@ -19,9 +20,12 @@
         <!--
           WARNING - @mbg.generated
         -->
-        user_id,group_id,sign_type,counter,sign_time,is_group
+        user_id,group_id,sign_type,counter,sign_time,is_group,id
     </sql>
 
+    <select id="getRank20" resultMap="BaseResultMap">
+        select * from sign_users where sign_type = #{signType} order by counter desc limit 20
+    </select>
 
 
 </mapper>

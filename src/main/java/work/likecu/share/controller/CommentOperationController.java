@@ -20,6 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/wx")
 public class CommentOperationController {
+    /**
+     * @Path: work\likecu\share\controller\CommentOperationController.java
+     * @author: likecu
+     * @create: 2022-05-28 20:31
+     */
 
     @Resource
     private CommentService commentService;

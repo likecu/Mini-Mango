@@ -20,5 +20,7 @@
  2、自定义sql语句书写：  
   先修改两个Mapper，再在service中增加，最后再controller中加入。  
  3、新增加sql表：  
- 先新建表，在model中增加类、在两个mapper中增加记录、service中加入、Controller中加入  
+ 先新建表，在model中增加类、在两个mapper中增加记录(必须保持名称一致）、service中加入、Controller中加入  
+注意 ` 与'的区别！！！！
+ 4、Service上只能使用Mapper进行操作，加上@Service注解才能被正确注入
    

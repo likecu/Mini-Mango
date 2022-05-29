@@ -1,3 +1,4 @@
+
 package work.likecu.share.model;
 
 public class AccessToken {

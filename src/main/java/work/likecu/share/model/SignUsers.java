@@ -1,14 +1,17 @@
 package work.likecu.share.model;
-
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Table(name = "`sign_users`")
 public class SignUsers {
+    @Id
+    @Column(name = "`id`")
+    private Integer id;
 
     @Column(name = "`user_id`")
     private Integer userId;
@@ -16,8 +19,8 @@ public class SignUsers {
     @Column(name = "`group_id`")
     private Integer groupId;
 
-    @Column(name = "'sign_time`")
-    private Date signTime;
+    @Column(name = "`sign_time`")
+    private Date signtime;
 
     @Column(name = "`sign_type`")
     private Integer signType;
@@ -27,6 +30,5 @@ public class SignUsers {
 
     @Column(name = "`is_group`")
     private Integer isGroup;
-    
-    private SignRecord signRecord;
+
 }

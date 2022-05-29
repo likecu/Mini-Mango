@@ -7,6 +7,12 @@ import work.likecu.share.model.ArticleMessage;
 import java.util.List;
 
 public interface ArticleMessageMapper extends Mapper<ArticleMessage> {
+    /**
+     *
+     * @Path: work\likecu\share\mapper\ArticleMessageMapper.java
+     * @author: likecu
+     * @create: 2022-05-28 23:03
+     */
 
     /**
      * 获取最新的文章

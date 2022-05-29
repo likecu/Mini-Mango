@@ -20,6 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/wx")
 public class UserMessageController {
+    /**
+     * @Path: work\likecu\share\controller\UserMessageController.java
+     * @author: likecu
+     * @create: 2022-05-28 20:36
+     */
 
     @Resource
     private UserMessageOperationService userMessageOperationService;

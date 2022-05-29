@@ -3,12 +3,11 @@
 <mapper namespace="work.likecu.share.mapper.SignRecordMapper">
     <resultMap id="BaseResultMap" type="work.likecu.share.model.SignRecord">
         <!--
-          WARNING - @mbg.generated
         -->
+        <id column="record_id" jdbcType="INTEGER" property="recordId"/>
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
-        <result column="record_id" jdbcType="INTEGER" property="recordId"/>
         <result column="sign_type" jdbcType="INTEGER" property="signType"/>
-        <result column="sign_time" jdbcType="TIMESTAMP" property="signTime"/>
+        <result column="sign_time" jdbcType="TIMESTAMP" property="signtime"/>
 
 
     </resultMap>

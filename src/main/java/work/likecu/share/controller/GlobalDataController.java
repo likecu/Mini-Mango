@@ -2,24 +2,32 @@ package work.likecu.share.controller;
 
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import work.likecu.share.model.CommentMessage;
 //import work.likecu.share.model.Picture;
-import work.likecu.share.service.ArticleOperationService;
-import work.likecu.share.service.CommentService;
-import work.likecu.share.service.ReplayMessageOperationService;
-import work.likecu.share.service.ThemeMessageOperationService;
+import work.likecu.share.model.SignRecord;
+import work.likecu.share.model.SignUsers;
+import work.likecu.share.service.*;
 import work.likecu.share.util.status.BaseResponse;
+import work.likecu.share.util.status.CodeEnum;
 import work.likecu.share.util.status.ResponseData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/wx/api")
 public class GlobalDataController {
+    /**
+     * @Path: work\likecu\share\controller\GlobalDataController.java
+     * @author: likecu
+     * @create: 2022-05-28 20:30
+     */
 
     @Resource
     private ArticleOperationService articleOperationService;
@@ -86,6 +94,7 @@ public class GlobalDataController {
         System.out.println(themeMessageOperationService.getThemeId(themeName));
         return ResponseData.success(themeMessageOperationService.getThemeId(themeName));
     }
+
 
 
 

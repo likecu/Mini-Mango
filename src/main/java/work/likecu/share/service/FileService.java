@@ -68,7 +68,7 @@ public class FileService {
         return fileUrls;
     }
 
-    private String getFileUrl(String fileName) {
+    public String getFileUrl(String fileName) {
         try {
             InetAddress address = InetAddress.getLocalHost();
             String fileUrl = "http://" + address.getHostAddress() + ":" + port + contextPath + "/file/" + fileName;
