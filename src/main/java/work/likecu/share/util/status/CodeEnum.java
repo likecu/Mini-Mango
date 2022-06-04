@@ -6,6 +6,7 @@ package work.likecu.share.util.status;
 
 
 public enum CodeEnum {
+    SUCCESS_SIGN(200, "签到成功"),
     SUCCESS_BUT_MORE(200, "已经登陆多台设备,可能存在被盗风险,请及时修改密码"),
     ALREADY_VOTED(403,"已经投票"),
     SUCCESS(200, "成功"),

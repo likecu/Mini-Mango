@@ -94,7 +94,14 @@ public class SignRankController {
             signUsers.setIsGroup(0);
             signUsers.setGroupId(0);
             signUsersService.add(signUsers);
-            return ResponseData.success();
+
+            SignRecord signRecord=new SignRecord();
+            signRecord.setSigntime(new Date());
+            signRecord.setSignType(id);
+            signRecord.setUserId(userId);
+            signRecordService.add(signRecord);
+
+            return ResponseData.success(CodeEnum.SUCCESS_SIGN);
         }
         Date date = signUsers1.get(0).getSigntime();
 
@@ -121,7 +128,7 @@ public class SignRankController {
             signRecord.setUserId(userId);
             signRecordService.add(signRecord);
 
-            return ResponseData.success();
+            return ResponseData.success(CodeEnum.SUCCESS_SIGN);
         }
     }
 
