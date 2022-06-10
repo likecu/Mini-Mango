@@ -1,14 +1,11 @@
 package work.likecu.share;
 
-import org.apache.http.entity.ContentType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
-import work.likecu.share.util.FileUpload;
-import work.likecu.share.util.uploadWeb;
 
 import java.io.IOException;
 
@@ -21,7 +18,6 @@ public class MiniProgramRunApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(MiniProgramRunApp.class, args);
-
     }
 //    /**
 //     * 以下为Tomcat启动

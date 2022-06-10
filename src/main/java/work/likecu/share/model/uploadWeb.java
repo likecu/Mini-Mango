@@ -1,8 +1,9 @@
-package work.likecu.share.util;
+package work.likecu.share.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import lombok.Getter;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -14,8 +15,10 @@ import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import work.likecu.share.test.HttpUtil;
+import work.likecu.share.util.FileUpload;
 
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -254,10 +257,45 @@ public class uploadWeb {
 
     public static void main(String[] args) throws IOException {
         uploadWeb.initSession();
-        for (int i = 0; i < 20; i++) {
-            byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\scut\\pingcs\\psc4.jpg");
-            System.out.println(Objects.requireNonNull(uploadWeb.upload(a, String.valueOf(i)+"test.jpg", ContentType.IMAGE_JPEG)).getAsJsonObject("image").get("url"));
+        for (int i = 0; i < 1; i++) {
+            byte[] a= FileUpload.getBytesByFile("C:\\Users\\25406\\Desktop\\tas\\mango美化\\后端\\wechat_app\\image\\user.png");
+            System.out.println(Objects.requireNonNull(uploadWeb.upload(a, RandomStringUtils.randomAlphanumeric(10)+".jpg", ContentType.IMAGE_JPEG)).getAsJsonObject("image").get("url"));
         }
+    }
+
+    public static String hashFile(byte[] buffer) throws Exception {
+        String sha256 = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(buffer, 0, buffer.length);
+            byte[] digest = md.digest();
+            sha256 = byte2hexLower(digest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("计算文件hash值错误");
+        }
+        return sha256;
+    }
+    private static String byte2hexLower(byte[] b) {
+        String hs = "";
+        String stmp = "";
+        for (byte value : b) {
+            stmp = Integer.toHexString(value & 0XFF);
+            if (stmp.length() == 1) {
+                hs = hs + "0" + stmp;
+            } else {
+                hs = hs + stmp;
+            }
+        }
+        return hs;
+    }
+
+    public static String uploadBypath(byte[] file) throws IOException {
+        System.out.println(file.length);
+        JsonObject a = uploadWeb.upload(file, RandomStringUtils.randomAlphanumeric(10)+".jpg", ContentType.IMAGE_JPEG);
+        assert a != null;
+        System.out.println(a.getAsJsonObject("image").get("url").toString());
+        return a.getAsJsonObject("image").get("url").toString();
     }
 
 }

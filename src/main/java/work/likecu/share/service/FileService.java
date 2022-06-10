@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
+import work.likecu.share.model.uploadWeb;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,24 +33,26 @@ public class FileService {
     private String picDir;
 
 
-    public String saveFile(MultipartFile multipartFile,String filename ) {
+    public String saveFile(MultipartFile multipartFile, String filename, uploadWeb uploadWebs ) throws IOException {
+        System.out.println(multipartFile.getBytes().length);
+//        String[] strings=filename.split("/");
+//        String path=picDir +strings[0]+"/"+strings[1];
+//        File file = new File(path);
+//        System.out.println(path);
+//        System.out.println(file.mkdirs());
+//
+//
+//
+//        File file1 = new File(picDir + filename);
+//        try {
+//            multipartFile.transferTo(file1);
+//        } catch (IOException e) {
+//            log.error("save file error,{}", e.getMessage());
+//            return "";
+//        }
+        String string=uploadWebs.uploadBypath(multipartFile.getBytes());
 
-
-        String[] strings=filename.split("/");
-        String path=picDir +strings[0]+"/"+strings[1];
-        File file = new File(path);
-        System.out.println(path);
-        System.out.println(file.mkdirs());
-
-        File file1 = new File(picDir + filename);
-        try {
-            multipartFile.transferTo(file1);
-        } catch (IOException e) {
-            log.error("save file error,{}", e.getMessage());
-            return "";
-        }
-
-        return getFileUrl(filename);
+        return string;
     }
 
     public List<String> getFiles() {

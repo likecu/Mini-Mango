@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work.likecu.share.mapper.PictureMapper">
+    <resultMap id="BaseResultMap" type="work.likecu.share.model.Hashcode">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="Id"/>
+        <result column="code" jdbcType="VARCHAR" property="Code"/>
+        <result column="url" jdbcType="VARCHAR" property="Url"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id, code, url
+    </sql>
+
+
+</mapper>
