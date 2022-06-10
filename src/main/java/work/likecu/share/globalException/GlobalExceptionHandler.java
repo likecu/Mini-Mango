@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+
+
     /**
      * 处理自定义的业务异常
      *

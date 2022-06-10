@@ -200,6 +200,43 @@ public class GroupController {
         return ResponseData.out(CodeEnum.SUCCESS);
     }
 
+    @PostMapping("/joinGroupByName/{themeName}")
+    @Transactional
+    @ApiOperation(value = "通过小组名加入小组")
+    public BaseResponse inviteGroupMembersByName(@PathVariable String themeName, HttpServletRequest request) {
+        Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
+        if (userId < 0) {
+            return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
+        }
+        //先判断string内有没有“” 或者 ‘’
+        themeName = themeName.replaceAll("\"", "");
+        themeName = themeName.replaceAll("\'", "");
+
+        //新建将小组成员赋值 ，通过id
+        GroupMessage groupMessage1 = new GroupMessage();
+        groupMessage1.setuserId(userId);
+        groupMessage1.setThemeId(themeName);
+
+        //判断用户是否存在组内
+        if (groupOperationService.findList(groupMessage1).size() > 0) {
+            return ResponseData.out(CodeEnum.User_Already_Join);
+        }
+
+        ThemeMessage themeMessage=new ThemeMessage();
+        themeMessage.setThemeTitle(themeName);
+        List<ThemeMessage> themeMessageList=themeMessageOperationService.findList(themeMessage);
+        if (themeMessageList.size()==0)
+            return ResponseData.out(CodeEnum.Theme_Del_NOT_ALLOW);
+        if(themeMessageList.get(0).getThemeUse()==2)
+            return ResponseData.out(CodeEnum.THEME_NEED_INVITE);
+
+        groupMessage1.setUserType(1);
+
+        groupOperationService.add(groupMessage1);
+        return ResponseData.out(CodeEnum.SUCCESS);
+    }
+
+
     @PostMapping("/deleteGroupMembersByName/{userName}/{themeName}")
     @Transactional
     @ApiOperation(value = "删除小组的成员")
