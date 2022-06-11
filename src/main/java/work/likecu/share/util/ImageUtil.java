@@ -1,11 +1,15 @@
 package work.likecu.share.util;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.geom.AffineTransform;
 import java.awt.image.*;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 
@@ -103,7 +107,62 @@ public class ImageUtil {
             e.printStackTrace();
         }
     }
+    public static byte[] InputImage(MultipartFile file,int scale,String originalFilename) {
+        BufferedImage srcImage = null;
+        try {
+            FileInputStream in = (FileInputStream) file.getInputStream();
+            srcImage = javax.imageio.ImageIO.read(in);
+        } catch (IOException e) {
+            System.out.println("读取图片文件出错！" + e.getMessage());
+        }
+        return scale1(srcImage,scale,false, originalFilename);
+    }
 
+    public static byte[] scale1(BufferedImage src,
+                                int scale, boolean flag,String originalFilename) {
+        try {
+            int width = src.getWidth(); // 得到源图宽
+            int height = src.getHeight(); // 得到源图长
+            if (flag) {// 放大
+                width = width * scale;
+                height = height * scale;
+            } else {// 缩小
+                width = width / scale;
+                height = height / scale;
+            }
+            Image image = src.getScaledInstance(width, height,
+                    Image.SCALE_DEFAULT);
+            BufferedImage tag = new BufferedImage(width, height,
+                    BufferedImage.TYPE_INT_RGB);
+            Graphics g = tag.getGraphics();
+            g.drawImage(image, 0, 0, null); // 绘制缩小后的图
+            g.dispose();
+            File file;
+            String[] filename = originalFilename.split("\\.");
+            file=File.createTempFile(filename[0], filename[1]);
+            file.deleteOnExit();
+            ImageIO.write(tag, "JPEG",file );// 输出到文件流
+            byte[] buffer = null;
+            try {
+                FileInputStream fis = new FileInputStream(file);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] b = new byte[1024];
+                int n;
+                while ((n = fis.read(b)) != -1) {
+                    bos.write(b, 0, n);
+                }
+                fis.close();
+                bos.close();
+                buffer = bos.toByteArray();
+                return buffer;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
 
     /**
      * 缩放图像（按高度和宽度缩放）

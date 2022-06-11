@@ -36,6 +36,9 @@ public class ArticleMessage {
     @Column(name = "`comment_counter`")
     private Integer commentCounter;
 
+    @Column(name = "`not_delete`")
+    private Integer notDelete;
+
     private UserMessage userMessage;
 
     private ThemeMessage themeMessage;

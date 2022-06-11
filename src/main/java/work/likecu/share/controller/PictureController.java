@@ -11,6 +11,7 @@ import work.likecu.share.service.FileService;
 import work.likecu.share.service.HashcodeControlService;
 import work.likecu.share.service.UserMessageOperationService;
 import work.likecu.share.util.CheckAllow;
+import work.likecu.share.util.ImageUtil;
 import work.likecu.share.util.status.BaseResponse;
 import work.likecu.share.util.status.ResponseData;
 import work.likecu.share.model.uploadWeb;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.DecodeException;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +39,7 @@ public class PictureController {
     private UserMessageOperationService userMessageOperationService;
 
     @PostMapping("/upload")
-    public BaseResponse upload(@RequestParam("file") MultipartFile multipartFile,HttpServletRequest request) throws Exception {
+    public BaseResponse upload(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) throws Exception {
 
 //        Map<String,String[]> a=request.getParameterMap();
 //        System.out.println("通过Map.keySet遍历key和value：");
@@ -80,28 +82,34 @@ public class PictureController {
 //        System.out.println(buffer.length);
 
         //计算哈希码
-        byte[] buffer=multipartFile.getBytes();
-        String hash=uploadWeb.hashFile(buffer);
+        byte[] buffer = multipartFile.getBytes();
+        String hash = uploadWeb.hashFile(buffer);
         System.out.println(hash);
-        Hashcode hashcode=new Hashcode();
+        Hashcode hashcode = new Hashcode();
         hashcode.setCode(hash);
-        List<Hashcode> hashcodeList=hashcodeControlService.findList(hashcode);
+        List<Hashcode> hashcodeList = hashcodeControlService.findList(hashcode);
 
         //如果哈希码存在，则不上传
-        if(hashcodeList.size()==1){
+        if (hashcodeList.size() == 1) {
             return ResponseData.success(hashcodeList.get(0).getUrl());
+        }
+
+        int a = buffer.length / 500;
+        if (a > 1) {
+            String originalFilename = multipartFile.getOriginalFilename();
+            buffer=ImageUtil.InputImage(multipartFile,a,originalFilename);
         }
 
         //哈希码不存在，进行上传
         String filePath;
         try {
-            filePath= uploadWeb.uploadBypath(buffer);
+            filePath = uploadWeb.uploadBypath(buffer);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         //写入到表中
-        filePath=filePath.replaceAll("\"","");
+        filePath = filePath.replaceAll("\"", "");
         hashcode.setUrl(filePath);
         hashcodeControlService.add(hashcode);
 
@@ -110,9 +118,9 @@ public class PictureController {
 
     @GetMapping("/file/{fileName}/{fileName1}/{fileName2}")
     public BaseResponse downloadFile(HttpServletResponse response,
-                                   @PathVariable String fileName,@PathVariable String fileName1,@PathVariable String fileName2) {
+                                     @PathVariable String fileName, @PathVariable String fileName1, @PathVariable String fileName2) {
 
-        Boolean result = fileService.downloadFile(response, fileName+"/"+fileName1+"/"+fileName2);
+        Boolean result = fileService.downloadFile(response, fileName + "/" + fileName1 + "/" + fileName2);
 
         return ResponseData.success(result);
     }
