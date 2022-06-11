@@ -290,7 +290,7 @@ public class uploadWeb {
         return hs;
     }
 
-    public static String uploadBypath(byte[] file) throws IOException {
+    public static String uploadByteArray(byte[] file) throws IOException {
         System.out.println(file.length);
         JsonObject a = uploadWeb.upload(file, RandomStringUtils.randomAlphanumeric(10)+".jpg", ContentType.IMAGE_JPEG);
         assert a != null;

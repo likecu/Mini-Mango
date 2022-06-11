@@ -1,11 +1,9 @@
 package work.likecu.share.controller;
 
-import com.alibaba.druid.util.jdbc.ResultSetBase;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import work.likecu.share.mapper.HashcodeMapper;
 import work.likecu.share.model.Hashcode;
 import work.likecu.share.service.FileService;
 import work.likecu.share.service.HashcodeControlService;
@@ -19,16 +17,15 @@ import work.likecu.share.model.uploadWeb;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.DecodeException;
-import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
 @RequestMapping("/wx1")
 public class PictureController {
+
 
     @Autowired
     FileService fileService;
@@ -94,16 +91,20 @@ public class PictureController {
             return ResponseData.success(hashcodeList.get(0).getUrl());
         }
 
-        int a = buffer.length / 500;
-        if (a > 1) {
+        double a = Math.sqrt((double) buffer.length / 500/ 1024)  ;
+        if (a > 2) {
             String originalFilename = multipartFile.getOriginalFilename();
+
             buffer=ImageUtil.InputImage(multipartFile,a,originalFilename);
         }
 
         //哈希码不存在，进行上传
         String filePath;
         try {
-            filePath = uploadWeb.uploadBypath(buffer);
+            long upload=new Date().getTime();
+            filePath = uploadWeb.uploadByteArray(buffer);
+            long upload2=new Date().getTime();
+            System.out.println("文件上传时间："+(upload2-upload));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

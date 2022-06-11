@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Date;
 
 
 /**
@@ -107,7 +108,7 @@ public class ImageUtil {
             e.printStackTrace();
         }
     }
-    public static byte[] InputImage(MultipartFile file,int scale,String originalFilename) {
+    public static byte[] InputImage(MultipartFile file,double scale,String originalFilename) {
         BufferedImage srcImage = null;
         try {
             FileInputStream in = (FileInputStream) file.getInputStream();
@@ -119,16 +120,18 @@ public class ImageUtil {
     }
 
     public static byte[] scale1(BufferedImage src,
-                                int scale, boolean flag,String originalFilename) {
+                                double scale, boolean flag,String originalFilename) {
         try {
-            int width = src.getWidth(); // 得到源图宽
-            int height = src.getHeight(); // 得到源图长
+            long dt1=new Date().getTime();
+            int width = src.getRaster().getWidth(); // 得到源图宽
+            int height = src.getRaster().getHeight(); // 得到源图长
+
             if (flag) {// 放大
-                width = width * scale;
-                height = height * scale;
+                width = (int) ((double)width * scale);
+                height = (int) ((double)height * scale);
             } else {// 缩小
-                width = width / scale;
-                height = height / scale;
+                width =(int) ((double)width / Math.sqrt(scale));
+                height = (int) ((double)height / Math.sqrt(scale));
             }
             Image image = src.getScaledInstance(width, height,
                     Image.SCALE_DEFAULT);
@@ -137,11 +140,16 @@ public class ImageUtil {
             Graphics g = tag.getGraphics();
             g.drawImage(image, 0, 0, null); // 绘制缩小后的图
             g.dispose();
+
+            //重新生成一个file
             File file;
             String[] filename = originalFilename.split("\\.");
             file=File.createTempFile(filename[0], filename[1]);
             file.deleteOnExit();
             ImageIO.write(tag, "JPEG",file );// 输出到文件流
+
+
+            //file转换成byte数组
             byte[] buffer = null;
             try {
                 FileInputStream fis = new FileInputStream(file);
@@ -158,6 +166,8 @@ public class ImageUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            long dt2=new Date().getTime();
+            System.out.println("文件处理时间:"+(dt2-dt1));
         } catch (IOException e) {
             e.printStackTrace();
         }

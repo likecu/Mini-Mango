@@ -50,7 +50,7 @@ public class FileService {
 //            log.error("save file error,{}", e.getMessage());
 //            return "";
 //        }
-        String string=uploadWebs.uploadBypath(multipartFile.getBytes());
+        String string=uploadWebs.uploadByteArray(multipartFile.getBytes());
 
         return string;
     }

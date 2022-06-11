@@ -93,7 +93,8 @@ public class ArticleOperationController {
 
         articleMessage.setArticleId(articleId);
         articleMessage.setUserId(userId);
-        articleOperationService.delete(articleMessage);
+        articleMessage.setNotDelete(0);
+        articleOperationService.update(articleMessage);
 
         CommentMessage commentMessage = new CommentMessage();
         commentMessage.setArticleId(articleId);
