@@ -1,10 +1,8 @@
 package work.likecu.share.controller;
 
 import io.swagger.annotations.ApiOperation;
-import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import work.likecu.share.model.SignRecord;
 import work.likecu.share.model.SignUsers;
 import work.likecu.share.service.SignRecordService;
@@ -17,15 +15,9 @@ import work.likecu.share.util.status.ResponseData;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.xml.ws.Response;
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/wx")
@@ -45,12 +37,13 @@ public class SignRankController {
 
     /**
      * 签到排行 返回top20
+     *
      * @param request
      * @param id
      * @return
      */
     @Transactional
-    @PostMapping ("/signrank/{id}")
+    @PostMapping("/signrank/{id}")
     public BaseResponse signrank(HttpServletRequest request, @PathVariable Integer id) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
 
@@ -58,12 +51,13 @@ public class SignRankController {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
 
-        List<SignUsers> list=signUsersService.getRank20(id);
+        List<SignUsers> list = signUsersService.getRank20(id);
         return ResponseData.success(list);
     }
 
     /**
      * 签到功能
+     *
      * @param request
      * @param id
      */
@@ -86,16 +80,16 @@ public class SignRankController {
 //        System.out.println(signUsers.getSignType());
 //        signUsersService.findAll();
 //        return ResponseData.success();
-        List<SignUsers> signUsers1= signUsersService.findList(signUsers);
+        List<SignUsers> signUsers1 = signUsersService.findList(signUsers);
 
-        if(signUsers1.size()==0){
+        if (signUsers1.size() == 0) {
             signUsers.setSigntime(new Date());
             signUsers.setCounter(1);
             signUsers.setIsGroup(0);
             signUsers.setGroupId(0);
             signUsersService.add(signUsers);
 
-            SignRecord signRecord=new SignRecord();
+            SignRecord signRecord = new SignRecord();
             signRecord.setSigntime(new Date());
             signRecord.setSignType(id);
             signRecord.setUserId(userId);
@@ -110,7 +104,7 @@ public class SignRankController {
         date2.set(Calendar.MINUTE, 0);
         date2.set(Calendar.SECOND, 0);
 
-        Date date1=new Date();
+        Date date1 = new Date();
         date1.setTime(date2.getTimeInMillis());
 
         if (date.after(date1)) {
@@ -122,7 +116,7 @@ public class SignRankController {
             signUsers.setSigntime(new Date());
             signUsersService.update(signUsers);
 
-            SignRecord signRecord=new SignRecord();
+            SignRecord signRecord = new SignRecord();
             signRecord.setSigntime(new Date());
             signRecord.setSignType(id);
             signRecord.setUserId(userId);
@@ -134,12 +128,13 @@ public class SignRankController {
 
     /**
      * 签到列表
+     *
      * @param request
      * @param id
      * @return
      */
     @Transactional
-    @GetMapping ("/getSign/{id}")
+    @GetMapping("/getSign/{id}")
     public BaseResponse getSign(HttpServletRequest request, @PathVariable Integer id) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
 
@@ -147,21 +142,22 @@ public class SignRankController {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
 
-        SignRecord signRecord=new SignRecord();
+        SignRecord signRecord = new SignRecord();
         signRecord.setUserId(id);
 
-        List<SignRecord> list=signRecordService.findList(signRecord);
+        List<SignRecord> list = signRecordService.findList(signRecord);
         return ResponseData.success(list);
     }
 
     /**
      * 个人签到次数
+     *
      * @param request
-     * @param id
+     * @param
      * @return
      */
     @Transactional
-    @PostMapping ("/getMySign")
+    @PostMapping("/getMySign")
     public BaseResponse getMySign(HttpServletRequest request) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
 
@@ -169,10 +165,10 @@ public class SignRankController {
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
 
-        SignRecord signRecord=new SignRecord();
+        SignRecord signRecord = new SignRecord();
         signRecord.setUserId(userId);
-        int[] ints=new int[2];
-        ints[0]=signRecordService.findCount(signRecord);
+        int[] ints = new int[2];
+        ints[0] = signRecordService.findCount(signRecord);
 
         return ResponseData.success(ints);
     }

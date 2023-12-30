@@ -74,7 +74,7 @@ public class CommentOperationController {
             noticeOperationService.add(noticeMessage);
         }
 
-        newArticle.setCommentCounter(newArticle.getCommentCounter()+1);
+        newArticle.setCommentCounter(newArticle.getCommentCounter() + 1);
         articleOperationService.update(newArticle);
 
 
@@ -129,7 +129,7 @@ public class CommentOperationController {
 
 
         ArticleMessage newArticle = articleOperationService.getNewArticleById(commentMessage1.getArticleId());
-        newArticle.setCommentCounter(newArticle.getCommentCounter()+1);
+        newArticle.setCommentCounter(newArticle.getCommentCounter() + 1);
         articleOperationService.update(newArticle);
 
         if (replayMessage1.getReplayUserId() == null && commentMessage1.getUserId() != personId) {

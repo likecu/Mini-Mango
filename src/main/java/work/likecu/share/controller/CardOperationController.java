@@ -36,33 +36,32 @@ public class CardOperationController {
     public BaseResponse createCard(@RequestBody Card card, HttpServletRequest request) {
 
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
-        if(userId<0){
+        if (userId < 0) {
             return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
 
-        Card card1=new Card();
+        Card card1 = new Card();
         card1.setCardName(card.getCardName());
         System.out.println(card1.getCardName());
-        if(cardControlService.findCount(card1)==0){
+        if (cardControlService.findCount(card1) == 0) {
 
             cardControlService.add(card);
 
             return ResponseData.success();
-        }
-        else {
+        } else {
             return ResponseData.error(CodeEnum.CARD_REPEATED);
         }
     }
 
     @ApiOperation(value = "发放卡")
     @RequestMapping("/issueCard/{card_id}/{user_id}")
-    public BaseResponse issueCard(@PathVariable Integer card_id,@PathVariable Integer user_id, HttpServletRequest request) {
+    public BaseResponse issueCard(@PathVariable Integer card_id, @PathVariable Integer user_id, HttpServletRequest request) {
 
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
-        if(userId<0){
+        if (userId < 0) {
             return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
-        CardRecord cardRecord=new CardRecord();
+        CardRecord cardRecord = new CardRecord();
         cardRecord.setCardId(card_id);
         cardRecord.setUserID(user_id);
         cardRecordOperationService.add(cardRecord);
@@ -71,9 +70,9 @@ public class CardOperationController {
 
     @ApiOperation(value = "得到用户所有卡片")
     @RequestMapping("/getCards")
-    public BaseResponse getCards(HttpServletRequest request){
+    public BaseResponse getCards(HttpServletRequest request) {
         Integer userId = CheckAllow.checkAllow(userMessageOperationService, request);
-        if(userId<0){
+        if (userId < 0) {
             return ResponseData.error(CodeEnum.SIGNATURE_NOT_ALLOW);
         }
         return ResponseData.success(cardRecordOperationService.getByUserId(userId));

@@ -22,10 +22,9 @@ import java.util.List;
 @RequestMapping("/wx")
 public class GroupController {
     /*
-    * 主要对小组来进行控制
-    *
-    * */
-
+     * 主要对小组来进行控制
+     *
+     * */
     @Resource
     UserMessageOperationService userMessageOperationService;
 
@@ -36,9 +35,9 @@ public class GroupController {
     ThemeMessageOperationService themeMessageOperationService;
 
     /*
-    *
-    *
-    * */
+     *
+     *
+     * */
     @PostMapping("/addGroup")
     @Transactional
     @ApiOperation(value = "创建小组")
@@ -178,7 +177,7 @@ public class GroupController {
         groupMessage2.setThemeId(themeName);
         groupMessage2.setuserId(userId);
 
-        if(groupOperationService.findList(groupMessage2).get(0).getuserType()==1)
+        if (groupOperationService.findList(groupMessage2).get(0).getuserType() == 1)
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
 
 
@@ -192,7 +191,6 @@ public class GroupController {
         if (groupOperationService.findList(groupMessage1).size() > 0) {
             return ResponseData.out(CodeEnum.User_Already_Join);
         }
-
 
 
         groupOperationService.add(groupMessage1);
@@ -222,13 +220,11 @@ public class GroupController {
             return ResponseData.out(CodeEnum.User_Already_Join);
         }
 
-        ThemeMessage themeMessage=new ThemeMessage();
+        ThemeMessage themeMessage = new ThemeMessage();
         themeMessage.setThemeTitle(themeName);
-        List<ThemeMessage> themeMessageList=themeMessageOperationService.findList(themeMessage);
-        if (themeMessageList.size()==0)
-            return ResponseData.out(CodeEnum.Theme_Del_NOT_ALLOW);
-        if(themeMessageList.get(0).getThemeUse()==2)
-            return ResponseData.out(CodeEnum.THEME_NEED_INVITE);
+        List<ThemeMessage> themeMessageList = themeMessageOperationService.findList(themeMessage);
+        if (themeMessageList.size() == 0) return ResponseData.out(CodeEnum.Theme_Del_NOT_ALLOW);
+        if (themeMessageList.get(0).getThemeUse() == 2) return ResponseData.out(CodeEnum.THEME_NEED_INVITE);
 
         groupMessage1.setUserType(1);
 
@@ -267,7 +263,7 @@ public class GroupController {
         groupMessage2.setThemeId(themeName);
         groupMessage2.setuserId(userId);
 
-        if(groupOperationService.findList(groupMessage2).get(0).getuserType()==1)
+        if (groupOperationService.findList(groupMessage2).get(0).getuserType() == 1)
             return ResponseData.out(CodeEnum.SIGNATURE_NOT_ALLOW);
 
         //新建将小组成员赋值 ，通过id

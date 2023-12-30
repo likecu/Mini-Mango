@@ -37,7 +37,7 @@ public class UserMessageController {
     @GetMapping("/getUserMessage/{id}")
     @ApiOperation(value = "获取用户资料")
     public BaseResponse getUserMessage(@PathVariable Integer id, HttpServletRequest request) {
-        UserMessage userMessage ;
+        UserMessage userMessage;
 
         WXSessionModel wxSessionModel = (WXSessionModel) request.getSession().getAttribute("user");
 
@@ -60,33 +60,34 @@ public class UserMessageController {
     @PostMapping("/changeUserMessage")
     @Transactional
     @ApiOperation(value = "更改用户资料")
-    public BaseResponse changeUserMessage(@RequestBody UserMessage userMessage,HttpServletRequest request) {
+    public BaseResponse changeUserMessage(@RequestBody UserMessage userMessage, HttpServletRequest request) {
 
         if (CheckMessageUtil.checkMessage(userMessage.getUserMotto(), wxMessage)) {
             return ResponseData.error(403, "检测到内容违规,请重新输入");
         }
         WXSessionModel wxSessionModel = (WXSessionModel) request.getSession().getAttribute("user");
-        Integer id=wxSessionModel.getUserId();
+        Integer id = wxSessionModel.getUserId();
         userMessage.setUserId(id);
         try {
-            if(userMessage.getUserAvatar().isEmpty()){
+            if (userMessage.getUserAvatar().isEmpty()) {
                 userMessage.setUserAvatar(null);
             }
-        }
-        catch (Exception ignored){
+        } catch (Exception ignored) {
         }
         try {
-            if(userMessage.getUserNickname().isEmpty()){
+            if (userMessage.getUserNickname().isEmpty()) {
                 userMessage.setUserNickname(null);
             }
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored){};
+        ;
         try {
-            if(userMessage.getUserMotto().isEmpty()){
+            if (userMessage.getUserMotto().isEmpty()) {
                 userMessage.setUserMotto(null);
             }
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored){};
+        ;
         // 此处有严重bug！！！！！！！！！！！！！ 考虑使用bean来遍历这个对象
         // maybe 已修复
         //        有很多为空的情况，进行update之后就变为空了

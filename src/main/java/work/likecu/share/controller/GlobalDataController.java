@@ -49,7 +49,7 @@ public class GlobalDataController {
     @GetMapping("/getNewArticleIsPublic/{pageNumber}")
     @ApiOperation("获取最新公开文章")
     public BaseResponse getNewArticleIsPublic(@PathVariable Integer pageNumber) {
-        return ResponseData.success(articleOperationService.getNewArticle_isPublic(pageNumber, null, null, null,1));
+        return ResponseData.success(articleOperationService.getNewArticle_isPublic(pageNumber, null, null, null, 1));
     }
 
     @GetMapping("/getNewArticleById/{articleId}")
@@ -94,8 +94,6 @@ public class GlobalDataController {
         System.out.println(themeMessageOperationService.getThemeId(themeName));
         return ResponseData.success(themeMessageOperationService.getThemeId(themeName));
     }
-
-
 
 
 }

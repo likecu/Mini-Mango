@@ -100,7 +100,11 @@
             <artifactId>qiniu-java-sdk</artifactId>
             <version>7.7.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.22</version>
+        </dependency>
 
 
         <!-- jstl标签库 -->
@@ -177,7 +181,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.62</version>
+            <version>1.2.47</version>
         </dependency>
 
         <!--mybatis-generator自动生成代码插件-->
@@ -215,7 +219,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
+            <version>4.5.13</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -306,8 +310,6 @@
         </dependency>
 
 
-
-
     </dependencies>
 
 
@@ -349,7 +351,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-<!--                <version>2.4.2</version>-->
+                <!--                <version>2.4.2</version>-->
                 <configuration>
                     <skipTests>true</skipTests>
                 </configuration>

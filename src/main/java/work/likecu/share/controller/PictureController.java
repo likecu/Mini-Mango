@@ -91,20 +91,20 @@ public class PictureController {
             return ResponseData.success(hashcodeList.get(0).getUrl());
         }
 
-        double a = Math.sqrt((double) buffer.length / 500/ 1024)  ;
+        double a = Math.sqrt((double) buffer.length / 500 / 1024);
         if (a > 2) {
             String originalFilename = multipartFile.getOriginalFilename();
 
-            buffer=ImageUtil.InputImage(multipartFile,a,originalFilename);
+            buffer = ImageUtil.InputImage(multipartFile, a, originalFilename);
         }
 
         //哈希码不存在，进行上传
         String filePath;
         try {
-            long upload=new Date().getTime();
+            long upload = new Date().getTime();
             filePath = uploadWeb.uploadByteArray(buffer);
-            long upload2=new Date().getTime();
-            System.out.println("文件上传时间："+(upload2-upload));
+            long upload2 = new Date().getTime();
+            System.out.println("文件上传时间：" + (upload2 - upload));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -118,8 +118,7 @@ public class PictureController {
     }
 
     @GetMapping("/file/{fileName}/{fileName1}/{fileName2}")
-    public BaseResponse downloadFile(HttpServletResponse response,
-                                     @PathVariable String fileName, @PathVariable String fileName1, @PathVariable String fileName2) {
+    public BaseResponse downloadFile(HttpServletResponse response, @PathVariable String fileName, @PathVariable String fileName1, @PathVariable String fileName2) {
 
         Boolean result = fileService.downloadFile(response, fileName + "/" + fileName1 + "/" + fileName2);
 

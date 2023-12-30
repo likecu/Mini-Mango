@@ -80,7 +80,7 @@ public class LoginController {
         // System.out.println(wxResult);
         wxSessionModel = JsonUtils.jsonToPojo(wxResult, WXSessionModel.class);
         String openid = wxSessionModel.getOpenid();
-        if(openid==null){
+        if (openid == null) {
             System.out.println("get open_id fail");
         }
         String sec = wxSessionModel.getSession_key();
@@ -93,7 +93,7 @@ public class LoginController {
             userMessage.setUserMotto("这个人很懒,什么也没有留下");
             userMessage.setUserToken(openid);
             userMessage.setUserCity("普通用户");
-            userMessage.setUserNickname("用户"+openid.substring(openid.length()-8));
+            userMessage.setUserNickname("用户" + openid.substring(openid.length() - 8));
             userMessage.setUserAvatar("/image/user.png");
             userMessageOperationService.add(userMessage);
 

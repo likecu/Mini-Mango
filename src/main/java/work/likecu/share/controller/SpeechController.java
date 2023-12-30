@@ -44,6 +44,7 @@ public class SpeechController {
 
         return ResponseData.success(speechMessage);
     }
+
     // 设置APPID/AK/SK，注册百度语音识别API即可获取,自己去注册,否则无法使用
     public static final String APP_ID = "******";
     public static final String API_KEY = "********************";
@@ -56,7 +57,7 @@ public class SpeechController {
      * @return byte[]
      * @throws Exception 语音流转换抛出的异常
      */
-    public  byte[] mp3Convert2pcm(InputStream inputStream) throws Exception {
+    public byte[] mp3Convert2pcm(InputStream inputStream) throws Exception {
         // 转换PCM audioInputStream 数据
         AudioInputStream audioInputStream = getPcmAudioInputStream(inputStream);
         byte[] pcmBytes = IOUtils.toByteArray(audioInputStream);
@@ -69,7 +70,7 @@ public class SpeechController {
      * @param inputStream MP3输入流
      * @return AudioInputStream PCM输入流
      */
-    private  AudioInputStream getPcmAudioInputStream(InputStream inputStream) {
+    private AudioInputStream getPcmAudioInputStream(InputStream inputStream) {
         AudioInputStream audioInputStream = null;
         AudioFormat targetFormat = null;
         try {
@@ -77,8 +78,7 @@ public class SpeechController {
             MpegAudioFileReader mp = new MpegAudioFileReader();
             in = mp.getAudioInputStream(inputStream);
             AudioFormat baseFormat = in.getFormat();
-            targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16,
-                    baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
+            targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
             audioInputStream = AudioSystem.getAudioInputStream(targetFormat, in);
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +94,7 @@ public class SpeechController {
      * @blog http://www.pqsky.me
      * @date 2018年1月30日
      */
-    public  JSONObject speechBdApi(byte[] pcmBytes) {
+    public JSONObject speechBdApi(byte[] pcmBytes) {
         // 初始化一个AipSpeech
         AipSpeech client = new AipSpeech(APP_ID, API_KEY, SECRET_KEY);
         // 可选：设置网络连接参数

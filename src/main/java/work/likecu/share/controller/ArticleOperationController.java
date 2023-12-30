@@ -145,8 +145,8 @@ public class ArticleOperationController {
         // 在文章的评论下减少相对应数量的评论
         replayMessageOperationService.delete(replayMessage);
         Integer counter = list.size() + 1;
-        ArticleMessage articleMessage=articleOperationService.getNewArticleById(article_id);
-        articleMessage.setCommentCounter(articleMessage.getCommentCounter()-counter);
+        ArticleMessage articleMessage = articleOperationService.getNewArticleById(article_id);
+        articleMessage.setCommentCounter(articleMessage.getCommentCounter() - counter);
         articleOperationService.update(articleMessage);
 
         for (int i = 0; i < list.size(); i++) {
